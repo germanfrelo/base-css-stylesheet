@@ -1,0 +1,239 @@
+/**
+  * References:
+  * sanitize.css (https://github.com/csstools/sanitize.css)
+  * Modern CSS reset (https://github.com/andy-piccalilli/modern-css-reset)
+  * CSS Remedy (https://github.com/jensimmons/cssremedy)
+  */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* ========== Main root ========== */
+
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+}
+
+/* ========== Sectioning root ========== */
+
+body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    overflow-wrap: break-word;
+}
+
+/* ========== Content sectioning ========== */
+
+address {
+    font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.25;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0.67em 0; /* Keep consistent when nested within `section` and `article` contexts */
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.17rem;
+}
+
+h4 {
+    font-size: 1.00rem;
+}
+
+h5 {
+    font-size: 0.83rem;
+}
+
+h6 {
+    font-size: 0.67rem;
+}
+
+/* ========== Text content ========== */
+
+hr {
+    border-style: solid;
+    border-width: 1px 0 0;
+    color: inherit;
+    block-size: 0;
+    overflow: visible;
+}
+
+nav ol,
+nav ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+}
+
+nav li::before {
+    content: "\200B";
+    position: absolute;
+}
+
+pre {
+    font-family: monospace, monospace;
+    white-space: pre-wrap;
+}
+
+/* ========== Inline text semantics ========== */
+
+strong {
+    font-weight: bolder;
+}
+
+code,
+kbd,
+samp {
+    font-family: monospace, monospace;
+}
+
+small {
+    font-size: 80%;
+}
+
+/* ========== Image, multimedia and embedded content ========== */
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+    display: block;
+    vertical-align: middle; /* Remove strange space-below in case authors overwrite the `display` value */
+    max-inline-size: 100%;
+}
+
+img,
+svg,
+video,
+canvas {
+    block-size: auto;
+}
+
+picture {
+    display: contents;
+}
+
+source {
+    display: none;
+}
+
+audio {
+    inline-size: 100%;
+}
+
+audio:not([controls]) {
+    display: none;
+}
+
+/* ========== SVG ========== */
+
+svg:not([fill]) {
+    fill: currentColor;
+}
+
+/* ========== Table content ========== */
+
+table {
+    border-collapse: collapse;
+    border-color: currentColor;
+    text-indent: 0;
+}
+
+/* ========== Forms ========== */
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    margin: 0;
+    padding-block: 0.25em;
+    padding-inline: 0.375em;
+}
+
+textarea {
+    resize: vertical;
+}
+
+fieldset {
+    border: 2px solid #a0a0a0;
+}
+
+[type="search"] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px;
+}
+
+[type="color"],
+[type="range"] {
+    padding: 0;
+    border-width: 0;
+}
+
+::-webkit-input-placeholder {
+    color: inherit;
+    opacity: 0.5;
+}
+
+/* ========== Accessibility ========== */
+
+[aria-busy="true"] {
+    cursor: progress;
+}
+
+[aria-disabled="true"],
+[disabled] {
+    cursor: not-allowed;
+}
+
+[hidden] {
+    display: none;
+}
+
+[aria-hidden="false" i][hidden] {
+    display: initial;
+}
+
+[aria-hidden="false" i][hidden]:not(:focus) {
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+}
