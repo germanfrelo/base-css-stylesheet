@@ -44,10 +44,6 @@ body {
 
 /* ========== Content sectioning ========== */
 
-address {
-    font-style: normal;
-}
-
 h1,
 h2,
 h3,
@@ -110,6 +106,14 @@ pre {
 
 /* ========== Inline text semantics ========== */
 
+
+abbr[title] {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline;
+    text-decoration: underline dotted;
+}
+
+b,
 strong {
     font-weight: bolder;
 }
@@ -182,9 +186,10 @@ button,
 input,
 select,
 textarea {
-    font: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 1.25;
     letter-spacing: inherit;
-    color: inherit;
     margin: 0;
     padding-block: 0.25em;
     padding-inline: 0.375em;
@@ -192,10 +197,6 @@ textarea {
 
 textarea {
     resize: vertical;
-}
-
-fieldset {
-    border: 2px solid #a0a0a0;
 }
 
 [type="search"] {
@@ -211,7 +212,7 @@ fieldset {
 
 ::-webkit-input-placeholder {
     color: inherit;
-    opacity: 0.5;
+    opacity: 0.54;
 }
 
 /* ========== Accessibility ========== */
