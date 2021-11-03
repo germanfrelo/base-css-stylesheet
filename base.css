@@ -185,11 +185,6 @@ html:focus-within {
     border-width: 0;
 }
 
-::-webkit-input-placeholder {
-    color: inherit;
-    opacity: 0.54;
-}
-
 /* ========== Accessibility ========== */
 
 :where([aria-busy="true"]) {
