@@ -34,7 +34,7 @@ html:focus-within {
 
 /* ========== Sectioning root ========== */
 
-body {
+:where(body) {
     margin: 0;
     font-family: ui-sans-serif, system-ui, sans-serif;
     line-height: 1.5;
@@ -44,43 +44,38 @@ body {
 
 /* ========== Content sectioning ========== */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+:where(h1, h2, h3, h4, h5, h6) {
     line-height: 1.25;
 }
 
-h1 {
+:where(h1) {
     font-size: 2rem;
     margin: 0.67em 0; /* Keep consistent when nested within `section` and `article` contexts */
 }
 
-h2 {
+:where(h2) {
     font-size: 1.5rem;
 }
 
-h3 {
+:where(h3) {
     font-size: 1.17rem;
 }
 
-h4 {
+:where(h4) {
     font-size: 1.00rem;
 }
 
-h5 {
+:where(h5) {
     font-size: 0.83rem;
 }
 
-h6 {
+:where(h6) {
     font-size: 0.67rem;
 }
 
 /* ========== Text content ========== */
 
-hr {
+:where(hr) {
     border-style: solid;
     border-width: 1px 0 0;
     color: inherit;
@@ -88,93 +83,77 @@ hr {
     overflow: visible;
 }
 
-nav ol,
-nav ul {
+:where(nav) :where(ol, ul) {
     list-style-type: none;
     padding-inline-start: 0;
 }
 
-nav li::before {
+:where(nav li)::before {
     content: "\200B";
     position: absolute;
 }
 
-pre {
+:where(pre) {
     font-family: monospace, monospace;
     white-space: pre-wrap;
 }
 
 /* ========== Inline text semantics ========== */
 
-
-abbr[title] {
+:where(abbr[title]) {
     -webkit-text-decoration: underline dotted;
     text-decoration: underline;
     text-decoration: underline dotted;
 }
 
-b,
-strong {
+:where(b, strong) {
     font-weight: bolder;
 }
 
-code,
-kbd,
-samp {
+:where(code, kbd, samp) {
     font-family: monospace, monospace;
 }
 
-small {
+:where(small) {
     font-size: 80%;
 }
 
 /* ========== Image, multimedia and embedded content ========== */
-
-img,
-svg,
-video,
-canvas,
-audio,
-iframe,
-embed,
-object {
+:where(img, svg, video, canvas, audio, iframe, embed, object) {
     display: block;
     vertical-align: middle; /* Remove strange space-below in case authors overwrite the `display` value */
     max-inline-size: 100%;
 }
 
-img,
-svg,
-video,
-canvas {
+:where(img, svg, video, canvas) {
     block-size: auto;
 }
 
-picture {
+:where(picture) {
     display: contents;
 }
 
-source {
+:where(source) {
     display: none;
 }
 
-audio {
+:where(audio) {
     inline-size: 100%;
 }
 
-audio:not([controls]) {
+:where(audio:not([controls])) {
     display: none;
 }
 
 /* ========== SVG ========== */
 
-svg:not([fill]) {
+:where(svg:not([fill])) {
     fill: currentColor;
 }
 
 /* ========== Table content ========== */
 
-table {
+:where(table) {
     border-collapse: collapse;
     border-color: currentColor;
     text-indent: 0;
@@ -182,10 +161,7 @@ table {
 
 /* ========== Forms ========== */
 
-button,
-input,
-select,
-textarea {
+:where(button, input, select, textarea) {
     font-family: inherit;
     font-size: inherit;
     line-height: 1.25;
@@ -195,17 +171,16 @@ textarea {
     padding-inline: 0.375em;
 }
 
-textarea {
+:where(textarea) {
     resize: vertical;
 }
 
-[type="search"] {
+:where([type="search"]) {
     -webkit-appearance: textfield;
     outline-offset: -2px;
 }
 
-[type="color"],
-[type="range"] {
+:where([type="color"], [type="range"]) {
     padding: 0;
     border-width: 0;
 }
@@ -217,24 +192,23 @@ textarea {
 
 /* ========== Accessibility ========== */
 
-[aria-busy="true"] {
+:where([aria-busy="true"]) {
     cursor: progress;
 }
 
-[aria-disabled="true"],
-[disabled] {
+:where([aria-disabled="true"], [disabled]) {
     cursor: not-allowed;
 }
 
-[hidden] {
+:where([hidden]) {
     display: none;
 }
 
-[aria-hidden="false" i][hidden] {
+:where([aria-hidden="false"][hidden]) {
     display: initial;
 }
 
-[aria-hidden="false" i][hidden]:not(:focus) {
+:where([aria-hidden="false"][hidden]:not(:focus)) {
     clip: rect(0, 0, 0, 0);
     position: absolute;
 }
