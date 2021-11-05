@@ -83,7 +83,8 @@ html:focus-within {
     overflow: visible;
 }
 
-:where(nav) :where(ol, ul) {
+:where(nav) :where(ol, ul),
+:where(ol, ul)[role="list"] {
     list-style-type: none;
     padding-inline-start: 0;
 }
