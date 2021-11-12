@@ -13,6 +13,13 @@
 
 /* ========== Main root ========== */
 
+:where(html) {
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    overflow-wrap: break-word;
+}
+
 html:focus-within {
     scroll-behavior: smooth;
 }
@@ -36,10 +43,6 @@ html:focus-within {
 
 :where(body) {
     margin: 0;
-    font-family: ui-sans-serif, system-ui, sans-serif;
-    line-height: 1.5;
-    text-rendering: optimizeSpeed;
-    overflow-wrap: break-word;
 }
 
 /* ========== Content sectioning ========== */
