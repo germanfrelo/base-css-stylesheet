@@ -17,6 +17,7 @@
     font-family: ui-sans-serif, system-ui, sans-serif;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+    color-scheme: light dark;
     overflow-wrap: break-word;
 }
 
