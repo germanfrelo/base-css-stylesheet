@@ -1,214 +1,480 @@
-/**
-  * References:
-  * sanitize.css (https://github.com/csstools/sanitize.css)
-  * Modern CSS reset (https://github.com/andy-piccalilli/modern-css-reset)
-  * CSS Remedy (https://github.com/jensimmons/cssremedy)
-  */
+/*
+An opinionated base CSS stylesheet.
+The code is divided in 2 groups: normalize / opinionated.
+Repo:
+  - https://github.com/germanfrelo/base-css-stylesheet
+Updated:
+  - 2021/11/26
+Credits:
+  - @csstools/normalize.css (https://github.com/csstools/normalize.css)
+  - @csstools/sanitize.css (https://github.com/csstools/sanitize.css)
+  - @sindresorhus/modern-normalize (https://github.com/sindresorhus/modern-normalize)
+  - @jensimmons/cssremedy (https://github.com/jensimmons/cssremedy)
+  - @andy-piccalilli/modern-css-reset (https://github.com/andy-piccalilli/modern-css-reset)
+  - Josh Comeau's Custom CSS Reset (https://www.joshwcomeau.com/css/custom-css-reset)
+*/
 
+/* NORMALIZE
+   ================================================================================ */
+
+/*
+  Prevent adjustments of font size after orientation changes in iOS.
+*/
+:where(html) {
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+/*
+  Correct the font-size and margins on `h1` elements within `section` and `article` contexts in Chrome, Edge, Firefox, and Safari.
+*/
+:where(h1) {
+	font-size: 2em;
+	margin-block-start: 0.67em;
+	margin-block-end: 0.67em;
+}
+
+/*
+  1. Correct the inheritance and scaling of font size in all browsers.
+  2. Correct the odd `em` font sizing in all browsers.
+*/
+:where(pre, code, kbd, samp) {
+	font-family: monospace, monospace; /* 1 */
+	font-size: 1em; /* 2 */
+}
+
+/*
+  1. Add the correct height in Firefox (remove `height: 1px`).
+  2. Correct the inheritance of border color in Firefox (remove `color: gray`).
+*/
+:where(hr) {
+	height: 0; /* 1 */
+	color: inherit; /* 2 */
+}
+
+/*
+  Add the correct text decoration in Safari.
+*/
+:where(abbr[title]) {
+	-webkit-text-decoration: underline dotted;
+}
+
+/*
+  Add the correct font weight in Chrome, Edge, and Safari.
+*/
+:where(b, strong) {
+	font-weight: bolder;
+}
+
+/*
+  Add the correct font size in all browsers.
+*/
+:where(small) {
+	font-size: 80%;
+}
+
+/*
+  1. Remove text indentation from table contents in Chrome, Edge, and Safari.
+  2. Correct table border color inheritance in Chrome, Edge, and Safari.
+*/
+:where(table) {
+	text-indent: 0; /* 1 */
+	border-color: currentColor; /* 2 */
+}
+
+/*
+  Remove the margin on controls in all browsers.
+*/
+:where(button, input, select, textarea) {
+	margin: 0;
+}
+
+/*
+  Correct the inability to style buttons in iOS and Safari.
+*/
+:where(button, [type="button" i], [type="reset" i], [type="submit" i]) {
+	-webkit-appearance: button;
+}
+
+/*
+  Correct the odd appearance in Chrome, Edge, and Safari.
+*/
+:where([type="search" i]) {
+	-webkit-appearance: textfield;
+}
+
+/*
+  Correct the text style of placeholders in Chrome, Edge, and Safari.
+*/
+::-webkit-input-placeholder {
+	color: inherit;
+	opacity: 0.54;
+}
+
+/*
+  1. Correct the inability to style upload buttons in iOS and Safari.
+  2. Change font properties to `inherit` in Safari.
+*/
+::-webkit-file-upload-button {
+	-webkit-appearance: button; /* 1 */
+	font: inherit; /* 2 */
+}
+
+/*
+  Add the correct display in Safari.
+*/
+:where(summary) {
+	display: list-item;
+}
+
+/* OPINIONATED
+   ================================================================================ */
+
+/*
+  se border box sizing by default, globally.
+*/
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-/* ========== Main root ========== */
-
-:where(html) {
-    font-family: ui-sans-serif, system-ui, sans-serif;
-    line-height: 1.5;
-    text-rendering: optimizeSpeed;
-    color-scheme: light dark;
-    overflow-wrap: break-word;
+/*
+  1. Use a sans serif font by default.
+  2. Breaks words to prevent text overflow.
+  3. Use a 4-space tab width.
+*/
+html {
+	font-family: sans-serif; /* 1 */
+	overflow-wrap: break-word; /* 2 */
+	tab-size: 4; /* 3 */
 }
 
+/*
+  The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cusrive/fantasy fonts to Javanese, Persian, and CJK languages.
+*/
+html {
+	line-height: 1.5;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.25;
+}
+caption,
+figcaption,
+label,
+legend {
+	line-height: 1.375;
+}
+
+/*
+  Smooth scrolling, but only when focused in the page to prevent unnaturally scrolling when tabbing though the results of a search.
+*/
 html:focus-within {
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-
-    html:focus-within {
-        scroll-behavior: auto;
-    }
+/*
+  Remove the tiny space around the edge of the page.
+*/
+body {
+	margin: 0;
 }
 
-/* ========== Sectioning root ========== */
-
-:where(body) {
-    margin: 0;
+/*
+  Allow percentage-based heights.
+*/
+html,
+body {
+	block-size: 100%;
 }
 
-/* ========== Content sectioning ========== */
-
-:where(h1, h2, h3, h4, h5, h6) {
-    line-height: 1.25;
+/*
+  Switch to rem units for headings.
+*/
+h1 {
+	font-size: 2rem;
+}
+h2 {
+	font-size: 1.5rem;
+}
+h3 {
+	font-size: 1.17rem;
+}
+h4 {
+	font-size: 1rem;
+}
+h5 {
+	font-size: 0.83rem;
+}
+h6 {
+	font-size: 0.67rem;
 }
 
-:where(h1) {
-    font-size: 2rem;
-    margin: 0.67em 0; /* Keep consistent when nested within `section` and `article` contexts */
-}
-
-:where(h2) {
-    font-size: 1.5rem;
-}
-
-:where(h3) {
-    font-size: 1.17rem;
-}
-
-:where(h4) {
-    font-size: 1.00rem;
-}
-
-:where(h5) {
-    font-size: 0.83rem;
-}
-
-:where(h6) {
-    font-size: 0.67rem;
-}
-
-/* ========== Text content ========== */
-
-:where(hr) {
-    border-style: solid;
-    border-width: 1px 0 0;
-    color: inherit;
-    block-size: 0;
-    overflow: visible;
-}
-
+/*
+  List styling is not usually desired in navigation, but this also removes list-semantics for screen-readers.
+*/
 :where(nav) :where(ol, ul),
 :where(ol, ul)[role="list"] {
-    list-style-type: none;
-    padding-inline-start: 0;
+	list-style: none;
+	padding-inline-start: 0;
 }
 
-:where(nav li)::before {
-    content: "\200B";
-    position: absolute;
+/*
+  Prevent VoiceOver from ignoring list semantics in Safari:
+  1. Add zero-width space to prevent VoiceOver disable.
+  2. Absolute position ensures no extra space.
+*/
+:where(nav li)::before,
+:where([role="list"] > li)::before {
+	content: "\200B"; /* 1 */
+	position: absolute; /* 2 */
 }
 
-:where(pre) {
-    font-family: monospace, monospace;
-    white-space: pre-wrap;
+:where(li + li),
+:where(dd + dt),
+:where(ul, ol, dl, menu) :where(ul, ol, dl, menu) {
+	margin-block-start: 0.25em;
 }
 
-/* ========== Inline text semantics ========== */
-
-:where(abbr[title]) {
-    -webkit-text-decoration: underline dotted;
-    text-decoration: underline;
-    text-decoration: underline dotted;
+/*
+  Prevent overflow of the container.
+*/
+pre {
+	white-space: pre-wrap;
 }
 
-:where(b, strong) {
-    font-weight: bolder;
+/*
+  1. Consistent appearance (solid, thin border).
+  2. Remove common `overflow: hidden`.
+*/
+hr {
+	border-style: solid; /* 1 */
+	border-width: 1px 0 0; /* 1 */
+	overflow: visible; /* 2 */
 }
 
-:where(code, kbd, samp) {
-    font-family: monospace, monospace;
+/*
+  Prevent `sub` and `sup` elements from affecting the line height.
+*/
+sub,
+sup {
+	position: relative;
+	font-size: 75%;
+	line-height: 0;
+	vertical-align: baseline;
+}
+sub {
+	inset-block-end: -0.25em;
+}
+sup {
+	inset-block-start: -0.5em;
 }
 
-:where(small) {
-    font-size: 80%;
+/*
+  1. Block display is usually what we want.
+  2. The `vertical-align` removes strange space-below in case authors overwrite the display value.
+  3. Responsive by default.
+  4. Audio without `[controls]` remains hidden by default.
+*/
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+	display: block; /* 1 */
+	vertical-align: middle; /* 2 */
+	max-inline-size: 100%; /* 3 */
+}
+audio:not([controls]) {
+	display: none; /* 4 */
 }
 
-/* ========== Image, multimedia and embedded content ========== */
-:where(img, svg, video, canvas, audio, iframe, embed, object) {
-    display: block;
-    vertical-align: middle; /* Remove strange space-below in case authors overwrite the `display` value */
-    max-inline-size: 100%;
+/*
+  The display is inline by default, but that's not the expected behavior. This can interfere with proper layout and aspect-ratio handling.
+  1. Remove the unnecessary wrapping `picture`, while maintaining contents.
+  2. Source elements have nothing to display, so we hide them entirely.
+*/
+
+picture {
+	display: contents; /* 1 */
+}
+source {
+	display: none; /* 2 */
 }
 
-:where(img, svg, video, canvas) {
-    block-size: auto;
+/*
+  Maintain intrinsic aspect ratios when `max-inline-size` is applied (`iframe`, `embed, and `object` are also embedded, but have no intrinsic ratio, so their `block-size` needs to be set explicitly).
+*/
+img,
+svg,
+video,
+canvas {
+	block-size: auto;
 }
 
-:where(picture) {
-    display: contents;
+/*
+  There is no good reason elements default to 300px, and audio files are unlikely to come with a width attribute.
+*/
+audio {
+	inline-size: 100%;
 }
 
-:where(source) {
-    display: none;
+/*
+  Change the fill color to match the text color.
+*/
+svg:not([fill]) {
+	fill: currentColor;
 }
 
-:where(audio) {
-    inline-size: 100%;
+/*
+  Change the border appearance.
+*/
+iframe {
+	border-style: solid;
+	border-color: currentColor;
 }
 
-:where(audio:not([controls])) {
-    display: none;
+/*
+  1. Collapse border spacing.
+*/
+table {
+	border-collapse: collapse; /* 1 */
+	/* font-variant-numeric: tabular-nums; */
 }
 
-/* ========== SVG ========== */
+/*
+  Make `th` alignment consistent with `td` alignment.
+*/
 
-:where(svg:not([fill])) {
-    fill: currentColor;
+th {
+	text-align: start;
 }
 
-/* ========== Table content ========== */
-
-:where(table) {
-    border-collapse: collapse;
-    border-color: currentColor;
-    text-indent: 0;
+th,
+td {
+	padding-block: 0.25em;
+	padding-inline: 0.5em;
+	border: 1px solid;
 }
 
-/* ========== Forms ========== */
-
-:where(button, input, select, textarea) {
-    font-family: inherit;
-    font-size: inherit;
-    line-height: 1.25;
-    letter-spacing: inherit;
-    margin: 0;
-    padding-block: 0.25em;
-    padding-inline: 0.375em;
+/*
+  1. Remove the margin.
+  2. Change the border appearance.
+*/
+fieldset {
+	margin-inline: 0; /* 1 */
+	border-style: solid; /* 2 */
+	border-color: currentColor; /* 2 */
 }
 
-:where(textarea) {
-    resize: vertical;
+/*
+  Add typography inheritance.
+*/
+button,
+input,
+select,
+textarea {
+	font-family: inherit;
+	font-size: inherit;
 }
 
-:where([type="search"]) {
-    -webkit-appearance: textfield;
-    outline-offset: -2px;
+/*
+  Responsive by default by restricting sizing to the page width.
+*/
+input,
+select,
+textarea {
+	max-inline-size: 100%;
 }
 
-:where([type="color"], [type="range"]) {
-    padding: 0;
-    border-width: 0;
+/*
+  Set `vertical-align` to middle.
+*/
+[type="color" i],
+[type="range" i] {
+	vertical-align: middle;
 }
 
-/* ========== Accessibility ========== */
-
-:where([aria-busy="true"]) {
-    cursor: progress;
+/*
+  Change the cursor to feel it's interactive.
+*/
+summary {
+	cursor: default;
 }
 
-:where([aria-disabled="true"], [disabled]) {
-    cursor: not-allowed;
+/*
+  When users prefer reduced motion:
+  1. Remove animations/immediately jump any animation to the end point.
+  2. Remove fixed background attachment.
+  3. Remove timed scrolling behaviors.
+  4. Remove transitions.
+*/
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-delay: -1ms !important; /* 1 */
+		animation-duration: 1ms !important; /* 1 */
+		animation-iteration-count: 1 !important; /* 1 */
+		background-attachment: initial !important; /* 2 */
+		scroll-behavior: auto !important; /* 3 */
+		transition-delay: 0s !important; /* 4 */
+		transition-duration: 0s !important; /* 4 */
+	}
+	html:focus-within {
+		scroll-behavior: auto; /* 3 */
+	}
 }
 
-:where([hidden]) {
-    display: none;
+/*
+  Maintain `hidden` behaviour when overriding `display` values.
+*/
+[hidden] {
+	display: none;
 }
 
-:where([aria-hidden="false"][hidden]) {
-    display: initial;
+/*
+  Change the cursor on busy elements.
+*/
+[aria-busy="true" i] {
+	cursor: progress;
 }
 
-:where([aria-hidden="false"][hidden]:not(:focus)) {
-    clip: rect(0, 0, 0, 0);
-    position: absolute;
+/*
+  Change the cursor on disabled, not-editable, or otherwise inoperable elements.
+*/
+[disabled],
+[aria-disabled="true" i] {
+	cursor: not-allowed;
+}
+
+/*
+  Change the display on visually hidden accessible elements.
+*/
+[aria-hidden="false" i][hidden] {
+	display: initial;
+}
+[aria-hidden="false" i][hidden]:not(:focus) {
+	/* Visually hidden styles */
+	position: absolute !important;
+	inline-size: 1px !important;
+	block-size: 1px !important;
+	overflow: hidden !important;
+	clip-path: inset(50%) !important;
+	white-space: nowrap !important;
+}
+
+/*
+  Add scroll margin to all elements which can be targeted.
+*/
+[id] {
+	scroll-margin-block-start: 2ex;
 }
