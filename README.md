@@ -2,9 +2,9 @@
 
 An opinionated base CSS stylesheet.
 
-The code is divided in 2 groups: normalize / opinionated.
+The code is divided in 2 groups: normalize and opinionated.
 
-Credits:
+## Credits
   - [@csstools/normalize.css](https://github.com/csstools/normalize.css)
   - [@csstools/sanitize.css](https://github.com/csstools/sanitize.css)
   - [@sindresorhus/modern-normalize](https://github.com/sindresorhus/modern-normalize)
