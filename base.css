@@ -226,6 +226,15 @@ h6 {
 }
 
 /*
+  List styling is not usually desired in navigation, but this also removes list-semantics for screen-readers.
+*/
+:where(nav) :where(ol, ul),
+:where(ol, ul)[role="list"] {
+	list-style: none;
+	padding-inline-start: 0;
+}
+
+/*
   Prevent VoiceOver from ignoring list semantics in Safari:
   1. Add zero-width space to prevent VoiceOver disable.
   2. Absolute position ensures no extra space.
