@@ -354,10 +354,11 @@ iframe {
 
 /*
   1. Collapse border spacing.
+  2. Expand to the page width.
 */
 table {
+	inline-size: 100%; /* 2 */
 	border-collapse: collapse; /* 1 */
-	/* font-variant-numeric: tabular-nums; */
 }
 
 /*
