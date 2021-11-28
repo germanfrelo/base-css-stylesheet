@@ -219,12 +219,10 @@ h6 {
 }
 
 /*
-  List styling is not usually desired in navigation, but this also removes list-semantics for screen-readers.
+  Switch to rem units for default padding in lists.
 */
-:where(nav) :where(ol, ul),
-:where(ol, ul)[role="list"] {
-	list-style: none;
-	padding-inline-start: 0;
+:where(ol, ul) {
+	padding-inline-start: 2rem;
 }
 
 /*
