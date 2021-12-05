@@ -191,9 +191,11 @@ body {
 /*
   Allow percentage-based heights.
 */
-html,
-body {
+html {
 	block-size: 100%;
+}
+body {
+	min-block-size: 100%;
 }
 
 /*
