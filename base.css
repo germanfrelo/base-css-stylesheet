@@ -342,7 +342,7 @@ audio {
 /*
   Change the fill color to match the text color.
 */
-svg:not([fill]) {
+:where(svg:not([fill])) {
 	fill: currentColor;
 }
 
