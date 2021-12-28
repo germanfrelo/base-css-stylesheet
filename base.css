@@ -17,7 +17,7 @@ base.css is based on the following styles:
   - [Josh Comeau's Custom CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset)
 */
 
-/* NORMALIZE
+/* NORMALIZE/REMEDIES
    ================================================================================ */
 
 /*
@@ -144,11 +144,11 @@ base.css is based on the following styles:
 	display: list-item;
 }
 
-/* OPINIONATED
+/* OPINIONATED/REMINDERS
    ================================================================================ */
 
 /*
-  se border box sizing by default, globally.
+  Use border box sizing by default, globally.
 */
 *,
 *::before,
