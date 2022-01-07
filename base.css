@@ -44,7 +44,7 @@ base.css is based on the following styles:
 	margin-inline-start: 2.5em;
 	margin-inline-end: 2.5em;
 }
-:where(ul, ol, menu, dir) {
+:where(ul, ol, menu) {
 	padding-inline-start: 2.5em;
 }
 :where(dd) {
