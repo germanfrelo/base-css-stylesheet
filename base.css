@@ -254,12 +254,6 @@ h6 {
 	position: absolute; /* 2 */
 }
 
-:where(li + li),
-:where(dd + dt),
-:where(ul, ol, dl, menu) :where(ul, ol, dl, menu) {
-	margin-block-start: 0.25em;
-}
-
 /*
   Prevent overflow of the container.
 */
