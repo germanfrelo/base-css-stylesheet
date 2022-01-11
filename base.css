@@ -31,7 +31,7 @@ Correct the font-size and margins on `h1` elements within `section` and `article
 1. Correct the inheritance and scaling of font size in all browsers.
 2. Correct the odd `em` font sizing in all browsers.
 */
-:where(pre, code, kbd, samp) {
+:where(pre) {
 	font-family: monospace, monospace; /* 1 */
 	font-size: 1em; /* 2 */
 }
@@ -66,6 +66,15 @@ Add the correct font size in all browsers.
 */
 :where(small) {
 	font-size: 80%;
+}
+
+/*
+1. Correct the inheritance and scaling of font size in all browsers.
+2. Correct the odd `em` font sizing in all browsers.
+*/
+:where(code, kbd, samp) {
+	font-family: monospace, monospace; /* 1 */
+	font-size: 1em; /* 2 */
 }
 
 /* Tabular data
