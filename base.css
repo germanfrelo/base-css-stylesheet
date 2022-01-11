@@ -16,7 +16,7 @@ Prevent adjustments of font size after orientation changes in iOS.
 ======================================== */
 
 /*
-Correct the font-size and margins on `h1` elements within `section` and `article` contexts in Chrome, Edge, Firefox, and Safari.
+Correct the font size and margin on `h1` elements within `section` and `article` contexts in Chrome, Edge, Firefox, and Safari.
 */
 :where(h1) {
 	font-size: 2em;
@@ -37,7 +37,7 @@ Correct the font-size and margins on `h1` elements within `section` and `article
 }
 
 /*
-Correct the inheritance of `border-color` in Firefox (remove `color: gray`).
+Correct the inheritance of `border-color` in Firefox (it removes `color: gray`).
 Issue: https://bugzilla.mozilla.org/show_bug.cgi?id=190655
 */
 :where(hr) {
@@ -286,7 +286,7 @@ Replace `40px` indents with `2.5em` indents.
 }
 
 /*
-Remove list styles on `ol` and `ul` elements with an explicit ARIA `list` role added, which prevents VoiceOver from removing the list semantics in Safari.
+Remove list styles on `ol` and `ul` elements with an explicit ARIA list role added, which prevents VoiceOver from removing the list semantics in Safari.
 */
 :where(ol, ul)[role="list"] {
 	list-style: none;
