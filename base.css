@@ -38,20 +38,6 @@ base.css is based on the following styles:
 }
 
 /*
-  Replace `40px` indents with `2.5em` indents.
-*/
-:where(blockquote, figure) {
-	margin-inline-start: 2.5em;
-	margin-inline-end: 2.5em;
-}
-:where(ul, ol, menu) {
-	padding-inline-start: 2.5em;
-}
-:where(dd) {
-	margin-inline-start: 2.5em;
-}
-
-/*
   1. Correct the inheritance and scaling of font size in all browsers.
   2. Correct the odd `em` font sizing in all browsers.
 */
@@ -231,6 +217,20 @@ h5 {
 }
 h6 {
 	font-size: 0.67rem;
+}
+
+/*
+  Replace `40px` indents with `2.5em` indents.
+*/
+:where(blockquote, figure) {
+	margin-inline-start: 2.5em;
+	margin-inline-end: 2.5em;
+}
+:where(ul, ol, menu) {
+	padding-inline-start: 2.5em;
+}
+:where(dd) {
+	margin-inline-start: 2.5em;
 }
 
 /*
