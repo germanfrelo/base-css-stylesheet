@@ -9,27 +9,33 @@ An opinionated base CSS stylesheet.
 
 base.css is based on the following styles:
 
-  - [@csstools/normalize.css](https://github.com/csstools/normalize.css)
-  - [@csstools/sanitize.css](https://github.com/csstools/sanitize.css)
-  - [@sindresorhus/modern-normalize](https://github.com/sindresorhus/modern-normalize)
-  - [@jensimmons/cssremedy](https://github.com/jensimmons/cssremedy)
-  - [@andy-piccalilli/modern-css-reset](https://github.com/andy-piccalilli/modern-css-reset)
-  - [Josh Comeau's Custom CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset)
+- [@csstools/normalize.css](https://github.com/csstools/normalize.css)
+- [@csstools/sanitize.css](https://github.com/csstools/sanitize.css)
+- [@sindresorhus/modern-normalize](https://github.com/sindresorhus/modern-normalize)
+- [@jensimmons/cssremedy](https://github.com/jensimmons/cssremedy)
+- [@andy-piccalilli/modern-css-reset](https://github.com/andy-piccalilli/modern-css-reset)
+- [Josh Comeau's Custom CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset)
 */
 
 /* NORMALIZE/REMEDIES
-   ================================================================================ */
+================================================================================ */
+
+/* Document
+======================================== */
 
 /*
-  Prevent adjustments of font size after orientation changes in iOS.
+Prevent adjustments of font size after orientation changes in iOS.
 */
 :where(html) {
 	-webkit-text-size-adjust: 100%;
 	text-size-adjust: 100%;
 }
 
+/* Sections
+======================================== */
+
 /*
-  Correct the font-size and margins on `h1` elements within `section` and `article` contexts in Chrome, Edge, Firefox, and Safari.
+Correct the font-size and margins on `h1` elements within `section` and `article` contexts in Chrome, Edge, Firefox, and Safari.
 */
 :where(h1) {
 	font-size: 2em;
@@ -37,9 +43,12 @@ base.css is based on the following styles:
 	margin-block-end: 0.67em;
 }
 
+/* Grouping content
+======================================== */
+
 /*
-  1. Correct the inheritance and scaling of font size in all browsers.
-  2. Correct the odd `em` font sizing in all browsers.
+1. Correct the inheritance and scaling of font size in all browsers.
+2. Correct the odd `em` font sizing in all browsers.
 */
 :where(pre, code, kbd, samp) {
 	font-family: monospace, monospace; /* 1 */
@@ -47,66 +56,75 @@ base.css is based on the following styles:
 }
 
 /*
-  Correct the inheritance of `border-color` in Firefox (remove `color: gray`).
-  Issue: https://bugzilla.mozilla.org/show_bug.cgi?id=190655
+Correct the inheritance of `border-color` in Firefox (remove `color: gray`).
+Issue: https://bugzilla.mozilla.org/show_bug.cgi?id=190655
 */
 :where(hr) {
 	color: inherit;
 }
 
+/* Text-level semantics
+======================================== */
+
 /*
-  Add the correct text decoration in Safari.
+Add the correct text decoration in Safari.
 */
 :where(abbr[title]) {
 	-webkit-text-decoration: underline dotted;
 }
 
 /*
-  Add the correct font weight in Chrome, Edge, and Safari.
+Add the correct font weight in Chrome, Edge, and Safari.
 */
 :where(b, strong) {
 	font-weight: bolder;
 }
 
 /*
-  Add the correct font size in all browsers.
+Add the correct font size in all browsers.
 */
 :where(small) {
 	font-size: 80%;
 }
 
+/* Tabular data
+======================================== */
+
 /*
-  1. Remove text indentation from table contents in Chrome, Edge, and Safari.
-  2. Correct table border color inheritance in Chrome, Edge, and Safari.
+1. Remove text indentation from table contents in Chrome, Edge, and Safari.
+2. Correct table border color inheritance in Chrome, Edge, and Safari.
 */
 :where(table) {
 	text-indent: 0; /* 1 */
 	border-color: currentColor; /* 2 */
 }
 
+/* Forms
+======================================== */
+
 /*
-  Remove the margin on controls in all browsers.
+Remove the margin on controls in all browsers.
 */
 :where(button, input, select, textarea) {
 	margin: 0;
 }
 
 /*
-  Correct the inability to style buttons in iOS and Safari.
+Correct the inability to style buttons in iOS and Safari.
 */
 :where(button, [type="button" i], [type="reset" i], [type="submit" i]) {
 	-webkit-appearance: button;
 }
 
 /*
-  Correct the odd appearance in Chrome, Edge, and Safari.
+Correct the odd appearance in Chrome, Edge, and Safari.
 */
 :where([type="search" i]) {
 	-webkit-appearance: textfield;
 }
 
 /*
-  Correct the text style of placeholders in Chrome, Edge, and Safari.
+Correct the text style of placeholders in Chrome, Edge, and Safari.
 */
 ::-webkit-input-placeholder {
 	color: inherit;
@@ -114,26 +132,32 @@ base.css is based on the following styles:
 }
 
 /*
-  1. Correct the inability to style upload buttons in iOS and Safari.
-  2. Change font properties to `inherit` in Safari.
+1. Correct the inability to style upload buttons in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
 */
 ::-webkit-file-upload-button {
 	-webkit-appearance: button; /* 1 */
 	font: inherit; /* 2 */
 }
 
+/* Interactive elements
+======================================== */
+
 /*
-  Add the correct display in Safari.
+Add the correct display in Safari.
 */
 :where(summary) {
 	display: list-item;
 }
 
 /* OPINIONATED/REMINDERS
-   ================================================================================ */
+================================================================================ */
+
+/* Document
+======================================== */
 
 /*
-  Use border box sizing by default, globally.
+Use border box sizing by default, globally.
 */
 *,
 *::before,
@@ -142,53 +166,61 @@ base.css is based on the following styles:
 }
 
 /*
-  1. Use a sans serif font by default.
-  2. Breaks words to prevent text overflow.
-  3. Use a 4-space tab width.
+1. Use a sans serif font by default.
+2. The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cusrive/fantasy fonts to Javanese, Persian, and CJK languages.
+3. Breaks words to prevent text overflow.
+4. Use a 4-space tab width.
 */
 html {
 	font-family: sans-serif; /* 1 */
-	overflow-wrap: break-word; /* 2 */
-	tab-size: 4; /* 3 */
+	line-height: 1.5; /* 2 */
+	overflow-wrap: break-word; /* 3 */
+	tab-size: 4; /* 4 */
 }
 
 /*
-  The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cusrive/fantasy fonts to Javanese, Persian, and CJK languages.
-*/
-html {
-	line-height: 1.5;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	line-height: 1.25;
-}
-caption,
-figcaption,
-label,
-legend {
-	line-height: 1.375;
-}
-
-/*
-  Smooth scrolling, but only when focused in the page to prevent unnaturally scrolling when tabbing though the results of a search.
+Smooth scrolling, but only when focused in the page to prevent unnaturally scrolling when tabbing though the results of a search.
 */
 html:focus-within {
 	scroll-behavior: smooth;
 }
 
 /*
-  Remove the tiny space around the edge of the page.
+When users prefer reduced motion:
+1. Remove animations/immediately jump any animation to the end point.
+2. Remove fixed background attachment.
+3. Remove timed scrolling behaviors.
+4. Remove transitions.
 */
-body {
-	margin: 0;
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-delay: -1ms !important; /* 1 */
+		animation-duration: 1ms !important; /* 1 */
+		animation-iteration-count: 1 !important; /* 1 */
+		background-attachment: initial !important; /* 2 */
+		scroll-behavior: auto !important; /* 3 */
+		transition-delay: 0s !important; /* 4 */
+		transition-duration: 0s !important; /* 4 */
+	}
+	html:focus-within {
+		scroll-behavior: auto; /* 3 */
+	}
 }
 
 /*
-  Allow percentage-based heights.
+Add scroll margin to all elements which can be targeted.
+*/
+[id] {
+	scroll-margin-block-start: 2ex;
+}
+
+/* Sections
+======================================== */
+
+/*
+Allow percentage-based heights.
 */
 html {
 	block-size: 100%;
@@ -198,7 +230,26 @@ body {
 }
 
 /*
-  Switch to rem units for headings.
+Remove the tiny space around the edge of the page.
+*/
+body {
+	margin: 0;
+}
+
+/*
+The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cusrive/fantasy fonts to Javanese, Persian, and CJK languages.
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.25;
+}
+
+/*
+Switch to rem units for headings.
 */
 h1 {
 	font-size: 2rem;
@@ -219,8 +270,18 @@ h6 {
 	font-size: 0.67rem;
 }
 
+/* Grouping content
+======================================== */
+
 /*
-  Replace `40px` indents with `2.5em` indents.
+The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cusrive/fantasy fonts to Javanese, Persian, and CJK languages.
+*/
+figcaption {
+	line-height: 1.375;
+}
+
+/*
+Replace `40px` indents with `2.5em` indents.
 */
 :where(blockquote, figure) {
 	margin-inline-start: 2.5em;
@@ -234,7 +295,7 @@ h6 {
 }
 
 /*
-  Remove list styles on `ol` and `ul` elements with an explicit ARIA `list` role added, which prevents VoiceOver from removing the list semantics in Safari.
+Remove list styles on `ol` and `ul` elements with an explicit ARIA `list` role added, which prevents VoiceOver from removing the list semantics in Safari.
 */
 :where(ol, ul)[role="list"] {
 	list-style: none;
@@ -242,22 +303,25 @@ h6 {
 }
 
 /*
-  Prevent overflow of the container.
+Prevent overflow of the container.
 */
 pre {
 	white-space: pre-wrap;
 }
 
 /*
-  Consistent appearance (solid, thin border).
+Consistent appearance (solid, thin border).
 */
 hr {
 	border-style: solid;
 	border-width: 1px 0 0;
 }
 
+/* Text-level semantics
+======================================== */
+
 /*
-  Prevent `sub` and `sup` elements from affecting the line height.
+Prevent `sub` and `sup` elements from affecting the line height.
 */
 sub,
 sup {
@@ -273,11 +337,14 @@ sup {
 	inset-block-start: -0.5em;
 }
 
+/* Embedded content
+======================================== */
+
 /*
-  1. Block display is usually what we want.
-  2. The `vertical-align` removes strange space-below in case authors overwrite the display value.
-  3. Responsive by default.
-  4. Audio without `[controls]` remains hidden by default.
+1. Block display is usually what we want.
+2. The `vertical-align` removes strange space-below in case authors overwrite the `display` value.
+3. Responsive by default.
+4. Audio without `[controls]` remains hidden by default.
 */
 img,
 svg,
@@ -296,9 +363,9 @@ audio:not([controls]) {
 }
 
 /*
-  The display is inline by default, but that's not the expected behavior. This can interfere with proper layout and aspect-ratio handling.
-  1. Remove the unnecessary wrapping `picture`, while maintaining contents.
-  2. Source elements have nothing to display, so we hide them entirely.
+The display is inline by default, but that's not the expected behavior. This can interfere with proper layout and aspect-ratio handling.
+1. Remove the unnecessary wrapping `picture`, while maintaining contents.
+2. Source elements have nothing to display, so we hide them entirely.
 */
 
 picture {
@@ -309,7 +376,7 @@ source {
 }
 
 /*
-  Maintain intrinsic aspect ratios when `max-inline-size` is applied (`iframe`, `embed, and `object` are also embedded, but have no intrinsic ratio, so their `block-size` needs to be set explicitly).
+Maintain intrinsic aspect ratios when `max-inline-size` is applied (`iframe`, `embed, and `object` are also embedded, but have no intrinsic ratio, so their `block-size` needs to be set explicitly).
 */
 img,
 svg,
@@ -319,30 +386,33 @@ canvas {
 }
 
 /*
-  There is no good reason elements default to 300px, and audio files are unlikely to come with a width attribute.
+There is no good reason elements default to 300px, and audio files are unlikely to come with a width attribute.
 */
 audio {
 	inline-size: 100%;
 }
 
 /*
-  Change the fill color to match the text color.
+Change the fill color to match the text color.
 */
 :where(svg:not([fill])) {
 	fill: currentColor;
 }
 
 /*
-  Change the border appearance.
+Change the border appearance.
 */
 iframe {
 	border-style: solid;
 	border-color: currentColor;
 }
 
+/* Tabular data
+======================================== */
+
 /*
-  1. Collapse border spacing.
-  2. Expand to the page width.
+1. Collapse border spacing.
+2. Expand to the page width.
 */
 table {
 	inline-size: 100%; /* 2 */
@@ -350,7 +420,14 @@ table {
 }
 
 /*
-  Make `th` alignment consistent with `td` alignment.
+The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cusrive/fantasy fonts to Javanese, Persian, and CJK languages.
+*/
+caption {
+	line-height: 1.375;
+}
+
+/*
+Make `th` alignment consistent with `td` alignment.
 */
 
 th {
@@ -364,9 +441,12 @@ td {
 	border: 1px solid;
 }
 
+/* Forms
+======================================== */
+
 /*
-  1. Remove the margin.
-  2. Change the border appearance.
+1. Remove the margin.
+2. Change the border appearance.
 */
 fieldset {
 	margin-inline: 0; /* 1 */
@@ -375,7 +455,15 @@ fieldset {
 }
 
 /*
-  Add typography inheritance.
+The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cusrive/fantasy fonts to Javanese, Persian, and CJK languages.
+*/
+label,
+legend {
+	line-height: 1.375;
+}
+
+/*
+Add typography inheritance.
 */
 button,
 input,
@@ -386,7 +474,7 @@ textarea {
 }
 
 /*
-  Responsive by default by restricting sizing to the page width.
+Responsive by default by restricting sizing to the page width.
 */
 input,
 select,
@@ -395,7 +483,7 @@ textarea {
 }
 
 /*
-  Set `vertical-align` to middle.
+Set `vertical-align` to middle.
 */
 [type="color" i],
 [type="range" i] {
@@ -403,52 +491,21 @@ textarea {
 }
 
 /*
-  Change the cursor to feel it's interactive.
-*/
-summary {
-	cursor: default;
-}
-
-/*
-  When users prefer reduced motion:
-  1. Remove animations/immediately jump any animation to the end point.
-  2. Remove fixed background attachment.
-  3. Remove timed scrolling behaviors.
-  4. Remove transitions.
-*/
-@media (prefers-reduced-motion: reduce) {
-	*,
-	*::before,
-	*::after {
-		animation-delay: -1ms !important; /* 1 */
-		animation-duration: 1ms !important; /* 1 */
-		animation-iteration-count: 1 !important; /* 1 */
-		background-attachment: initial !important; /* 2 */
-		scroll-behavior: auto !important; /* 3 */
-		transition-delay: 0s !important; /* 4 */
-		transition-duration: 0s !important; /* 4 */
-	}
-	html:focus-within {
-		scroll-behavior: auto; /* 3 */
-	}
-}
-
-/*
-  Maintain `hidden` behaviour when overriding `display` values.
+Maintain `hidden` behaviour when overriding `display` values.
 */
 [hidden] {
 	display: none;
 }
 
 /*
-  Change the cursor on busy elements.
+Change the cursor on busy elements.
 */
 [aria-busy="true" i] {
 	cursor: progress;
 }
 
 /*
-  Change the cursor on disabled, not-editable, or otherwise inoperable elements.
+Change the cursor on disabled, not-editable, or otherwise inoperable elements.
 */
 [disabled],
 [aria-disabled="true" i] {
@@ -456,7 +513,7 @@ summary {
 }
 
 /*
-  Change the display on visually hidden accessible elements.
+Change the display on visually hidden accessible elements.
 */
 [aria-hidden="false" i][hidden] {
 	display: initial;
@@ -471,9 +528,33 @@ summary {
 	white-space: nowrap !important;
 }
 
+/* Interactive elements
+======================================== */
+
 /*
-  Add scroll margin to all elements which can be targeted.
+Change the cursor to feel it's interactive.
 */
-[id] {
-	scroll-margin-block-start: 2ex;
+summary {
+	cursor: default;
+}
+
+/* Scripting
+======================================== */
+
+/*
+1. Block display is usually what we want.
+2. The `vertical-align` removes strange space-below in case authors overwrite the `display` value.
+3. Responsive by default.
+*/
+canvas {
+	display: block; /* 1 */
+	vertical-align: middle; /* 2 */
+	max-inline-size: 100%; /* 3 */
+}
+
+/*
+Maintain intrinsic aspect ratios when `max-inline-size` is applied (`iframe`, `embed, and `object` are also embedded, but have no intrinsic ratio, so their `block-size` needs to be set explicitly).
+*/
+canvas {
+	block-size: auto;
 }
