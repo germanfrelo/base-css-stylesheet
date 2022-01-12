@@ -37,12 +37,20 @@ Correct the font size and margin on `h1` elements within `section` and `article`
 }
 
 /*
-Correct the inheritance of `border-color` in Firefox (it removes `color: gray`).
+Correct the inheritance of border color in Firefox (it removes `color: gray`).
 Issue: https://bugzilla.mozilla.org/show_bug.cgi?id=190655
 */
 :where(hr) {
 	color: inherit;
 }
+
+/* Remove the margins on all nested lists in Chrome, Edge, and Safari (Firefox already does it). */
+:where(ol, ul) :where(dl, menu),
+:where(dl, menu) :where(ol, ul, dl, menu) {
+	margin-block-start: 0;
+	margin-block-end: 0;
+}
+
 
 /* Text-level semantics
 ======================================== */
