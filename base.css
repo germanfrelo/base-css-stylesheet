@@ -410,12 +410,10 @@ iframe {
 ======================================== */
 
 /*
-1. Collapse border spacing.
-2. Expand to the page width.
+Collapse border spacing.
 */
 table {
-	inline-size: 100%; /* 2 */
-	border-collapse: collapse; /* 1 */
+	border-collapse: collapse;
 }
 
 /*
