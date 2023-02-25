@@ -1,9 +1,11 @@
 # Base CSS stylesheet
 
-> **Warning**</br>
+> **Warning**
 > This is a **WIP** project.
 
-A [**base CSS stylesheet**](base.css), which includes both **normalize/reset and opinionated styles**.
+A base CSS stylesheet, which includes both **normalize/reset and opinionated styles**: [base.css](base.css).
+
+I have another repo to test it: [html-elements-test-page](https://github.com/germanfrelo/html-elements-test-page).
 
 ## Credits
 
