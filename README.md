@@ -1,12 +1,13 @@
-# base-css-stylesheet
+# Base CSS stylesheet
 
-An opinionated base CSS stylesheet.
+> **Warning**</br>
+> This is a **WIP** project.
 
-[base.css](base.css) includes **normalize and opinionated** styles, both clearly separated from each other.
+A [**base CSS stylesheet**](base.css), which includes both **normalize/reset and opinionated styles**.
 
 ## Credits
 
-base.css is based on the following styles:
+This stylesheet is based on the following projects:
 
 - [@csstools/normalize.css](https://github.com/csstools/normalize.css)
 - [@csstools/sanitize.css](https://github.com/csstools/sanitize.css)
