@@ -51,7 +51,6 @@ Issue: https://bugzilla.mozilla.org/show_bug.cgi?id=190655
 	margin-block-end: 0;
 }
 
-
 /* Text-level semantics
 ======================================== */
 
@@ -148,7 +147,6 @@ Add the correct display in Safari.
 	display: list-item;
 }
 
-
 /* OPINIONATED, USEFUL DEFAULT STYLES
 ================================================================================ */
 
@@ -233,6 +231,13 @@ Remove the tiny space around the edge of the page.
 */
 body {
 	margin: 0;
+}
+
+/*
+Prevent unwanted Layout Shifts caused by scrollbars
+*/
+html {
+	scrollbar-gutter: stable;
 }
 
 /*
