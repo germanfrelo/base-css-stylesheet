@@ -345,7 +345,6 @@ sup {
 1. Block display is usually what we want.
 2. The `vertical-align` removes strange space-below in case authors overwrite the `display` value.
 3. Responsive by default.
-4. Audio without `[controls]` remains hidden by default.
 */
 img,
 svg,
@@ -358,9 +357,6 @@ object {
 	display: block; /* 1 */
 	vertical-align: middle; /* 2 */
 	max-inline-size: 100%; /* 3 */
-}
-audio:not([controls]) {
-	display: none; /* 4 */
 }
 
 /*
