@@ -533,24 +533,3 @@ Change the cursor to feel it's interactive.
 summary {
 	cursor: default;
 }
-
-/* Scripting
-======================================== */
-
-/*
-1. Block display is usually what we want.
-2. The `vertical-align` removes strange space-below in case authors overwrite the `display` value.
-3. Responsive by default.
-*/
-canvas {
-	display: block; /* 1 */
-	vertical-align: middle; /* 2 */
-	max-inline-size: 100%; /* 3 */
-}
-
-/*
-Maintain intrinsic aspect ratios when `max-inline-size` is applied (`iframe`, `embed, and `object` are also embedded, but have no intrinsic ratio, so their `block-size` needs to be set explicitly).
-*/
-canvas {
-	block-size: auto;
-}
