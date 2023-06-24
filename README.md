@@ -1,19 +1,34 @@
-# Base CSS stylesheet
+# base.css
 
 > **Warning**
 > This is a **WIP** project.
 
-A base CSS stylesheet, which includes both **normalize/reset and opinionated base styles**: [base.css](base.css).
+This is my custom base stylesheet, a set of baseline styles that I use whenever I start a new project.
 
-I have another repo to test it: [html-elements-test-page](https://github.com/germanfrelo/html-elements-test-page).
+Source: [base.css](base.css).
 
-## Credits
+## Features
 
-This stylesheet is based on the following projects:
+- It includes normalizing styles and useful defaults based on the following projects:
+  - [@csstools/normalize.css](https://github.com/csstools/normalize.css)
+  - [@csstools/sanitize.css](https://github.com/csstools/sanitize.css)
+  - [@sindresorhus/modern-normalize](https://github.com/sindresorhus/modern-normalize)
+  - [@jensimmons/cssremedy](https://github.com/jensimmons/cssremedy)
+  - [@andy-piccalilli/modern-css-reset](https://github.com/andy-piccalilli/modern-css-reset)
+  - [Josh Comeau's Custom CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset)
+- It's actively maintained and up to date.
 
-- [@csstools/normalize.css](https://github.com/csstools/normalize.css)
-- [@csstools/sanitize.css](https://github.com/csstools/sanitize.css)
-- [@sindresorhus/modern-normalize](https://github.com/sindresorhus/modern-normalize)
-- [@jensimmons/cssremedy](https://github.com/jensimmons/cssremedy)
-- [@andy-piccalilli/modern-css-reset](https://github.com/andy-piccalilli/modern-css-reset)
-- [Josh Comeau's Custom CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset)
+## Browser support
+
+Modern browsers (not Internet Explorer).
+
+## Usage
+
+<https://germanfrelo.github.io/base-css-stylesheet/base.css>
+
+## Testing
+
+There are various pages with HTML elements to be used for testing purposes. Some of them are:
+
+- [@cbracco/html5-test-page](https://github.com/cbracco/html5-test-page)
+- My custom page: [@germanfrelo/html-elements-test-page](https://github.com/germanfrelo/html-elements-test-page).
