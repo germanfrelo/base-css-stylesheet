@@ -1,153 +1,3 @@
-/* NORMALIZING STYLES
-================================================================================ */
-
-/* Document
-======================================== */
-
-/*
-Prevent adjustments of font size after orientation changes in iOS.
-*/
-:where(html) {
-	-webkit-text-size-adjust: 100%;
-	text-size-adjust: 100%;
-}
-
-/* Sections
-======================================== */
-
-/*
-Correct the font size and margin on `h1` elements within `section` and `article` contexts in Chrome, Edge, Firefox, and Safari.
-*/
-:where(h1) {
-	font-size: 2em;
-	margin-block: 0.67em;
-}
-
-/* Grouping content
-======================================== */
-
-/*
-1. Correct the inheritance and scaling of font size in all browsers.
-2. Correct the odd `em` font sizing in all browsers.
-*/
-:where(pre) {
-	font-family: monospace, monospace; /* 1 */
-	font-size: 1em; /* 2 */
-}
-
-/*
-Correct the inheritance of border color in Firefox (it removes `color: gray`).
-Issue: https://bugzilla.mozilla.org/show_bug.cgi?id=190655
-*/
-:where(hr) {
-	color: inherit;
-}
-
-/* Remove the margins on all nested lists in Chrome, Edge, and Safari (Firefox already does it). */
-:where(ol, ul) :where(dl, menu),
-:where(dl, menu) :where(ol, ul, dl, menu) {
-	margin-block: 0;
-}
-
-/* Text-level semantics
-======================================== */
-
-/*
-Add the correct text decoration in Safari.
-*/
-:where(abbr[title]) {
-	-webkit-text-decoration: underline dotted;
-}
-
-/*
-Add the correct font weight in Chrome, Edge, and Safari.
-*/
-:where(b, strong) {
-	font-weight: bolder;
-}
-
-/*
-Add the correct font size in all browsers.
-*/
-:where(small) {
-	font-size: 80%;
-}
-
-/*
-1. Correct the inheritance and scaling of font size in all browsers.
-2. Correct the odd `em` font sizing in all browsers.
-*/
-:where(code, kbd, samp) {
-	font-family: monospace, monospace; /* 1 */
-	font-size: 1em; /* 2 */
-}
-
-/* Tabular data
-======================================== */
-
-/*
-1. Remove text indentation from table contents in Chrome, Edge, and Safari.
-2. Correct table border color inheritance in Chrome, Edge, and Safari.
-*/
-:where(table) {
-	text-indent: 0; /* 1 */
-	border-color: currentColor; /* 2 */
-}
-
-/* Forms
-======================================== */
-
-/*
-Remove the margin on controls in all browsers.
-*/
-:where(button, input, select, textarea) {
-	margin: 0;
-}
-
-/*
-Correct the inability to style buttons in iOS and Safari.
-*/
-:where(button, [type="button" i], [type="reset" i], [type="submit" i]) {
-	-webkit-appearance: button;
-}
-
-/*
-Correct the odd appearance in Chrome, Edge, and Safari.
-*/
-:where([type="search" i]) {
-	-webkit-appearance: textfield;
-}
-
-/*
-Correct the text style of placeholders in Chrome, Edge, and Safari.
-*/
-::-webkit-input-placeholder {
-	color: inherit;
-	opacity: 0.54;
-}
-
-/*
-1. Correct the inability to style upload buttons in iOS and Safari.
-2. Change font properties to `inherit` in Safari.
-*/
-::-webkit-file-upload-button {
-	-webkit-appearance: button; /* 1 */
-	font: inherit; /* 2 */
-}
-
-/* Interactive elements
-======================================== */
-
-/*
-Add the correct display in Safari.
-*/
-:where(summary) {
-	display: list-item;
-}
-
-/* OPINIONATED, USEFUL DEFAULT STYLES
-================================================================================ */
-
 /* Document
 ======================================== */
 
@@ -158,6 +8,14 @@ Use border box sizing by default, globally.
 *::before,
 *::after {
 	box-sizing: border-box;
+}
+
+/*
+Prevent adjustments of font size after orientation changes in iOS.
+*/
+:where(html) {
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
 }
 
 /*
@@ -239,6 +97,14 @@ html {
 }
 
 /*
+Correct the font size and margin on `h1` elements within `section` and `article` contexts in Chrome, Edge, Firefox, and Safari.
+*/
+:where(h1) {
+	font-size: 2em;
+	margin-block: 0.67em;
+}
+
+/*
 The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 */
 h1,
@@ -274,6 +140,29 @@ h6 {
 
 /* Grouping content
 ======================================== */
+
+/*
+1. Correct the inheritance and scaling of font size in all browsers.
+2. Correct the odd `em` font sizing in all browsers.
+*/
+:where(pre) {
+	font-family: monospace, monospace; /* 1 */
+	font-size: 1em; /* 2 */
+}
+
+/*
+Correct the inheritance of border color in Firefox (it removes `color: gray`).
+Issue: https://bugzilla.mozilla.org/show_bug.cgi?id=190655
+*/
+:where(hr) {
+	color: inherit;
+}
+
+/* Remove the margins on all nested lists in Chrome, Edge, and Safari (Firefox already does it). */
+:where(ol, ul) :where(dl, menu),
+:where(dl, menu) :where(ol, ul, dl, menu) {
+	margin-block: 0;
+}
 
 /*
 The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
@@ -320,6 +209,36 @@ hr {
 
 /* Text-level semantics
 ======================================== */
+
+/*
+Add the correct text decoration in Safari.
+*/
+:where(abbr[title]) {
+	-webkit-text-decoration: underline dotted;
+}
+
+/*
+Add the correct font weight in Chrome, Edge, and Safari.
+*/
+:where(b, strong) {
+	font-weight: bolder;
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+:where(small) {
+	font-size: 80%;
+}
+
+/*
+1. Correct the inheritance and scaling of font size in all browsers.
+2. Correct the odd `em` font sizing in all browsers.
+*/
+:where(code, kbd, samp) {
+	font-family: monospace, monospace; /* 1 */
+	font-size: 1em; /* 2 */
+}
 
 /*
 Prevent `sub` and `sup` elements from affecting the line height.
@@ -408,6 +327,15 @@ iframe {
 ======================================== */
 
 /*
+1. Remove text indentation from table contents in Chrome, Edge, and Safari.
+2. Correct table border color inheritance in Chrome, Edge, and Safari.
+*/
+:where(table) {
+	text-indent: 0; /* 1 */
+	border-color: currentColor; /* 2 */
+}
+
+/*
 Collapse border spacing.
 */
 table {
@@ -438,6 +366,44 @@ td {
 
 /* Forms
 ======================================== */
+
+/*
+Remove the margin on controls in all browsers.
+*/
+:where(button, input, select, textarea) {
+	margin: 0;
+}
+
+/*
+Correct the inability to style buttons in iOS and Safari.
+*/
+:where(button, [type="button" i], [type="reset" i], [type="submit" i]) {
+	-webkit-appearance: button;
+}
+
+/*
+Correct the odd appearance in Chrome, Edge, and Safari.
+*/
+:where([type="search" i]) {
+	-webkit-appearance: textfield;
+}
+
+/*
+Correct the text style of placeholders in Chrome, Edge, and Safari.
+*/
+::-webkit-input-placeholder {
+	color: inherit;
+	opacity: 0.54;
+}
+
+/*
+1. Correct the inability to style upload buttons in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+::-webkit-file-upload-button {
+	-webkit-appearance: button; /* 1 */
+	font: inherit; /* 2 */
+}
 
 /*
 1. Remove the margin.
@@ -526,6 +492,13 @@ Change the display on visually hidden accessible elements.
 
 /* Interactive elements
 ======================================== */
+
+/*
+Add the correct display in Safari.
+*/
+:where(summary) {
+	display: list-item;
+}
 
 /*
 Change the cursor to feel it's interactive.
