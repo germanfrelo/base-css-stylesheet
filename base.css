@@ -11,11 +11,12 @@ Use border box sizing by default, globally.
 }
 
 /*
-Prevent adjustments of font size after orientation changes in iOS.
+Prevent WebKit-based browsers on iOS (all iOS browsers) from automatically increasing the default text size in landscape orientation. Reference:
+- https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
+- https://css-tricks.com/your-css-reset-needs-text-size-adjust-probably/
 */
 :where(html) {
-	-webkit-text-size-adjust: 100%;
-	text-size-adjust: 100%;
+	-webkit-text-size-adjust: none;
 }
 
 /*
