@@ -25,7 +25,7 @@ Prevent WebKit-based browsers on iOS (all iOS browsers) from automatically incre
 3. Breaks words to prevent text overflow.
 4. Use a 4-space tab width.
 */
-html {
+body {
 	font-family: sans-serif; /* 1 */
 	line-height: 1.5; /* 2 */
 	overflow-wrap: break-word; /* 3 */
