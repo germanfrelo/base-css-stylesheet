@@ -261,7 +261,6 @@ The display is inline by default, but that's not the expected behavior. This can
 1. Remove the unnecessary wrapping `picture`, while maintaining contents.
 2. Source elements have nothing to display, so we hide them entirely.
 */
-
 picture {
 	display: contents; /* 1 */
 }
@@ -307,17 +306,12 @@ iframe {
 /*
 1. Remove text indentation from table contents in Chrome, Edge, and Safari.
 2. Correct table border color inheritance in Chrome, Edge, and Safari.
+3. Collapse border spacing.
 */
 table {
 	text-indent: 0; /* 1 */
 	border-color: currentColor; /* 2 */
-}
-
-/*
-Collapse border spacing.
-*/
-table {
-	border-collapse: collapse;
+	border-collapse: collapse; /* 3 */
 }
 
 /*
@@ -330,11 +324,13 @@ caption {
 /*
 Make `th` alignment consistent with `td` alignment.
 */
-
 th {
 	text-align: start;
 }
 
+/*
+Add paddings and borders to table cells.
+*/
 th,
 td {
 	padding-block: 0.25em;
