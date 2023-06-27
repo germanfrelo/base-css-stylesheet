@@ -189,14 +189,6 @@ dd {
 }
 
 /*
-Remove list styles on `ol` and `ul` elements with an explicit ARIA list role added, which prevents VoiceOver from removing the list semantics in Safari.
-*/
-:is(ol, ul)[role="list"] {
-	list-style: none;
-	padding-inline-start: 0;
-}
-
-/*
 Prevent overflow of the container.
 */
 pre {
