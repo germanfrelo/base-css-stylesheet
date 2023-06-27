@@ -15,7 +15,7 @@ Prevent WebKit-based browsers on iOS (all iOS browsers) from automatically incre
 - https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
 - https://css-tricks.com/your-css-reset-needs-text-size-adjust-probably/
 */
-:where(html) {
+html {
 	-webkit-text-size-adjust: none;
 }
 
@@ -100,7 +100,7 @@ html {
 /*
 Correct the font size and margin on `h1` elements within `section` and `article` contexts in Chrome, Edge, Firefox, and Safari.
 */
-:where(h1) {
+h1 {
 	font-size: 2em;
 	margin-block: 0.67em;
 }
@@ -146,7 +146,7 @@ h6 {
 1. Correct the inheritance and scaling of font size in all browsers.
 2. Correct the odd `em` font sizing in all browsers.
 */
-:where(pre) {
+pre {
 	font-family: monospace, monospace; /* 1 */
 	font-size: 1em; /* 2 */
 }
@@ -155,13 +155,13 @@ h6 {
 Correct the inheritance of border color in Firefox (it removes `color: gray`).
 Issue: https://bugzilla.mozilla.org/show_bug.cgi?id=190655
 */
-:where(hr) {
+hr {
 	color: inherit;
 }
 
 /* Remove the margins on all nested lists in Chrome, Edge, and Safari (Firefox already does it). */
-:where(ol, ul) :where(dl, menu),
-:where(dl, menu) :where(ol, ul, dl, menu) {
+:is(ol, ul) :is(dl, menu),
+:is(dl, menu) :is(ol, ul, dl, menu) {
 	margin-block: 0;
 }
 
@@ -175,20 +175,23 @@ figcaption {
 /*
 Replace `40px` indents with `2.5em` indents.
 */
-:where(blockquote, figure) {
+blockquote,
+figure {
 	margin-inline: 2.5em;
 }
-:where(ul, ol, menu) {
+ul,
+ol,
+menu {
 	padding-inline-start: 2.5em;
 }
-:where(dd) {
+dd {
 	margin-inline-start: 2.5em;
 }
 
 /*
 Remove list styles on `ol` and `ul` elements with an explicit ARIA list role added, which prevents VoiceOver from removing the list semantics in Safari.
 */
-:where(ol, ul)[role="list"] {
+:is(ol, ul)[role="list"] {
 	list-style: none;
 	padding-inline-start: 0;
 }
@@ -214,21 +217,22 @@ hr {
 /*
 Add the correct text decoration in Safari.
 */
-:where(abbr[title]) {
+abbr[title] {
 	-webkit-text-decoration: underline dotted;
 }
 
 /*
 Add the correct font weight in Chrome, Edge, and Safari.
 */
-:where(b, strong) {
+b,
+strong {
 	font-weight: bolder;
 }
 
 /*
 Add the correct font size in all browsers.
 */
-:where(small) {
+small {
 	font-size: 80%;
 }
 
@@ -236,7 +240,9 @@ Add the correct font size in all browsers.
 1. Correct the inheritance and scaling of font size in all browsers.
 2. Correct the odd `em` font sizing in all browsers.
 */
-:where(code, kbd, samp) {
+code,
+kbd,
+samp {
 	font-family: monospace, monospace; /* 1 */
 	font-size: 1em; /* 2 */
 }
@@ -312,7 +318,7 @@ audio {
 /*
 Change the fill color to match the text color.
 */
-:where(svg:not([fill])) {
+svg:not([fill]) {
 	fill: currentColor;
 }
 
@@ -331,7 +337,7 @@ iframe {
 1. Remove text indentation from table contents in Chrome, Edge, and Safari.
 2. Correct table border color inheritance in Chrome, Edge, and Safari.
 */
-:where(table) {
+table {
 	text-indent: 0; /* 1 */
 	border-color: currentColor; /* 2 */
 }
@@ -371,21 +377,27 @@ td {
 /*
 Remove the margin on controls in all browsers.
 */
-:where(button, input, select, textarea) {
+button,
+input,
+select,
+textarea {
 	margin: 0;
 }
 
 /*
 Correct the inability to style buttons in iOS and Safari.
 */
-:where(button, [type="button" i], [type="reset" i], [type="submit" i]) {
+button,
+[type="button" i],
+[type="reset" i],
+[type="submit" i] {
 	-webkit-appearance: button;
 }
 
 /*
 Correct the odd appearance in Chrome, Edge, and Safari.
 */
-:where([type="search" i]) {
+[type="search" i] {
 	-webkit-appearance: textfield;
 }
 
@@ -497,7 +509,7 @@ Change the display on visually hidden accessible elements.
 /*
 Add the correct display in Safari.
 */
-:where(summary) {
+summary {
 	display: list-item;
 }
 
