@@ -11,12 +11,14 @@ Use border box sizing by default, globally.
 }
 
 /*
-Prevent WebKit-based browsers on iOS (all iOS browsers) from automatically increasing the default text size in landscape orientation. Reference:
+1. Prevent WebKit-based browsers on iOS (all iOS browsers) from automatically increasing the default text size in landscape orientation. Reference:
 - https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
 - https://css-tricks.com/your-css-reset-needs-text-size-adjust-probably/
+2. Prevent unwanted layout shifts caused by scrollbars when text get longer.
 */
 html {
 	-webkit-text-size-adjust: none;
+	scrollbar-gutter: stable;
 }
 
 /*
@@ -88,13 +90,6 @@ Remove the tiny space around the edge of the page.
 */
 body {
 	margin: 0;
-}
-
-/*
-Prevent unwanted Layout Shifts caused by scrollbars
-*/
-html {
-	scrollbar-gutter: stable;
 }
 
 /*
