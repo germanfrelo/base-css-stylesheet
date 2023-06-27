@@ -342,13 +342,17 @@ td {
 ======================================== */
 
 /*
-Remove the margin on controls in all browsers.
+1. Remove the margin on controls in all browsers.
+2. Add typography inheritance.
 */
 button,
 input,
 select,
 textarea {
-	margin: 0;
+	margin: 0; /* 1 */
+	font: inherit; /* 2 */
+	letter-spacing: inherit; /* 2 */
+	word-spacing: inherit; /* 2 */
 }
 
 /*
@@ -401,18 +405,6 @@ The default `normal` line-height is tightly spaced, but takes font-metrics into 
 label,
 legend {
 	line-height: 1.375;
-}
-
-/*
-Add typography inheritance.
-*/
-button,
-input,
-select,
-textarea {
-	font: inherit;
-	letter-spacing: inherit;
-	word-spacing: inherit;
 }
 
 /*
