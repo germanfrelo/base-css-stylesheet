@@ -466,15 +466,10 @@ Change the display on visually hidden accessible elements.
 ======================================== */
 
 /*
-Add the correct display in Safari.
+1. Add the correct display in Safari.
+2. Change the cursor to feel it's interactive.
 */
 summary {
-	display: list-item;
-}
-
-/*
-Change the cursor to feel it's interactive.
-*/
-summary {
-	cursor: default;
+	display: list-item; /* 1 */
+	cursor: default; /* 2 */
 }
