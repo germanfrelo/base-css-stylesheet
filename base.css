@@ -11,25 +11,14 @@ Use border box sizing by default, globally.
 }
 
 /*
-Prevent WebKit-based browsers on iOS (all iOS browsers) from automatically increasing the default text size in landscape orientation. Reference:
+1. Prevent WebKit-based browsers on iOS (all iOS browsers) from automatically increasing the default text size in landscape orientation. Reference:
 - https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
 - https://css-tricks.com/your-css-reset-needs-text-size-adjust-probably/
+2. Prevent unwanted layout shifts caused by scrollbars when text get longer.
 */
 html {
 	-webkit-text-size-adjust: none;
-}
-
-/*
-1. Use a sans serif font by default.
-2. The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
-3. Breaks words to prevent text overflow.
-4. Use a 4-space tab width.
-*/
-body {
-	font-family: sans-serif; /* 1 */
-	line-height: 1.5; /* 2 */
-	overflow-wrap: break-word; /* 3 */
-	tab-size: 4; /* 4 */
+	scrollbar-gutter: stable;
 }
 
 /*
@@ -74,6 +63,21 @@ Add scroll margin to all elements which can be targeted.
 ======================================== */
 
 /*
+1. Remove the tiny space around the edge of the page.
+2. Use a sans serif font by default.
+3. The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
+4. Breaks words to prevent text overflow.
+5. Use a 4-space tab width instead of the default 8.
+*/
+body {
+	margin: 0; /* 1 */
+	font-family: sans-serif; /* 2 */
+	line-height: 1.5; /* 3 */
+	overflow-wrap: break-word; /* 4 */
+	tab-size: 4; /* 5 */
+}
+
+/*
 Allow percentage-based heights.
 */
 html {
@@ -81,20 +85,6 @@ html {
 }
 body {
 	min-block-size: 100%;
-}
-
-/*
-Remove the tiny space around the edge of the page.
-*/
-body {
-	margin: 0;
-}
-
-/*
-Prevent unwanted Layout Shifts caused by scrollbars
-*/
-html {
-	scrollbar-gutter: stable;
 }
 
 /*
@@ -145,18 +135,22 @@ h6 {
 /*
 1. Correct the inheritance and scaling of font size in all browsers.
 2. Correct the odd `em` font sizing in all browsers.
+3. Prevent overflow of the container.
 */
 pre {
 	font-family: monospace, monospace; /* 1 */
 	font-size: 1em; /* 2 */
+	white-space: pre-wrap; /* 3 */
 }
 
 /*
-Correct the inheritance of border color in Firefox (it removes `color: gray`).
-Issue: https://bugzilla.mozilla.org/show_bug.cgi?id=190655
+1. Correct the inheritance of border color in Firefox (it removes `color: gray`). Issue: https://bugzilla.mozilla.org/show_bug.cgi?id=190655.
+2. Consistent appearance (solid, thin border).
 */
 hr {
-	color: inherit;
+	color: inherit; /* 1 */
+	border-style: solid; /* 2 */
+	border-width: 1px 0 0; /* 2 */
 }
 
 /* Remove the margins on all nested lists in Chrome, Edge, and Safari (Firefox already does it). */
@@ -186,21 +180,6 @@ menu {
 }
 dd {
 	margin-inline-start: 2.5em;
-}
-
-/*
-Prevent overflow of the container.
-*/
-pre {
-	white-space: pre-wrap;
-}
-
-/*
-Consistent appearance (solid, thin border).
-*/
-hr {
-	border-style: solid;
-	border-width: 1px 0 0;
 }
 
 /* Text-level semantics
@@ -282,7 +261,6 @@ The display is inline by default, but that's not the expected behavior. This can
 1. Remove the unnecessary wrapping `picture`, while maintaining contents.
 2. Source elements have nothing to display, so we hide them entirely.
 */
-
 picture {
 	display: contents; /* 1 */
 }
@@ -328,17 +306,12 @@ iframe {
 /*
 1. Remove text indentation from table contents in Chrome, Edge, and Safari.
 2. Correct table border color inheritance in Chrome, Edge, and Safari.
+3. Collapse border spacing.
 */
 table {
 	text-indent: 0; /* 1 */
 	border-color: currentColor; /* 2 */
-}
-
-/*
-Collapse border spacing.
-*/
-table {
-	border-collapse: collapse;
+	border-collapse: collapse; /* 3 */
 }
 
 /*
@@ -351,11 +324,13 @@ caption {
 /*
 Make `th` alignment consistent with `td` alignment.
 */
-
 th {
 	text-align: start;
 }
 
+/*
+Add paddings and borders to table cells.
+*/
 th,
 td {
 	padding-block: 0.25em;
@@ -367,13 +342,17 @@ td {
 ======================================== */
 
 /*
-Remove the margin on controls in all browsers.
+1. Remove the margin on controls in all browsers.
+2. Add typography inheritance.
 */
 button,
 input,
 select,
 textarea {
-	margin: 0;
+	margin: 0; /* 1 */
+	font: inherit; /* 2 */
+	letter-spacing: inherit; /* 2 */
+	word-spacing: inherit; /* 2 */
 }
 
 /*
@@ -426,18 +405,6 @@ The default `normal` line-height is tightly spaced, but takes font-metrics into 
 label,
 legend {
 	line-height: 1.375;
-}
-
-/*
-Add typography inheritance.
-*/
-button,
-input,
-select,
-textarea {
-	font: inherit;
-	letter-spacing: inherit;
-	word-spacing: inherit;
 }
 
 /*
@@ -499,15 +466,10 @@ Change the display on visually hidden accessible elements.
 ======================================== */
 
 /*
-Add the correct display in Safari.
+1. Add the correct display in Safari.
+2. Change the cursor to feel it's interactive.
 */
 summary {
-	display: list-item;
-}
-
-/*
-Change the cursor to feel it's interactive.
-*/
-summary {
-	cursor: default;
+	display: list-item; /* 1 */
+	cursor: default; /* 2 */
 }
