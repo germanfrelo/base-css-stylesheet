@@ -11,14 +11,22 @@ Use border box sizing by default, globally.
 }
 
 /*
-1. Prevent WebKit-based browsers on iOS (all iOS browsers) from automatically increasing the default text size in landscape orientation. Reference:
+1. Use a sans serif font by default.
+2. The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
+3. Breaks words to prevent text overflow.
+4. Use a 4-space tab width instead of the default 8.
+5. Prevent WebKit-based browsers on iOS (all iOS browsers) from automatically increasing the default text size in landscape orientation. Reference:
 - https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
 - https://css-tricks.com/your-css-reset-needs-text-size-adjust-probably/
-2. Prevent unwanted layout shifts caused by scrollbars when text get longer.
+6. Prevent unwanted layout shifts caused by scrollbars when text get longer.
 */
 html {
-	-webkit-text-size-adjust: none;
-	scrollbar-gutter: stable;
+	font-family: sans-serif; /* 1 */
+	line-height: 1.5; /* 2 */
+	overflow-wrap: break-word; /* 3 */
+	tab-size: 4; /* 4 */
+	-webkit-text-size-adjust: none; /* 5 */
+	scrollbar-gutter: stable; /* 6 */
 }
 
 /*
@@ -64,17 +72,9 @@ Add scroll margin to all elements which can be targeted.
 
 /*
 1. Remove the tiny space around the edge of the page.
-2. Use a sans serif font by default.
-3. The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
-4. Breaks words to prevent text overflow.
-5. Use a 4-space tab width instead of the default 8.
 */
 body {
 	margin: 0; /* 1 */
-	font-family: sans-serif; /* 2 */
-	line-height: 1.5; /* 3 */
-	overflow-wrap: break-word; /* 4 */
-	tab-size: 4; /* 5 */
 }
 
 /*
