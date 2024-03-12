@@ -1,7 +1,7 @@
 # base.css
 
-> **Warning**
-> This is a **WIP** project.
+> [!NOTE]
+> This is a **work in progress**.
 
 This is my custom base stylesheet, a set of baseline styles that I use whenever I start a new project.
 
