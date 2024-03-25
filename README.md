@@ -1,5 +1,7 @@
 # base.css
 
+[![pages-build-deployment](https://github.com/germanfrelo/base-css-stylesheet/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/germanfrelo/base-css-stylesheet/actions/workflows/pages/pages-build-deployment)
+
 > [!NOTE]
 > This is a **work in progress**.
 
