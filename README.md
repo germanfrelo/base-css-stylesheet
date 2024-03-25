@@ -3,9 +3,10 @@
 > [!NOTE]
 > This is a **work in progress**.
 
-This is my custom base stylesheet, a set of baseline styles that I use whenever I start a new project.
+This is my custom base stylesheet: a set of baseline styles that I use whenever I start a new project.
 
-Source: [base.css](base.css).
+- [Source](./base.css)
+- [Raw file](https://raw.githubusercontent.com/germanfrelo/base-css-stylesheet/main/base.css)
 
 ## Features
 
@@ -24,11 +25,11 @@ Modern browsers (not Internet Explorer).
 
 ## Usage
 
-<https://germanfrelo.github.io/base-css-stylesheet/base.css>
+- [Raw file](https://raw.githubusercontent.com/germanfrelo/base-css-stylesheet/main/base.css)
 
 ## Testing
 
 There are various pages with HTML elements to be used for testing purposes. Some of them are:
 
 - [@cbracco/html5-test-page](https://github.com/cbracco/html5-test-page)
-- My custom page: [@germanfrelo/html-elements-test-page](https://github.com/germanfrelo/html-elements-test-page).
+- My custom page: [@germanfrelo/html-elements-test-page](https://github.com/germanfrelo/html-elements-test-page)
