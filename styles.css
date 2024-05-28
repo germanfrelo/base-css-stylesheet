@@ -1,0 +1,540 @@
+/*
+	STRUCTURE:
+	1. Global custom properties
+	2. Global and inherited styles
+	3. Composition / Layout primitives
+	4. Utility classes
+	5. Blocks
+	6. Exceptions
+*/
+
+/* ============ 1. GLOBAL CUSTOM PROPERTIES ============ */
+
+:root {
+	/* Font Family */
+
+	/* https://github.com/system-fonts/modern-font-stacks */
+	--ff-body-fallback: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--ff-body: "Asap", var(--ff-body-fallback);
+	--ff-headings: "Fira Sans", var(--ff-body-fallback);
+	--ff-mono: ui-monospace, "Cascadia Code", "Source Code Pro", "Menlo",
+		"Consolas", "DejaVu Sans Mono", monospace;
+
+	/* Font Weight */
+	--fw-body-regular: 400;
+	--fw-body-medium: 550;
+	--fw-body-bold: 700;
+	--fw-headings: 800;
+
+	/* Size Scale */
+	--base-size: 1rem;
+	--ratio: 1.333;
+	--s-1000: calc(
+		var(--base-size) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) *
+			var(--ratio) * var(--ratio)
+	);
+	--s-900: calc(
+		var(--base-size) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) *
+			var(--ratio)
+	);
+	--s-800: calc(
+		var(--base-size) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio)
+	);
+	--s-700: calc(var(--base-size) * var(--ratio) * var(--ratio) * var(--ratio));
+	--s-600: calc(var(--base-size) * var(--ratio) * var(--ratio));
+	--s-500: calc(var(--base-size) * var(--ratio));
+	--s-400: var(--base-size);
+	--s-300: calc(var(--base-size) / var(--ratio));
+	--s-200: calc(var(--base-size) / var(--ratio) / var(--ratio));
+	--s-100: calc(var(--base-size) / var(--ratio) / var(--ratio) / var(--ratio));
+
+	/* Fluid Type Scale */
+
+	/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,4,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+	--step--1: clamp(0.94rem, calc(0.92rem + 0.11vw), 1rem);
+	--step-0: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+	--step-1: clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem);
+	--step-2: clamp(1.62rem, calc(1.5rem + 0.58vw), 1.95rem);
+	--step-3: clamp(1.94rem, calc(1.77rem + 0.87vw), 2.44rem);
+	--step-4: clamp(2.33rem, calc(2.08rem + 1.25vw), 3.05rem);
+
+	/* --space-zero: clamp(0rem,-0.02rem + 0.11vw,0.0625rem);
+	--space-3xs: clamp(0.3125rem,0.29rem + 0.11vw,0.375rem);
+	--space-2xs: clamp(0.5625rem,0.49rem + 0.34vw,0.75rem);
+	--space-xs: clamp(0.875rem,0.78rem + 0.46vw,1.125rem);
+	--space-s: clamp(1.125rem,0.98rem + 0.69vw,1.5rem);
+	--space-m: clamp(1.6875rem,1.47rem + 1.03vw,2.25rem);
+	--space-l: clamp(2.25rem,1.97rem + 1.38vw,3rem);
+	--space-xl: clamp(3.375rem,2.95rem + 2.07vw,4.5rem);
+	--space-2xl: clamp(4.5rem,3.93rem + 2.76vw,6rem);
+	--space-3xl: clamp(6.75rem,5.90rem + 4.14vw,9rem);
+	--space-4xl: clamp(9rem,7.86rem + 5.52vw,12rem);
+
+	--space-3xs-2xs: clamp(0.3125rem,0.15rem + 0.80vw,0.75rem);
+	--space-2xs-xs: clamp(0.5625rem,0.35rem + 1.03vw,1.125rem);
+	--space-xs-s: clamp(0.875rem,0.64rem + 1.15vw,1.5rem);
+	--space-s-m: clamp(1.125rem,0.70rem + 2.07vw,2.25rem);
+	--space-m-l: clamp(1.6875rem,1.19rem + 2.41vw,3rem);
+	--space-l-xl: clamp(2.25rem,1.40rem + 4.14vw,4.5rem);
+	--space-xl-2xl: clamp(3.375rem,2.38rem + 4.83vw,6rem);
+	--space-2xl-3xl: clamp(4.5rem,2.79rem + 8.28vw,9rem);
+	--space-3xl-4xl: clamp(6.75rem,4.76rem + 9.66vw,12rem);
+	--space-s-l: clamp(1.125rem,0.41rem + 3.45vw,3rem);
+	--space-s-xl: clamp(1.125rem,-0.16rem + 6.21vw,4.5rem);
+
+	--gutter: var(--space-s-l); */
+
+	/* Line Height */
+	--lh-large: 1.5;
+	--lh-small: 1.2;
+
+	/* Line length */
+	--page-max-inline-size: 60rem;
+
+	/* Padding */
+	--padding-xxxl: 2em;
+	--padding-xxl: 1.75em;
+	--padding-xl: 1.5em;
+	--padding-lg: 1.25em;
+	--padding-md: 1em;
+	--padding-sm: 0.75em;
+	--padding-xs: 0.5em;
+	--padding-xxs: 0.25em;
+	--padding-xxxs: 0.125em;
+
+	/* Colors (Light) */
+	--c-tx-1: hsl(217deg 30% 10%);
+	--c-tx-2: hsl(217deg 15% 45%);
+	--c-bg-1: hsl(217deg 0% 100%);
+	--c-bg-2: hsl(217deg 30% 98%);
+	--c-bg-3: hsl(217deg 25% 96%);
+	--c-bg-a: hsl(217deg 25% 72% / 20%);
+	--c-bd-1: hsl(217deg 15% 80%);
+	--c-bd-2: hsl(217deg 10% 50%);
+	--c-link: hsl(217deg 90% 47%);
+	--c-accent: hsl(172deg 100% 45%);
+	--c-mark: hsl(59deg 100% 60% / 90%);
+
+	/* Border With */
+	--bw-1: 0.05em;
+	--bw-2: 0.1em;
+	--bw-3: 0.15em;
+	--bw-4: 0.2em;
+
+	/* Border Radius */
+	--br-medium: 0.375em;
+	--br-small: 0.125em;
+
+	/* Transitions */
+	--tr-duration-and-timing-function: 0.1s ease-out;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		/* Colors (Dark) */
+		--c-tx-1: hsl(217deg 10% 95%);
+		--c-tx-2: hsl(217deg 10% 65%);
+		--c-bg-1: hsl(217deg 10% 10%);
+		--c-bg-2: hsl(217deg 10% 14%);
+		--c-bg-3: hsl(217deg 10% 18%);
+		--c-bg-a: hsl(217deg 10% 72% / 20%);
+		--c-bd-1: hsl(217deg 10% 40%);
+		--c-bd-2: hsl(217deg 15% 70%);
+		--c-link: hsl(217deg 90% 67%);
+		--c-accent: hsl(172deg 100% 45%);
+		--c-mark: hsl(58deg 100% 60% / 90%);
+	}
+}
+
+/* ============ 2. GLOBAL AND INHERITED STYLES ============ */
+
+/* All elements
+   ======================================== */
+
+/* Remove all margins */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+figure,
+menu,
+ol,
+ul,
+dl,
+dd {
+	margin: 0;
+}
+
+/* Document
+   ======================================== */
+
+html {
+	color-scheme: light dark; /* This site supports both light and dark mode */
+}
+
+/* Sections and headings
+   ======================================== */
+
+body {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	font-family: var(--ff-body);
+	font-size: var(--step-0);
+	font-weight: var(--fw-body-regular);
+	font-variant-ligatures: no-common-ligatures;
+	line-height: var(--lh-large);
+	color: var(--c-tx-1);
+	background-color: var(--c-bg-1);
+}
+
+/* This prevent long text from overflowing body with grid. Reason: the direct children of `<body>` with `display: grid` are grid items and have a default `min-inline-size` value of `auto` (= `min-content`), allowing long content to overflow the grid items (even with `overflow-wrap: break-word`). More info: https://ishadeed.com/article/min-content-size-css-grid/. */
+body > * {
+	min-inline-size: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--ff-headings);
+	font-weight: var(--fw-headings);
+	font-variant-ligatures: normal;
+	line-height: var(--lh-small);
+}
+
+h1 {
+	font-size: var(--step-4);
+}
+
+h2 {
+	font-size: var(--step-3);
+}
+
+h3 {
+	font-size: var(--step-2);
+}
+
+h4 {
+	font-size: var(--step-1);
+}
+
+h5 {
+	font-size: var(--step-0);
+}
+
+h6 {
+	font-size: var(--step--1);
+}
+
+address {
+	font-style: normal;
+}
+
+/* Grouping content
+   ======================================== */
+
+hr {
+	block-size: var(--bw-2);
+	background-color: var(--c-bd-1);
+	border: none;
+}
+
+pre {
+	padding-block: var(--padding-md);
+	padding-inline: var(--padding-lg);
+	font-family: var(--ff-mono);
+	font-size: 0.875em;
+	background-color: var(--c-bg-3);
+	border-radius: var(--br-small);
+}
+
+blockquote {
+	padding-block: 0.25em;
+	padding-inline: 1em;
+	margin-inline: 0;
+	border-inline-start: var(--bw-4) solid;
+}
+
+ol,
+ul,
+menu {
+	padding-inline-start: 1em;
+}
+
+dt {
+	font-weight: var(--fw-body-bold);
+}
+
+dd {
+	margin-inline-start: var(--padding-xl);
+}
+
+/* Text-level semantics
+   ======================================== */
+
+a {
+	color: var(--c-link);
+	transition: text-decoration-color var(--tr-duration-and-timing-function),
+		color var(--tr-duration-and-timing-function),
+		background-color var(--tr-duration-and-timing-function),
+		border-color var(--tr-duration-and-timing-function);
+}
+
+:is(h1, h2, h3, h4, h5, h6) a {
+	color: inherit;
+}
+
+.site-header a {
+	display: block;
+	color: inherit;
+	text-decoration-line: none;
+}
+
+a:is(:hover, :focus) {
+	text-decoration-color: transparent;
+}
+
+.site-nav-list a {
+	position: relative;
+}
+
+.site-nav-list a::after {
+	--underline-thickness: var(--bw-3);
+
+	position: absolute;
+	inset-block-end: calc(-2 * var(--underline-thickness));
+	inset-inline: 0;
+	display: block;
+	content: "";
+	block-size: var(--underline-thickness);
+	background-color: transparent;
+	transition: background-color var(--tr-duration-and-timing-function);
+}
+
+.site-nav-list a:hover::after {
+	background-color: var(--c-bd-1);
+}
+
+.site-nav-list a[aria-current="page"]::after {
+	background-color: var(--c-accent);
+}
+
+b,
+strong {
+	font-weight: var(--fw-body-bold);
+}
+
+code,
+samp,
+kbd {
+	font-family: var(--ff-mono);
+	font-size: 0.875em;
+}
+
+code {
+	padding-block: var(--padding-xxxs);
+	padding-inline: var(--padding-xxs);
+	background-color: var(--c-bg-a);
+	border: var(--bw-1) solid var(--c-bg-a);
+	border-radius: var(--br-small);
+}
+
+pre :is(code, samp, kbd) {
+	font-size: inherit;
+}
+
+pre code {
+	padding: 0;
+	background: inherit;
+	border-radius: revert;
+}
+
+kbd {
+	display: inline-block;
+	padding-block: var(--padding-xxs);
+	padding-inline: var(--padding-xs);
+	line-height: 1;
+	color: var(--c-tx-1);
+	white-space: nowrap;
+	background-color: var(--c-bg-2);
+	border-radius: var(--br-small);
+	box-shadow: inset 0 calc(-1 * var(--bw-1)) var(--bw-1) 0 var(--c-bd-1),
+		0 0 0 var(--bw-1) var(--c-bd-1);
+}
+
+mark {
+	background-color: var(--c-mark);
+}
+
+/* Embedded content
+   ======================================== */
+
+iframe {
+	border: var(--bw-1) solid var(--c-bd-1);
+}
+
+/* Tabular data
+   ======================================== */
+
+th,
+td {
+	padding-block: var(--padding-xs);
+	padding-inline: var(--padding-sm);
+	border: var(--bw-1) solid var(--c-bd-1);
+}
+
+th,
+thead,
+tfoot {
+	font-weight: var(--fw-body-medium);
+}
+
+th,
+thead :is(tr, td),
+tfoot tr {
+	background-color: var(--c-bg-3);
+}
+
+td:has(+ th) {
+	background-color: var(--c-bg-3);
+}
+
+caption {
+	padding-block: var(--padding-xxs);
+}
+
+/* Forms
+   ======================================== */
+
+fieldset {
+	border: var(--bw-2) solid var(--c-bd-1);
+	border-radius: var(--br-small);
+}
+
+legend {
+	padding-inline: var(--padding-xxxs);
+	font-weight: var(--fw-body-medium);
+}
+
+label {
+	display: inline-block;
+}
+
+input,
+textarea,
+select,
+button {
+	padding-block: var(--padding-xxs);
+	padding-inline: var(--padding-xs);
+	color: inherit;
+	background-color: var(--c-bg-1);
+	border: var(--bw-2) solid var(--c-bd-1);
+	border-radius: var(--br-small);
+	transition: color var(--tr-duration-and-timing-function),
+		background-color var(--tr-duration-and-timing-function),
+		border-color var(--tr-duration-and-timing-function);
+}
+
+[type="image"] {
+	padding: revert;
+	background-color: revert;
+}
+
+[type="color"] {
+	inline-size: 3em;
+	block-size: 1.5em;
+	padding: var(--padding-xxs);
+	background-color: var(--c-bg-2);
+}
+
+[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+
+[type="color"]:is(::-webkit-color-swatch, ::-moz-color-swatch) {
+	border: var(--bw-1) solid var(--c-bd-1);
+	border-radius: calc(var(--br-small) / 2);
+}
+
+button,
+[type="button"],
+[type="submit"],
+[type="reset"] {
+	display: inline-flex;
+	gap: 0.5em;
+	align-items: center;
+	justify-content: center;
+	padding-inline: var(--padding-lg);
+	font-weight: var(--fw-body-medium);
+	text-align: center;
+	background-color: var(--c-bg-2);
+}
+
+[type="submit"] {
+	color: var(--c-tx-1);
+	background-color: var(--c-accent);
+	border-color: var(--c-tx-1);
+}
+
+:is(input, textarea, select, button):is(:hover, :focus) {
+	border-color: var(--c-bd-2);
+}
+
+:is(
+		button,
+		[type="button"],
+		[type="submit"],
+		[type="reset"],
+		[type="color"]
+	):is(:hover, :focus) {
+	background-color: var(--c-bg-a);
+}
+
+[type="submit"]:is(:hover, :focus) {
+	color: var(--c-bg-1);
+	background-color: var(--c-tx-1);
+	border-color: var(--c-tx-1);
+}
+
+:disabled,
+[aria-disabled],
+[aria-disabled="true"] {
+	opacity: 0.333;
+}
+
+/* Interactive elements
+   ======================================== */
+
+details {
+	padding: var(--padding-xs);
+	border-block: var(--bw-1) solid var(--c-bd-1);
+}
+
+summary {
+	padding-block: var(--padding-xxxs);
+	padding-inline: var(--padding-xs);
+	margin-inline: calc(-1 * var(--padding-xs));
+	transition: background-color var(--tr-duration-and-timing-function);
+}
+
+summary:hover {
+	background-color: var(--c-bg-a);
+}
+
+summary ~ * {
+	margin-block: 0;
+}
+
+/* Scripting
+   ======================================== */
+
+canvas {
+	border: var(--bw-1) solid var(--c-bd-1);
+}
