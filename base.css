@@ -1,8 +1,8 @@
-/* Document
+/* Global
 ======================================== */
 
 /*
-Use border box sizing by default, globally.
+Use a more-intuitive border `box-sizing` model by default, globally.
 */
 *,
 *::before,
@@ -27,6 +27,7 @@ html {
 	tab-size: 4; /* 4 */
 	-webkit-text-size-adjust: none; /* 5 */
 	scrollbar-gutter: stable; /* 6 */
+	color-scheme: light dark;
 }
 
 /*
@@ -38,37 +39,27 @@ html:focus-within {
 
 /*
 When users prefer reduced motion:
-1. Remove animations/immediately jump any animation to the end point.
-2. Remove fixed background attachment.
-3. Remove timed scrolling behaviors.
-4. Remove transitions.
+1. Remove fixed background attachment.
+2. Remove transitions.
+3. Remove animations/immediately jump any animation to the end point.
+4. Remove timed scrolling behaviors.
 */
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,
 	*::after {
-		animation-delay: -1ms !important; /* 1 */
-		animation-duration: 1ms !important; /* 1 */
-		animation-iteration-count: 1 !important; /* 1 */
-		background-attachment: initial !important; /* 2 */
-		scroll-behavior: auto !important; /* 3 */
-		transition-delay: 0s !important; /* 4 */
-		transition-duration: 0s !important; /* 4 */
+		background-attachment: initial !important; /* 1 */
+		transition-delay: 0s !important; /* 2 */
+		transition-duration: 0s !important; /* 2 */
+		animation-duration: 1ms !important; /* 3 */
+		animation-delay: -1ms !important; /* 3 */
+		animation-iteration-count: 1 !important; /* 3 */
+		scroll-behavior: auto !important; /* 4 */
 	}
 	html:focus-within {
-		scroll-behavior: auto; /* 3 */
+		scroll-behavior: auto; /* 4 */
 	}
 }
-
-/*
-Add scroll margin to all elements which can be targeted.
-*/
-[id] {
-	scroll-margin-block-start: 2ex;
-}
-
-/* Sections
-======================================== */
 
 /*
 1. Remove the tiny space around the edge of the page.
@@ -88,7 +79,23 @@ body {
 }
 
 /*
-Correct the font size and margin on `h1` elements within `section` and `article` contexts in Chrome, Edge, Firefox, and Safari.
+Add scroll margin to all elements which can be targeted.
+*/
+[id] {
+	scroll-margin-block-start: 2ex;
+}
+
+/* Heading content
+======================================== */
+
+/*
+Keep h1 font size and margins consistent, even when nested.
+
+All three browser engines (Blink, Gecko, and WebKit) map the formatting of an h1 to smaller headlines (h2, h3, h4, h5, h6) according to how many levels deep it is inside a sectioning element (article, aside, nav, section).
+More info:
+- https://github.com/jensimmons/cssremedy/issues/2
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#avoid_using_multiple_h1_elements_on_one_page
+- https://html.spec.whatwg.org/multipage/rendering.html#sections-and-headings.
 */
 h1 {
 	font-size: 2em;
@@ -145,15 +152,18 @@ pre {
 
 /*
 1. Correct the inheritance of border color in Firefox (it removes `color: gray`). Issue: https://bugzilla.mozilla.org/show_bug.cgi?id=190655.
-2. Consistent appearance (solid, thin border).
+2. Consistent appearance.
 */
 hr {
 	color: inherit; /* 1 */
 	border-style: solid; /* 2 */
-	border-width: 1px 0 0; /* 2 */
+	border-width: 0.0625em 0 0; /* 2 */
+	border: 0.0625em solid hsl(0deg, 0%, 60%); /* 2 */
 }
 
-/* Remove the margins on all nested lists in Chrome, Edge, and Safari (Firefox already does it). */
+/*
+Remove the margins on all nested lists in Chrome, Edge, and Safari (Firefox already does it).
+*/
 :is(ol, ul) :is(dl, menu),
 :is(dl, menu) :is(ol, ul, dl, menu) {
 	margin-block: 0;
@@ -182,14 +192,18 @@ dd {
 	margin-inline-start: 2.5em;
 }
 
-/* Text-level semantics
+/* Inline text semantics
 ======================================== */
 
 /*
 Add the correct text decoration in Safari.
+Issue: https://bugs.webkit.org/show_bug.cgi?id=230083
+PR (draft): https://github.com/WebKit/WebKit/pull/6466
 */
 abbr[title] {
 	-webkit-text-decoration: underline dotted;
+	text-decoration: underline;
+	text-decoration: underline dotted;
 }
 
 /*
@@ -257,18 +271,6 @@ object {
 }
 
 /*
-The display is inline by default, but that's not the expected behavior. This can interfere with proper layout and aspect-ratio handling.
-1. Remove the unnecessary wrapping `picture`, while maintaining contents.
-2. Source elements have nothing to display, so we hide them entirely.
-*/
-picture {
-	display: contents; /* 1 */
-}
-source {
-	display: none; /* 2 */
-}
-
-/*
 Maintain intrinsic aspect ratios when `max-inline-size` is applied (`iframe`, `embed, and `object` are also embedded, but have no intrinsic ratio, so their `block-size` needs to be set explicitly).
 */
 img,
@@ -279,10 +281,22 @@ canvas {
 }
 
 /*
-There is no good reason elements default to 300px, and audio files are unlikely to come with a width attribute.
+There is no good reason elements default to `300px`, and audio files are unlikely to come with a width attribute.
 */
 audio {
 	inline-size: 100%;
+}
+
+/*
+The display is inline by default, but that's not the expected behavior. This can interfere with proper layout and aspect-ratio handling.
+1. Remove the unnecessary wrapping `picture`, while maintaining contents.
+2. Source elements have nothing to display, so we hide them entirely.
+*/
+picture {
+	display: contents; /* 1 */
+}
+source {
+	display: none; /* 2 */
 }
 
 /*
@@ -296,8 +310,7 @@ svg:not([fill]) {
 Change the border appearance.
 */
 iframe {
-	border-style: solid;
-	border-color: currentColor;
+	border: 0.0625em solid hsl(0deg, 0%, 60%);
 }
 
 /* Tabular data
@@ -315,13 +328,6 @@ table {
 }
 
 /*
-The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
-*/
-caption {
-	line-height: 1.375;
-}
-
-/*
 Make `th` alignment consistent with `td` alignment.
 */
 th {
@@ -335,7 +341,14 @@ th,
 td {
 	padding-block: 0.25em;
 	padding-inline: 0.5em;
-	border: 1px solid;
+	border: 0.0625em solid;
+}
+
+/*
+The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
+*/
+caption {
+	line-height: 1.375;
 }
 
 /* Forms
@@ -359,16 +372,16 @@ textarea {
 Correct the inability to style buttons in iOS and Safari.
 */
 button,
-[type="button" i],
-[type="reset" i],
-[type="submit" i] {
+[type="button"],
+[type="reset"],
+[type="submit"] {
 	-webkit-appearance: button;
 }
 
 /*
 Correct the odd appearance in Chrome, Edge, and Safari.
 */
-[type="search" i] {
+[type="search"] {
 	-webkit-appearance: textfield;
 }
 
@@ -395,8 +408,8 @@ Correct the text style of placeholders in Chrome, Edge, and Safari.
 */
 fieldset {
 	margin-inline: 0; /* 1 */
-	border-style: solid; /* 2 */
-	border-color: currentColor; /* 2 */
+	border: 0.125em solid currentColor; /* 2 */
+	border: 0.125em solid hsl(0deg, 0%, 60%); /* 2 */
 }
 
 /*
@@ -407,21 +420,55 @@ legend {
 	line-height: 1.375;
 }
 
+legend {
+	padding-inline: 0.125em;
+}
+
 /*
 Responsive by default by restricting sizing to the page width.
 */
+button,
 input,
+meter,
+progress,
 select,
 textarea {
 	max-inline-size: 100%;
 }
 
+input,
+select,
+textarea {
+	padding: 0.125em 0.25em;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	padding: 0.125em 0.5em;
+}
+
+[type="checkbox"],
+[type="file"],
+[type="image"],
+[type="radio"],
+[type="range"] {
+	padding: revert;
+}
+
 /*
 Set `vertical-align` to middle.
 */
-[type="color" i],
-[type="range" i] {
+[type="color"],
+[type="range"] {
 	vertical-align: middle;
+}
+
+[type="color"] {
+	block-size: 1.6875em;
+	inline-size: 3.125em;
+	padding: 0.0625em 0.125em;
 }
 
 /*
@@ -434,7 +481,7 @@ Maintain `hidden` behavior when overriding `display` values.
 /*
 Change the cursor on busy elements.
 */
-[aria-busy="true" i] {
+[aria-busy="true"] {
 	cursor: progress;
 }
 
@@ -442,17 +489,17 @@ Change the cursor on busy elements.
 Change the cursor on disabled, not-editable, or otherwise inoperable elements.
 */
 [disabled],
-[aria-disabled="true" i] {
+[aria-disabled="true"] {
 	cursor: not-allowed;
 }
 
 /*
 Change the display on visually hidden accessible elements.
 */
-[aria-hidden="false" i][hidden] {
+[aria-hidden="false"][hidden] {
 	display: initial;
 }
-[aria-hidden="false" i][hidden]:not(:focus) {
+[aria-hidden="false"][hidden]:not(:focus) {
 	/* Visually hidden styles */
 	position: absolute !important;
 	inline-size: 1px !important;
