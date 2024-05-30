@@ -31,6 +31,10 @@
 	"author": "Germán Freixinós López",
 	"type": "module",
 	"main": "",
+	"scripts": {
+		"format": "prettier --write .",
+		"format:check": "prettier --check ."
+	},
 	"devDependencies": {
 		"prettier": "3.2.5"
 	}
