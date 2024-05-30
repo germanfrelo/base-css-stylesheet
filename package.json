@@ -30,5 +30,8 @@
 	"license": "ISC",
 	"author": "Germán Freixinós López",
 	"type": "module",
-	"main": ""
+	"main": "",
+	"devDependencies": {
+		"prettier": "3.2.5"
+	}
 }
