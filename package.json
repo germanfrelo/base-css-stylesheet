@@ -1,0 +1,34 @@
+{
+	"name": "base-css-stylesheet",
+	"version": "1.0.0",
+	"private": true,
+	"description": "A work-in-progress base CSS stylesheet, which includes both normalize/reset and opinionated base styles.",
+	"keywords": [
+		"base",
+		"baseline",
+		"css",
+		"defaults",
+		"normalization",
+		"normalize-css",
+		"normalize",
+		"normalizer",
+		"opinionated-defaults",
+		"opinionated",
+		"sanitization",
+		"sanitize-css",
+		"sanitize",
+		"sanitizer"
+	],
+	"homepage": "https://github.com/germanfrelo/base-css-stylesheet#readme",
+	"bugs": {
+		"url": "https://github.com/germanfrelo/base-css-stylesheet/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/germanfrelo/base-css-stylesheet.git"
+	},
+	"license": "ISC",
+	"author": "Germán Freixinós López",
+	"type": "module",
+	"main": ""
+}
