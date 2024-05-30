@@ -1,0 +1,46 @@
+{
+	"name": "base-css-stylesheet",
+	"version": "1.0.0",
+	"private": true,
+	"description": "A work-in-progress base CSS stylesheet, which includes both normalize/reset and opinionated base styles.",
+	"keywords": [
+		"base",
+		"baseline",
+		"css",
+		"defaults",
+		"normalization",
+		"normalize-css",
+		"normalize",
+		"normalizer",
+		"opinionated-defaults",
+		"opinionated",
+		"sanitization",
+		"sanitize-css",
+		"sanitize",
+		"sanitizer"
+	],
+	"homepage": "https://github.com/germanfrelo/base-css-stylesheet#readme",
+	"bugs": {
+		"url": "https://github.com/germanfrelo/base-css-stylesheet/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/germanfrelo/base-css-stylesheet.git"
+	},
+	"license": "ISC",
+	"author": "Germán Freixinós López",
+	"type": "module",
+	"main": "",
+	"scripts": {
+		"format": "prettier --write .",
+		"format:check": "prettier --check .",
+		"lint:css": "stylelint --max-warnings 0 \"**/*.css\"",
+		"lint:css:fix": "npm run lint:css -- --fix"
+	},
+	"devDependencies": {
+		"prettier": "3.2.5",
+		"stylelint": "16.6.1",
+		"stylelint-config-recess-order": "5.0.1",
+		"stylelint-config-standard": "36.0.0"
+	}
+}
