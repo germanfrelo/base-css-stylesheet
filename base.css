@@ -1,9 +1,13 @@
+/* stylelint-disable no-descending-specificity -- Intended. */
+/* stylelint-disable no-duplicate-selectors -- Intended. */
+
 /* Document
 ======================================== */
 
 /*
 Use border box sizing by default, globally.
 */
+
 *,
 *::before,
 *::after {
@@ -20,11 +24,13 @@ Use border box sizing by default, globally.
 - https://css-tricks.com/your-css-reset-needs-text-size-adjust-probably/
 6. Prevent unwanted layout shifts caused by scrollbars when text get longer.
 */
+
 html {
 	font-family: sans-serif; /* 1 */
 	line-height: 1.5; /* 2 */
 	overflow-wrap: break-word; /* 3 */
 	tab-size: 4; /* 4 */
+	/* stylelint-disable-next-line property-no-vendor-prefix -- Intended. */
 	-webkit-text-size-adjust: none; /* 5 */
 	scrollbar-gutter: stable; /* 6 */
 }
@@ -32,37 +38,41 @@ html {
 /*
 Smooth scrolling, but only when focused in the page to prevent unnaturally scrolling when tabbing though the results of a search.
 */
+
 html:focus-within {
 	scroll-behavior: smooth;
 }
 
 /*
 When users prefer reduced motion:
-1. Remove animations/immediately jump any animation to the end point.
-2. Remove fixed background attachment.
-3. Remove timed scrolling behaviors.
-4. Remove transitions.
+1. Remove fixed background attachment.
+2. Remove transitions.
+3. Remove animations/immediately jump any animation to the end point.
+4. Remove timed scrolling behaviors.
 */
+
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,
 	*::after {
-		animation-delay: -1ms !important; /* 1 */
-		animation-duration: 1ms !important; /* 1 */
-		animation-iteration-count: 1 !important; /* 1 */
-		background-attachment: initial !important; /* 2 */
-		scroll-behavior: auto !important; /* 3 */
-		transition-delay: 0s !important; /* 4 */
-		transition-duration: 0s !important; /* 4 */
+		background-attachment: initial !important; /* 1 */
+		transition-delay: 0s !important; /* 2 */
+		transition-duration: 0s !important; /* 2 */
+		animation-duration: 1ms !important; /* 3 */
+		animation-delay: -1ms !important; /* 3 */
+		animation-iteration-count: 1 !important; /* 3 */
+		scroll-behavior: auto !important; /* 4 */
 	}
+
 	html:focus-within {
-		scroll-behavior: auto; /* 3 */
+		scroll-behavior: auto; /* 4 */
 	}
 }
 
 /*
 Add scroll margin to all elements which can be targeted.
 */
+
 [id] {
 	scroll-margin-block-start: 2ex;
 }
@@ -73,6 +83,7 @@ Add scroll margin to all elements which can be targeted.
 /*
 1. Remove the tiny space around the edge of the page.
 */
+
 body {
 	margin: 0; /* 1 */
 }
@@ -80,9 +91,11 @@ body {
 /*
 Allow percentage-based heights.
 */
+
 html {
 	block-size: 100%;
 }
+
 body {
 	min-block-size: 100%;
 }
@@ -90,14 +103,16 @@ body {
 /*
 Correct the font size and margin on `h1` elements within `section` and `article` contexts in Chrome, Edge, Firefox, and Safari.
 */
+
 h1 {
-	font-size: 2em;
 	margin-block: 0.67em;
+	font-size: 2em;
 }
 
 /*
 The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 */
+
 h1,
 h2,
 h3,
@@ -110,21 +125,27 @@ h6 {
 /*
 Switch to rem units for headings.
 */
+
 h1 {
 	font-size: 2rem;
 }
+
 h2 {
 	font-size: 1.5rem;
 }
+
 h3 {
 	font-size: 1.17rem;
 }
+
 h4 {
 	font-size: 1rem;
 }
+
 h5 {
 	font-size: 0.83rem;
 }
+
 h6 {
 	font-size: 0.67rem;
 }
@@ -137,7 +158,9 @@ h6 {
 2. Correct the odd `em` font sizing in all browsers.
 3. Prevent overflow of the container.
 */
+
 pre {
+	/* stylelint-disable-next-line font-family-no-duplicate-names -- Intended. */
 	font-family: monospace, monospace; /* 1 */
 	font-size: 1em; /* 2 */
 	white-space: pre-wrap; /* 3 */
@@ -147,6 +170,7 @@ pre {
 1. Correct the inheritance of border color in Firefox (it removes `color: gray`). Issue: https://bugzilla.mozilla.org/show_bug.cgi?id=190655.
 2. Consistent appearance (solid, thin border).
 */
+
 hr {
 	color: inherit; /* 1 */
 	border-style: solid; /* 2 */
@@ -154,6 +178,7 @@ hr {
 }
 
 /* Remove the margins on all nested lists in Chrome, Edge, and Safari (Firefox already does it). */
+
 :is(ol, ul) :is(dl, menu),
 :is(dl, menu) :is(ol, ul, dl, menu) {
 	margin-block: 0;
@@ -162,6 +187,7 @@ hr {
 /*
 The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 */
+
 figcaption {
 	line-height: 1.375;
 }
@@ -169,15 +195,18 @@ figcaption {
 /*
 Replace `40px` indents with `2.5em` indents.
 */
+
 blockquote,
 figure {
 	margin-inline: 2.5em;
 }
+
 ul,
 ol,
 menu {
 	padding-inline-start: 2.5em;
 }
+
 dd {
 	margin-inline-start: 2.5em;
 }
@@ -188,13 +217,16 @@ dd {
 /*
 Add the correct text decoration in Safari.
 */
+
 abbr[title] {
+	/* stylelint-disable-next-line property-no-vendor-prefix -- Intended. */
 	-webkit-text-decoration: underline dotted;
 }
 
 /*
 Add the correct font weight in Chrome, Edge, and Safari.
 */
+
 b,
 strong {
 	font-weight: bolder;
@@ -203,6 +235,7 @@ strong {
 /*
 Add the correct font size in all browsers.
 */
+
 small {
 	font-size: 80%;
 }
@@ -211,9 +244,11 @@ small {
 1. Correct the inheritance and scaling of font size in all browsers.
 2. Correct the odd `em` font sizing in all browsers.
 */
+
 code,
 kbd,
 samp {
+	/* stylelint-disable-next-line font-family-no-duplicate-names -- Intended. */
 	font-family: monospace, monospace; /* 1 */
 	font-size: 1em; /* 2 */
 }
@@ -221,6 +256,7 @@ samp {
 /*
 Prevent `sub` and `sup` elements from affecting the line height.
 */
+
 sub,
 sup {
 	position: relative;
@@ -228,9 +264,11 @@ sup {
 	line-height: 0;
 	vertical-align: baseline;
 }
+
 sub {
 	inset-block-end: -0.25em;
 }
+
 sup {
 	inset-block-start: -0.5em;
 }
@@ -240,9 +278,10 @@ sup {
 
 /*
 1. Block display is usually what we want.
-2. The `vertical-align` removes strange space-below in case authors overwrite the `display` value.
-3. Responsive by default.
+2. Responsive by default.
+3. The `vertical-align` removes strange space-below in case authors overwrite the `display` value.
 */
+
 img,
 svg,
 video,
@@ -252,8 +291,8 @@ iframe,
 embed,
 object {
 	display: block; /* 1 */
-	vertical-align: middle; /* 2 */
-	max-inline-size: 100%; /* 3 */
+	max-inline-size: 100%; /* 2 */
+	vertical-align: middle; /* 3 */
 }
 
 /*
@@ -261,9 +300,11 @@ The display is inline by default, but that's not the expected behavior. This can
 1. Remove the unnecessary wrapping `picture`, while maintaining contents.
 2. Source elements have nothing to display, so we hide them entirely.
 */
+
 picture {
 	display: contents; /* 1 */
 }
+
 source {
 	display: none; /* 2 */
 }
@@ -271,6 +312,7 @@ source {
 /*
 Maintain intrinsic aspect ratios when `max-inline-size` is applied (`iframe`, `embed, and `object` are also embedded, but have no intrinsic ratio, so their `block-size` needs to be set explicitly).
 */
+
 img,
 svg,
 video,
@@ -281,6 +323,7 @@ canvas {
 /*
 There is no good reason elements default to 300px, and audio files are unlikely to come with a width attribute.
 */
+
 audio {
 	inline-size: 100%;
 }
@@ -288,16 +331,18 @@ audio {
 /*
 Change the fill color to match the text color.
 */
+
 svg:not([fill]) {
-	fill: currentColor;
+	fill: currentcolor;
 }
 
 /*
 Change the border appearance.
 */
+
 iframe {
+	border-color: currentcolor;
 	border-style: solid;
-	border-color: currentColor;
 }
 
 /* Tabular data
@@ -305,18 +350,20 @@ iframe {
 
 /*
 1. Remove text indentation from table contents in Chrome, Edge, and Safari.
-2. Correct table border color inheritance in Chrome, Edge, and Safari.
-3. Collapse border spacing.
+2. Collapse border spacing.
+3. Correct table border color inheritance in Chrome, Edge, and Safari.
 */
+
 table {
 	text-indent: 0; /* 1 */
-	border-color: currentColor; /* 2 */
-	border-collapse: collapse; /* 3 */
+	border-collapse: collapse; /* 2 */
+	border-color: currentcolor; /* 3 */
 }
 
 /*
 The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 */
+
 caption {
 	line-height: 1.375;
 }
@@ -324,6 +371,7 @@ caption {
 /*
 Make `th` alignment consistent with `td` alignment.
 */
+
 th {
 	text-align: start;
 }
@@ -331,6 +379,7 @@ th {
 /*
 Add paddings and borders to table cells.
 */
+
 th,
 td {
 	padding-block: 0.25em;
@@ -345,6 +394,7 @@ td {
 1. Remove the margin on controls in all browsers.
 2. Add typography inheritance.
 */
+
 button,
 input,
 select,
@@ -358,50 +408,59 @@ textarea {
 /*
 Correct the inability to style buttons in iOS and Safari.
 */
+
 button,
 [type="button" i],
 [type="reset" i],
 [type="submit" i] {
+	/* stylelint-disable-next-line property-no-vendor-prefix -- Intended. */
 	-webkit-appearance: button;
 }
 
 /*
 Correct the odd appearance in Chrome, Edge, and Safari.
 */
+
 [type="search" i] {
+	/* stylelint-disable-next-line property-no-vendor-prefix -- Intended. */
 	-webkit-appearance: textfield;
 }
 
 /*
 Correct the text style of placeholders in Chrome, Edge, and Safari.
 */
+/* stylelint-disable-next-line selector-no-vendor-prefix -- Intended. */
 ::-webkit-input-placeholder {
 	color: inherit;
 	opacity: 0.54;
 }
 
 /*
-1. Correct the inability to style upload buttons in iOS and Safari.
-2. Change font properties to `inherit` in Safari.
+1. Change font properties to `inherit` in Safari.
+2. Correct the inability to style upload buttons in iOS and Safari.
 */
+
 ::-webkit-file-upload-button {
-	-webkit-appearance: button; /* 1 */
-	font: inherit; /* 2 */
+	font: inherit; /* 1 */
+	/* stylelint-disable-next-line property-no-vendor-prefix -- Intended. */
+	-webkit-appearance: button; /* 2 */
 }
 
 /*
 1. Remove the margin.
 2. Change the border appearance.
 */
+
 fieldset {
 	margin-inline: 0; /* 1 */
+	border-color: currentcolor; /* 2 */
 	border-style: solid; /* 2 */
-	border-color: currentColor; /* 2 */
 }
 
 /*
 The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 */
+
 label,
 legend {
 	line-height: 1.375;
@@ -410,6 +469,7 @@ legend {
 /*
 Responsive by default by restricting sizing to the page width.
 */
+
 input,
 select,
 textarea {
@@ -419,6 +479,7 @@ textarea {
 /*
 Set `vertical-align` to middle.
 */
+
 [type="color" i],
 [type="range" i] {
 	vertical-align: middle;
@@ -427,6 +488,7 @@ Set `vertical-align` to middle.
 /*
 Maintain `hidden` behavior when overriding `display` values.
 */
+
 [hidden] {
 	display: none;
 }
@@ -434,6 +496,7 @@ Maintain `hidden` behavior when overriding `display` values.
 /*
 Change the cursor on busy elements.
 */
+
 [aria-busy="true" i] {
 	cursor: progress;
 }
@@ -441,6 +504,7 @@ Change the cursor on busy elements.
 /*
 Change the cursor on disabled, not-editable, or otherwise inoperable elements.
 */
+
 [disabled],
 [aria-disabled="true" i] {
 	cursor: not-allowed;
@@ -449,9 +513,11 @@ Change the cursor on disabled, not-editable, or otherwise inoperable elements.
 /*
 Change the display on visually hidden accessible elements.
 */
+
 [aria-hidden="false" i][hidden] {
 	display: initial;
 }
+
 [aria-hidden="false" i][hidden]:not(:focus) {
 	/* Visually hidden styles */
 	position: absolute !important;
@@ -469,6 +535,7 @@ Change the display on visually hidden accessible elements.
 1. Add the correct display in Safari.
 2. Change the cursor to feel it's interactive.
 */
+
 summary {
 	display: list-item; /* 1 */
 	cursor: default; /* 2 */
