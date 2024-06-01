@@ -33,9 +33,7 @@
 	"main": "",
 	"scripts": {
 		"format": "prettier --write .",
-		"format:check": "prettier --check .",
-		"lint:css": "stylelint --max-warnings 0 \"**/*.css\"",
-		"lint:css:fix": "npm run lint:css -- --fix"
+		"format:check": "prettier --check ."
 	},
 	"devDependencies": {
 		"prettier": "3.2.5"
