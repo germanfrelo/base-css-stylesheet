@@ -1,3 +1,40 @@
+/* ==========================================================================================
+
+LAST UPDATED
+
+2024-06-01
+
+----------------------------------------
+
+COMPARED PROJECTS
+
+(most popular AND frequently maintained)
+
+1. csstools/sanitize.css (v13.0.0)
+	Complements:
+	- assets.css
+	- forms.css
+	- reduce-motion.css
+2. sindresorhus/modern-normalize (v2.0.0)
+3. tailwindlabs/tailwindcss (preflight.css) (v3.4.3)
+
+TO DO:
+- csstools/normalize.css (v12.1.1):
+	- normalize.css
+	- opinionated.css -> TO DO
+
+----------------------------------------
+
+ANNOTATIONS
+
+(stylesheets = the compared ones)
+
+- ✅: Declaration/rule is included in all stylesheets.
+- ❗️: Declaration/rule is not included in one or more stylesheets.
+- ❌: Declaration/rule is not included in any of the stylesheets.
+
+========================================================================================== */
+
 /* Document
 ======================================== */
 
@@ -5,6 +42,7 @@
 Use border box sizing by default, globally.
 */
 
+/* ✅ */
 *,
 *::before,
 *::after {
@@ -23,11 +61,17 @@ Use border box sizing by default, globally.
 */
 
 html {
+	/* ❗️ NOT in: sanitize */
 	font-family: sans-serif; /* 1 */
+	/* ❗️ NOT in: modern-normalize (= 1.15) */
 	line-height: 1.5; /* 2 */
+	/* ❗️ NOT in: modern-normalize, tailwindcss */
 	overflow-wrap: break-word; /* 3 */
+	/* ✅ */
 	tab-size: 4; /* 4 */
+	/* ✅ */
 	-webkit-text-size-adjust: none; /* 5 */
+	/* ❌ */
 	scrollbar-gutter: stable; /* 6 */
 }
 
@@ -35,6 +79,7 @@ html {
 Smooth scrolling, but only when focused in the page to prevent unnaturally scrolling when tabbing though the results of a search.
 */
 
+/* ❌ */
 html:focus-within {
 	scroll-behavior: smooth;
 }
@@ -48,6 +93,7 @@ When users prefer reduced motion:
 */
 
 @media (prefers-reduced-motion: reduce) {
+	/* ❗️ ONLY in: sanitize/reduce-motion */
 	*,
 	*::before,
 	*::after {
@@ -60,6 +106,7 @@ When users prefer reduced motion:
 		scroll-behavior: auto !important; /* 4 */
 	}
 
+	/* ❌ */
 	html:focus-within {
 		scroll-behavior: auto; /* 4 */
 	}
@@ -69,6 +116,7 @@ When users prefer reduced motion:
 Add scroll margin to all elements which can be targeted.
 */
 
+/* ❌ */
 [id] {
 	scroll-margin-block-start: 2ex;
 }
@@ -77,21 +125,22 @@ Add scroll margin to all elements which can be targeted.
 ======================================== */
 
 /*
-1. Remove the tiny space around the edge of the page.
+Remove the tiny space around the edge of the page.
 */
 
+/* ✅ */
 body {
-	margin: 0; /* 1 */
+	margin: 0;
 }
 
 /*
 Allow percentage-based heights.
 */
 
+/* ❌ */
 html {
 	block-size: 100%;
 }
-
 body {
 	min-block-size: 100%;
 }
@@ -101,7 +150,9 @@ Correct the font size and margin on `h1` elements within `section` and `article`
 */
 
 h1 {
+	/* ❗️ NOT in: modern-normalize, tailwindcss (= 0); ONLY in: sanitize */
 	margin-block: 0.67em;
+	/* ❗️ NOT in: modern-normalize, tailwindcss */
 	font-size: 2em;
 }
 
@@ -109,6 +160,7 @@ h1 {
 The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 */
 
+/* ❌ */
 h1,
 h2,
 h3,
@@ -122,26 +174,22 @@ h6 {
 Switch to rem units for headings.
 */
 
+/* ❌ */
 h1 {
 	font-size: 2rem;
 }
-
 h2 {
 	font-size: 1.5rem;
 }
-
 h3 {
 	font-size: 1.17rem;
 }
-
 h4 {
 	font-size: 1rem;
 }
-
 h5 {
 	font-size: 0.83rem;
 }
-
 h6 {
 	font-size: 0.67rem;
 }
@@ -156,8 +204,11 @@ h6 {
 */
 
 pre {
+	/* ✅ */
 	font-family: monospace, monospace; /* 1 */
+	/* ✅ */
 	font-size: 1em; /* 2 */
+	/* ❌ */
 	white-space: pre-wrap; /* 3 */
 }
 
@@ -167,13 +218,17 @@ pre {
 */
 
 hr {
+	/* ✅ */
 	color: inherit; /* 1 */
+	/* ❗️ NOT in: modern-normalize, sanitize */
 	border-style: solid; /* 2 */
+	/* ❗️ NOT in: modern-normalize, sanitize */
 	border-width: 1px 0 0; /* 2 */
 }
 
 /* Remove the margins on all nested lists in Chrome, Edge, and Safari (Firefox already does it). */
 
+/* ❗️ NOT in: modern-normalize */
 :is(ol, ul) :is(dl, menu),
 :is(dl, menu) :is(ol, ul, dl, menu) {
 	margin-block: 0;
@@ -183,6 +238,7 @@ hr {
 The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 */
 
+/* ❌ */
 figcaption {
 	line-height: 1.375;
 }
@@ -191,17 +247,16 @@ figcaption {
 Replace `40px` indents with `2.5em` indents.
 */
 
+/* ❌ */
 blockquote,
 figure {
 	margin-inline: 2.5em;
 }
-
 ul,
 ol,
 menu {
 	padding-inline-start: 2.5em;
 }
-
 dd {
 	margin-inline-start: 2.5em;
 }
@@ -213,6 +268,7 @@ dd {
 Add the correct text decoration in Safari.
 */
 
+/* ✅ (without -webkit-) */
 abbr[title] {
 	-webkit-text-decoration: underline dotted;
 }
@@ -221,6 +277,7 @@ abbr[title] {
 Add the correct font weight in Chrome, Edge, and Safari.
 */
 
+/* ✅ */
 b,
 strong {
 	font-weight: bolder;
@@ -230,6 +287,7 @@ strong {
 Add the correct font size in all browsers.
 */
 
+/* ✅ */
 small {
 	font-size: 80%;
 }
@@ -239,6 +297,7 @@ small {
 2. Correct the odd `em` font sizing in all browsers.
 */
 
+/* ✅ */
 code,
 kbd,
 samp {
@@ -250,6 +309,7 @@ samp {
 Prevent `sub` and `sup` elements from affecting the line height.
 */
 
+/* ❗️ NOT in: sanitize */
 sub,
 sup {
 	position: relative;
@@ -257,11 +317,9 @@ sup {
 	line-height: 0;
 	vertical-align: baseline;
 }
-
 sub {
 	inset-block-end: -0.25em;
 }
-
 sup {
 	inset-block-start: -0.5em;
 }
@@ -283,29 +341,35 @@ audio,
 iframe,
 embed,
 object {
+	/* ❗️ ONLY in: tailwindcss */
 	display: block; /* 1 */
+	/* ❗️ ONLY in: tailwindcss (incomplete: NOT svg, canvas), sanitize/assets (incomplete: NOT svg, canvas, audio, embed, object) */
 	max-inline-size: 100%; /* 2 */
+	/* ❗️ ONLY in: tailwindcss, sanitize (incomplete: NOT img, embed, object) */
 	vertical-align: middle; /* 3 */
 }
 
 /*
-The display is inline by default, but that's not the expected behavior. This can interfere with proper layout and aspect-ratio handling.
+These elements display inline by default, but that's not the expected behavior for either one. This can interfere with proper layout and aspect-ratio handling.
 1. Remove the unnecessary wrapping `picture`, while maintaining contents.
 2. Source elements have nothing to display, so we hide them entirely.
 */
 
+/* ❌ */
 picture {
 	display: contents; /* 1 */
 }
 
+/* ❌ */
 source {
 	display: none; /* 2 */
 }
 
 /*
-Maintain intrinsic aspect ratios when `max-inline-size` is applied (`iframe`, `embed, and `object` are also embedded, but have no intrinsic ratio, so their `block-size` needs to be set explicitly).
+Maintain intrinsic aspect ratios when `max-inline-size` is applied (`iframe`, `embed, and `object` are also embedded, but have noT intrinsic ratio, so their `block-size` needs to be set explicitly).
 */
 
+/* ❗️ ONLY in: tailwindcss (incomplete: NOT svg, canvas), sanitize/assets (incomplete: NOT svg, canvas, audio, embed, object) */
 img,
 svg,
 video,
@@ -317,6 +381,7 @@ canvas {
 There is no good reason elements default to 300px, and audio files are unlikely to come with a width attribute.
 */
 
+/* ❌ */
 audio {
 	inline-size: 100%;
 }
@@ -325,6 +390,7 @@ audio {
 Change the fill color to match the text color.
 */
 
+/* ❗️ ONLY in: sanitize */
 svg:not([fill]) {
 	fill: currentcolor;
 }
@@ -333,6 +399,7 @@ svg:not([fill]) {
 Change the border appearance.
 */
 
+/* ❌ */
 iframe {
 	border-color: currentcolor;
 	border-style: solid;
@@ -348,8 +415,11 @@ iframe {
 */
 
 table {
+	/* ✅ */
 	text-indent: 0; /* 1 */
+	/* ❗️ NOT in: modern-normalize */
 	border-collapse: collapse; /* 2 */
+	/* ✅ */
 	border-color: currentcolor; /* 3 */
 }
 
@@ -357,6 +427,7 @@ table {
 The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 */
 
+/* ❌ */
 caption {
 	line-height: 1.375;
 }
@@ -365,6 +436,7 @@ caption {
 Make `th` alignment consistent with `td` alignment.
 */
 
+/* ❌ */
 th {
 	text-align: start;
 }
@@ -373,6 +445,7 @@ th {
 Add paddings and borders to table cells.
 */
 
+/* ❌ */
 th,
 td {
 	padding-block: 0.25em;
@@ -392,9 +465,13 @@ button,
 input,
 select,
 textarea {
+	/* ✅ */
 	margin: 0; /* 1 */
+	/* ❗️ DIFFS between sanitize/forms, modern-normalize, tailwindcss */
 	font: inherit; /* 2 */
+	/* ❗️ NOT in: modern-normalize */
 	letter-spacing: inherit; /* 2 */
+	/* ❌ */
 	word-spacing: inherit; /* 2 */
 }
 
@@ -402,6 +479,7 @@ textarea {
 Correct the inability to style buttons in iOS and Safari.
 */
 
+/* ✅ */
 button,
 [type="button" i],
 [type="reset" i],
@@ -413,6 +491,7 @@ button,
 Correct the odd appearance in Chrome, Edge, and Safari.
 */
 
+/* ✅ */
 [type="search" i] {
 	-webkit-appearance: textfield;
 }
@@ -421,6 +500,7 @@ Correct the odd appearance in Chrome, Edge, and Safari.
 Correct the text style of placeholders in Chrome, Edge, and Safari.
 */
 
+/* ❗️ NOT in modern-normalize; DIFF sanitize & tailwindcss */
 ::-webkit-input-placeholder {
 	color: inherit;
 	opacity: 0.54;
@@ -431,6 +511,7 @@ Correct the text style of placeholders in Chrome, Edge, and Safari.
 2. Correct the inability to style upload buttons in iOS and Safari.
 */
 
+/* ✅ */
 ::-webkit-file-upload-button {
 	font: inherit; /* 1 */
 	-webkit-appearance: button; /* 2 */
@@ -442,8 +523,11 @@ Correct the text style of placeholders in Chrome, Edge, and Safari.
 */
 
 fieldset {
+	/* ❗️ ONLY in tailwindcss */
 	margin-inline: 0; /* 1 */
+	/* ❗️ ONLY in sanitize BUT different */
 	border-color: currentcolor; /* 2 */
+	/* ❗️ ONLY in sanitize BUT different */
 	border-style: solid; /* 2 */
 }
 
@@ -451,6 +535,7 @@ fieldset {
 The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 */
 
+/* ❌ */
 label,
 legend {
 	line-height: 1.375;
@@ -460,6 +545,7 @@ legend {
 Responsive by default by restricting sizing to the page width.
 */
 
+/* ❗️ ONLY in: sanitize/assets */
 input,
 select,
 textarea {
@@ -470,6 +556,7 @@ textarea {
 Set `vertical-align` to middle.
 */
 
+/* ❌ */
 [type="color" i],
 [type="range" i] {
 	vertical-align: middle;
@@ -479,6 +566,7 @@ Set `vertical-align` to middle.
 Maintain `hidden` behavior when overriding `display` values.
 */
 
+/* ❗️ NOT in: modern-normalize */
 [hidden] {
 	display: none;
 }
@@ -487,6 +575,7 @@ Maintain `hidden` behavior when overriding `display` values.
 Change the cursor on busy elements.
 */
 
+/* ❗️ ONLY in: sanitize */
 [aria-busy="true" i] {
 	cursor: progress;
 }
@@ -495,6 +584,7 @@ Change the cursor on busy elements.
 Change the cursor on disabled, not-editable, or otherwise inoperable elements.
 */
 
+/* ❗️ ONLY in: sanitize */
 [disabled],
 [aria-disabled="true" i] {
 	cursor: not-allowed;
@@ -504,10 +594,10 @@ Change the cursor on disabled, not-editable, or otherwise inoperable elements.
 Change the display on visually hidden accessible elements.
 */
 
+/* ❗️ ONLY in: sanitize */
 [aria-hidden="false" i][hidden] {
 	display: initial;
 }
-
 [aria-hidden="false" i][hidden]:not(:focus) {
 	/* Visually hidden styles */
 	position: absolute !important;
@@ -527,6 +617,8 @@ Change the display on visually hidden accessible elements.
 */
 
 summary {
+	/* ✅ */
 	display: list-item; /* 1 */
+	/* ❌ */
 	cursor: default; /* 2 */
 }
