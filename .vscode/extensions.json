@@ -1,7 +1,6 @@
 {
 	"recommendations": [
 		"EditorConfig.EditorConfig",
-		"esbenp.prettier-vscode",
-		"stylelint.vscode-stylelint"
+		"esbenp.prettier-vscode"
 	]
 }
