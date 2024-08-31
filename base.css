@@ -15,8 +15,6 @@
 *::after {
 	box-sizing: border-box; /* 1 */
 	background-repeat: no-repeat; /* 2 */
-	/* stylelint-disable-next-line property-no-vendor-prefix -- Intended. */
-	-webkit-mask-repeat: no-repeat; /* 3 */
 	mask-repeat: no-repeat; /* 3 */
 }
 
