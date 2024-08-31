@@ -353,15 +353,13 @@ iframe {
 ======================================== */
 
 /*
-1. Remove text indentation from table contents in Chrome, Edge, and Safari.
-2. Collapse border spacing.
-3. Correct table border color inheritance in Chrome, Edge, and Safari.
+1. Collapse border spacing.
+2. Correct table border color inheritance in Chrome, Edge, and Safari.
 */
 
 table {
-	text-indent: 0; /* 1 */
-	border-collapse: collapse; /* 2 */
-	border-color: currentcolor; /* 3 */
+	border-collapse: collapse; /* 1 */
+	border-color: currentcolor; /* 2 */
 }
 
 /*
