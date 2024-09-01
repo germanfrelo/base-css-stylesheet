@@ -8,7 +8,7 @@ LAST UPDATED
 
 COMPARED PROJECTS
 
-(most popular AND frequently maintained)
+(most popular AND modern AND frequently maintained)
 
 1. csstools/sanitize.css (v13.0.0)
 	Complements:
@@ -21,7 +21,7 @@ COMPARED PROJECTS
 TO DO:
 - csstools/normalize.css (v12.1.1):
 	- normalize.css
-	- opinionated.css -> TO DO
+	- opinionated.css
 
 ----------------------------------------
 
@@ -153,10 +153,9 @@ body {
 Correct the font size and margin on `h1` elements within `section` and `article` contexts in Chrome, Firefox, and Safari.
 */
 
+/* ❗️ NOT in: modern-normalize, tailwindcss (margin = 0); ONLY in: sanitize */
 h1 {
-	/* ❗️ NOT in: modern-normalize, tailwindcss (= 0); ONLY in: sanitize */
 	margin-block: 0.67em;
-	/* ❗️ NOT in: modern-normalize, tailwindcss */
 	font-size: 2em;
 }
 
