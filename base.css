@@ -101,7 +101,7 @@ body {
 }
 
 /*
-Correct the font size and margin on `h1` elements within `section` and `article` contexts in Chrome, Edge, Firefox, and Safari.
+Correct the font size and margin on `h1` elements within `section` and `article` contexts in Chrome, Firefox, and Safari.
 */
 
 h1 {
@@ -176,7 +176,7 @@ hr {
 	border-width: 1px 0 0; /* 2 */
 }
 
-/* Remove the margins on all nested lists in Chrome, Edge, and Safari (Firefox already does it). */
+/* Remove the margins on all nested lists in Chrome and Safari. */
 
 :is(ol, ul) :is(dl, menu),
 :is(dl, menu) :is(ol, ul, dl, menu) {
@@ -222,7 +222,7 @@ abbr[title] {
 }
 
 /*
-Add the correct font weight in Chrome, Edge, and Safari.
+Add the correct font weight in Chrome and Safari.
 */
 
 b,
@@ -347,7 +347,7 @@ iframe {
 
 /*
 1. Collapse border spacing.
-2. Correct table border color inheritance in Chrome, Edge, and Safari.
+2. Correct table border color inheritance in Chrome and Safari.
 */
 
 table {
@@ -412,7 +412,7 @@ button,
 }
 
 /*
-Correct the odd appearance in Chrome, Edge, and Safari.
+Correct the odd appearance in Chrome and Safari.
 */
 
 [type="search" i] {
@@ -420,7 +420,7 @@ Correct the odd appearance in Chrome, Edge, and Safari.
 }
 
 /*
-Correct the text style of placeholders in Chrome, Edge, and Safari.
+Correct the text style of placeholders in Chrome and Safari.
 */
 
 ::-webkit-input-placeholder {
