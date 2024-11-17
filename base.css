@@ -446,11 +446,9 @@ Change the display on visually hidden accessible elements.
 ======================================== */
 
 /*
-1. Add the correct display in Safari.
-2. Change the cursor to feel it's interactive.
+Change the cursor for <summary> to feel it's interactive.
 */
 
-summary {
-	display: list-item; /* 1 */
-	cursor: default; /* 2 */
+:where(details > summary:first-of-type) {
+	cursor: default;
 }
