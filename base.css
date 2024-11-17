@@ -93,14 +93,6 @@ body {
 }
 
 /*
-Keep `h1` margins consistent, even when nested inside sectioning elements (article, aside, nav, section). Reference: https://github.com/whatwg/html/issues/7867.
-*/
-
-h1 {
-	margin-block: 0.67em;
-}
-
-/*
 Switch to rem units for headings.
 */
 
