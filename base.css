@@ -19,14 +19,12 @@
 1. Breaks words to prevent text overflow.
 2. Use a 4-space tab width instead of the default 8.
 3. Prevent WebKit-based browsers on iOS (all iOS browsers) from automatically increasing the default text size in landscape orientation. Reference: https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
-4. Prevent unwanted layout shifts caused by scrollbars when text get longer.
 */
 
 html {
 	overflow-wrap: break-word; /* 1 */
 	tab-size: 4; /* 2 */
 	-webkit-text-size-adjust: none; /* 3 */
-	scrollbar-gutter: stable; /* 4 */
 }
 
 /*
