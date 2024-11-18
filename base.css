@@ -147,13 +147,16 @@ hr {
 }
 
 /*
-Replace `40px` indents with `2.5em` indents.
+Remove default inline margin of `40px` from `blockquote` and `figure` elements in favor of better control in authored CSS.
 */
 
-blockquote,
-figure {
-	margin-inline: 2.5em;
+:where(blockquote, figure) {
+	margin-inline: 0;
 }
+
+/*
+Replace `40px` indents with `2.5em` indents.
+*/
 
 ul,
 ol,
