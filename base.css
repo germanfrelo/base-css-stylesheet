@@ -155,17 +155,16 @@ Remove default inline margin of `40px` from `blockquote` and `figure` elements i
 }
 
 /*
-Replace `40px` indents with `2.5em` indents.
+Use a better indentation for lists instead of the default `40px`.
+Based on https://github.com/jensimmons/cssremedy/issues/17
 */
 
-ul,
-ol,
-menu {
-	padding-inline-start: 2.5em;
+:where(ul, ol, menu) {
+	padding-inline-start: 1.25em;
 }
 
-dd {
-	margin-inline-start: 2.5em;
+:where(dd) {
+	margin-inline-start: 1.25em;
 }
 
 /* Text-level semantics
