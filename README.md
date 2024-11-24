@@ -5,7 +5,7 @@
 > [!NOTE]
 > This is a **work in progress**.
 
-This is my Modern CSS Reset: a set of baseline styles that I use whenever I start a new project.
+This is my CSS reset: a set of baseline styles that I use whenever I start a new project.
 
 See the [source file](./base.css).
 
@@ -26,9 +26,17 @@ Modern browsers (not Internet Explorer).
 
 ## Usage
 
-```html
-<link rel="stylesheet" href="https://germanfrelo.github.io/base-css-stylesheet/base.css" />
-```
+- **Option 1: Direct Copy**
+  
+  Copy the contents of [the stylesheet](./base.css) and paste it into your CSS file.
+
+- **Option 2: Link to the Latest Version**
+  
+  Alternatively, you can link to the most recent version of the stylesheet in your HTML file:
+
+  ```html
+  <link rel="stylesheet" href="https://germanfrelo.github.io/base-css-stylesheet/base.css" />
+  ```
 
 ## Testing
 
