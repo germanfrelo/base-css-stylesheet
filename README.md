@@ -5,10 +5,9 @@
 > [!NOTE]
 > This is a **work in progress**.
 
-This is my custom base stylesheet: a set of baseline styles that I use whenever I start a new project.
+This is my CSS reset: a set of baseline styles that I use whenever I start a new project.
 
-- [Source](./base.css)
-- [Raw file](https://raw.githubusercontent.com/germanfrelo/base-css-stylesheet/main/base.css)
+See the [source file](./base.css).
 
 ## Features
 
@@ -27,7 +26,17 @@ Modern browsers (not Internet Explorer).
 
 ## Usage
 
-- [Raw file](https://raw.githubusercontent.com/germanfrelo/base-css-stylesheet/main/base.css)
+- **Option 1: Direct Copy**
+  
+  Copy the contents of [the stylesheet](./base.css) and paste it into your CSS file.
+
+- **Option 2: Link to the Latest Version**
+  
+  Alternatively, you can link to the most recent version of the stylesheet in your HTML file:
+
+  ```html
+  <link rel="stylesheet" href="https://germanfrelo.github.io/base-css-stylesheet/base.css" />
+  ```
 
 ## Testing
 
