@@ -39,9 +39,9 @@ ANNOTATIONS
 ======================================== */
 
 /**
- * 1. Use border box sizing by default, globally (opinionated).
- * 2. Backgrounds do not repeat by default (opinionated).
- * 3. Mask images do not repeat by default (opinionated).
+1. Use border box sizing by default, globally (opinionated).
+2. Backgrounds do not repeat by default (opinionated).
+3. Mask images do not repeat by default (opinionated).
 */
 
 /* ✅ */
@@ -57,7 +57,7 @@ ANNOTATIONS
 1. Use a sans serif font by default.
 2. The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 3. Breaks words to prevent text overflow.
-4. Use a 4-space tab width instead of the default 8.
+4. Use a more readable tab size than the default (8). [Opinionated]
 5. Prevent WebKit-based browsers on iOS (all iOS browsers) from automatically increasing the default text size in landscape orientation. Reference:
 - https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
 - https://css-tricks.com/your-css-reset-needs-text-size-adjust-probably/
@@ -129,7 +129,7 @@ Add scroll margin to all elements which can be targeted.
 ======================================== */
 
 /*
-Remove the tiny space around the edge of the page.
+Remove the default 8px margin on the body.
 */
 
 /* ✅ */
@@ -216,12 +216,11 @@ pre {
 }
 
 /*
-1. Correct the inheritance of border color in Firefox (it removes `color: gray`). Issue: https://bugzilla.mozilla.org/show_bug.cgi?id=190655.
-2. Consistent appearance (solid, thin border).
+A better default, consistent appearance . [Opinionated]
 */
 
 hr {
-	/* ✅ */
+	/* ❗️ NOT in: modern-normalize */
 	color: inherit; /* 1 */
 	/* ❗️ NOT in: modern-normalize, sanitize */
 	border-style: solid; /* 2 */
@@ -229,7 +228,9 @@ hr {
 	border-width: 1px 0 0; /* 2 */
 }
 
-/* Remove the margins on all nested lists in Chrome and Safari. */
+/*
+Remove the margins on all nested lists in Chrome and Safari.
+*/
 
 /* ❗️ NOT in: modern-normalize */
 :is(ol, ul) :is(dl, menu),
@@ -404,7 +405,7 @@ iframe {
 
 /*
 1. Collapse border spacing.
-2. Correct table border color inheritance in Chrome and Safari.
+2. Correct table border color inheritance in Chrome (https://issues.chromium.org/issues/40615503) and Safari (https://bugs.webkit.org/show_bug.cgi?id=195016).
 */
 
 table {
