@@ -7,6 +7,26 @@
 
 This is my CSS reset: a set of baseline styles that I use whenever I start a new project.
 
+An opinionated set of base styles for front-end web projects.
+
+A best practices CSS foundation for websites as a reliable starting point for your CSS.
+
+This stylesheet provides consistent, cross-browser default styling of HTML elements, along with common and useful defaults that adhere to common developer expectations and preferences.
+
+What does it do?
+
+- Normalizes styles for a wide range of elements.
+- Fixes bugs and common browser inconsistencies.
+- Provides common, useful defaults.
+- Explains what the code does with detailed comments.
+
+A foundational CSS library designed specifically for WordPress websites. It provides consistent, cross-browser styling for HTML elements, along with helpful default styles that adhere to common developer practices. By normalizing styles and addressing browser inconsistencies, this library offers a reliable starting point for your CSS, ensuring a predictable and visually appealing appearance across different browsers and devices.
+
+- csstools/sanitize.css: A best-practices CSS foundation. sanitize.css is a CSS library that provides consistent, cross-browser default styling of HTML elements alongside useful defaults.
+- sindresorhus/modern-normalize: Normalize browsers' default style.
+- jensimmons/cssremedy: Start your project with a remedy for the technical debt of CSS.
+- tailwindlabs/tailwindcss: Preflight: An opinionated set of base styles for Tailwind projects. Built on top of modern-normalize, Preflight is a set of base styles for Tailwind projects that are designed to smooth over cross-browser inconsistencies and make it easier for you to work within the constraints of your design system. While most of the styles in Preflight are meant to go unnoticed — they simply make things behave more like you’d expect them to — some are more opinionated and can be surprising when you first encounter them.
+
 See the [source file](./base.css).
 
 ## Features
@@ -16,13 +36,14 @@ See the [source file](./base.css).
   - [@csstools/sanitize.css](https://github.com/csstools/sanitize.css)
   - [@sindresorhus/modern-normalize](https://github.com/sindresorhus/modern-normalize)
   - [@jensimmons/cssremedy](https://github.com/jensimmons/cssremedy)
-  - [@andy-piccalilli/modern-css-reset](https://github.com/andy-piccalilli/modern-css-reset)
+  - [A (more) Modern CSS Reset by Andy Bell](https://piccalil.li/blog/a-more-modern-css-reset/)
   - [Josh Comeau's Custom CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset)
-- It's actively maintained and up to date.
+  - [Open Props's normalize stylesheet](https://github.com/argyleink/open-props/blob/main/src/extra/normalize.src.css)
+- Actively maintained.
 
 ## Browser support
 
-Modern browsers (not Internet Explorer).
+Modern browsers.
 
 ## Usage
 
