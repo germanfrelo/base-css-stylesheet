@@ -17,7 +17,7 @@
 
 /*
 1. Use a sans serif font by default.
-2. The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
+2. The default 'normal' line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 3. Breaks words to prevent text overflow.
 4. Use a 4-space tab width instead of the default 8.
 5. Prevent WebKit-based browsers on iOS (all iOS browsers) from automatically increasing the default text size in landscape orientation. Reference:
@@ -101,7 +101,7 @@ body {
 }
 
 /*
-Correct the font size and margin on `h1` elements within `section` and `article` contexts in Chrome, Firefox, and Safari.
+Correct the font size and margin on 'h1' elements within 'section' and 'article' contexts in Chrome, Firefox, and Safari.
 */
 
 h1 {
@@ -110,7 +110,7 @@ h1 {
 }
 
 /*
-The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
+The default 'normal' line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 */
 
 h1,
@@ -155,7 +155,7 @@ h6 {
 
 /*
 1. Correct the inheritance and scaling of font size in all browsers.
-2. Correct the odd `em` font sizing in all browsers.
+2. Correct the odd 'em' font sizing in all browsers.
 3. Prevent overflow of the container.
 */
 
@@ -166,7 +166,7 @@ pre {
 }
 
 /*
-1. Correct the inheritance of border color in Firefox (it removes `color: gray`). Issue: https://bugzilla.mozilla.org/show_bug.cgi?id=190655.
+1. Correct the inheritance of border color in Firefox (it removes 'color: gray'). Issue: https://bugzilla.mozilla.org/show_bug.cgi?id=190655.
 2. Consistent appearance (solid, thin border).
 */
 
@@ -177,7 +177,7 @@ hr {
 }
 
 /*
-The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
+The default 'normal' line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 */
 
 figcaption {
@@ -185,7 +185,7 @@ figcaption {
 }
 
 /*
-Replace `40px` indents with `2.5em` indents.
+Replace '40px' indents with '2.5em' indents.
 */
 
 blockquote,
@@ -217,7 +217,7 @@ strong {
 
 /*
 1. Correct the inheritance and scaling of font size in all browsers.
-2. Correct the odd `em` font sizing in all browsers.
+2. Correct the odd 'em' font sizing in all browsers.
 */
 
 code,
@@ -233,7 +233,7 @@ samp {
 /*
 1. Block display is usually what we want.
 2. Responsive by default.
-3. The `vertical-align` removes strange space-below in case authors overwrite the `display` value.
+3. The 'vertical-align' removes strange space-below in case authors overwrite the 'display' value.
 */
 
 img,
@@ -251,7 +251,7 @@ object {
 
 /*
 The display is inline by default, but that's not the expected behavior. This can interfere with proper layout and aspect-ratio handling.
-1. Remove the unnecessary wrapping `picture`, while maintaining contents.
+1. Remove the unnecessary wrapping 'picture', while maintaining contents.
 2. Source elements have nothing to display, so we hide them entirely.
 */
 
@@ -264,7 +264,7 @@ source {
 }
 
 /*
-Maintain intrinsic aspect ratios when `max-inline-size` is applied (`iframe`, `embed, and `object` are also embedded, but have no intrinsic ratio, so their `block-size` needs to be set explicitly).
+Maintain intrinsic aspect ratios when 'max-inline-size' is applied ('iframe', 'embed, and 'object' are also embedded, but have no intrinsic ratio, so their 'block-size' needs to be set explicitly).
 */
 
 img,
@@ -313,7 +313,7 @@ table {
 }
 
 /*
-The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
+The default 'normal' line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 */
 
 caption {
@@ -321,7 +321,7 @@ caption {
 }
 
 /*
-Make `th` alignment consistent with `td` alignment.
+Make 'th' alignment consistent with 'td' alignment.
 */
 
 th {
@@ -378,7 +378,7 @@ Correct the text style of placeholders in Chrome and Safari.
 }
 
 /*
-1. Change font properties to `inherit` in Safari.
+1. Change font properties to 'inherit' in Safari.
 2. Correct the inability to style upload buttons in iOS and Safari.
 */
 
@@ -399,7 +399,7 @@ fieldset {
 }
 
 /*
-The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
+The default 'normal' line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 */
 
 label,
@@ -418,7 +418,7 @@ textarea {
 }
 
 /*
-Set `vertical-align` to middle.
+Set 'vertical-align' to middle.
 */
 
 [type="color" i],
@@ -427,7 +427,7 @@ Set `vertical-align` to middle.
 }
 
 /*
-Maintain `hidden` behavior when overriding `display` values.
+Maintain 'hidden' behavior when overriding 'display' values.
 */
 
 [hidden] {
