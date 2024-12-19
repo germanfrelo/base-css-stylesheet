@@ -369,14 +369,6 @@ button,
 }
 
 /*
-Correct the odd appearance in Chrome and Safari.
-*/
-
-[type="search" i] {
-	-webkit-appearance: textfield;
-}
-
-/*
 Correct the text style of placeholders in Chrome and Safari.
 */
 
