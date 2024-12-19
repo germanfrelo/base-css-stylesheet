@@ -176,13 +176,6 @@ hr {
 	border-width: 1px 0 0; /* 2 */
 }
 
-/* Remove the margins on all nested lists in Chrome and Safari. */
-
-:is(ol, ul) :is(dl, menu),
-:is(dl, menu) :is(ol, ul, dl, menu) {
-	margin-block: 0;
-}
-
 /*
 The default `normal` line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 */
@@ -223,14 +216,6 @@ strong {
 }
 
 /*
-Add the correct font size in all browsers.
-*/
-
-small {
-	font-size: 80%;
-}
-
-/*
 1. Correct the inheritance and scaling of font size in all browsers.
 2. Correct the odd `em` font sizing in all browsers.
 */
@@ -240,26 +225,6 @@ kbd,
 samp {
 	font-family: monospace, monospace; /* 1 */
 	font-size: 1em; /* 2 */
-}
-
-/*
-Prevent `sub` and `sup` elements from affecting the line height.
-*/
-
-sub,
-sup {
-	position: relative;
-	font-size: 75%;
-	line-height: 0;
-	vertical-align: baseline;
-}
-
-sub {
-	inset-block-end: -0.25em;
-}
-
-sup {
-	inset-block-start: -0.5em;
 }
 
 /* Embedded content
@@ -404,14 +369,6 @@ button,
 }
 
 /*
-Correct the odd appearance in Chrome and Safari.
-*/
-
-[type="search" i] {
-	-webkit-appearance: textfield;
-}
-
-/*
 Correct the text style of placeholders in Chrome and Safari.
 */
 
@@ -516,11 +473,9 @@ Change the display on visually hidden accessible elements.
 ======================================== */
 
 /*
-1. Add the correct display in Safari.
-2. Change the cursor to feel it's interactive.
+Change the cursor to feel it's interactive.
 */
 
 summary {
-	display: list-item; /* 1 */
-	cursor: default; /* 2 */
+	cursor: default;
 }
