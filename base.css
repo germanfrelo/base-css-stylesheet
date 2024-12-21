@@ -1,10 +1,10 @@
-/* Document
+/* Global
 ======================================== */
 
 /**
- * 1. Use border box sizing by default, globally (opinionated).
- * 2. Backgrounds do not repeat by default (opinionated).
- * 3. Mask images do not repeat by default (opinionated).
+1. Use the more intuitive alternative box model, globally (default is content-box).
+2. Don't repeat background images by default.
+3. Don't repeat mask images by default.
 */
 
 *,
@@ -18,11 +18,9 @@
 /*
 1. Use a sans serif font by default.
 2. The default 'normal' line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
-3. Breaks words to prevent text overflow.
-4. Use a 4-space tab width instead of the default 8.
-5. Prevent WebKit-based browsers on iOS (all iOS browsers) from automatically increasing the default text size in landscape orientation. Reference:
-- https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
-- https://css-tricks.com/your-css-reset-needs-text-size-adjust-probably/
+3. Break words when there is not enough space to prevent text overflow.
+4. Use a more readable and reasonable tab size (default is 8).
+5. Prevent WebKit-based browsers on iOS from automatically increasing the default font size in landscape orientation (see https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/).
 6. Prevent unwanted layout shifts caused by scrollbars when text get longer.
 */
 
@@ -82,15 +80,15 @@ Reference: https://piccalil.li/blog/a-more-modern-css-reset/
 ======================================== */
 
 /*
-1. Remove the tiny space around the edge of the page.
+Remove the usually unwanted default body margin of 8px in favor of better control in authored CSS.
 */
 
 body {
-	margin: 0; /* 1 */
+	margin: 0;
 }
 
 /*
-Allow percentage-based heights.
+Make easier to make <main> element fill the entire viewport height in case using 100vh is not wanted.
 */
 
 html {
@@ -102,10 +100,11 @@ body {
 }
 
 /*
-Correct the font size and margin on 'h1' elements within 'section' and 'article' contexts in Chrome, Firefox, and Safari.
+Prevent the font size and margin of 'h1' element from decreasing when nested inside sectioning elements (article, aside, nav, section).
+Reference: https://github.com/whatwg/html/issues/7867
 */
 
-h1 {
+:where(h1) {
 	margin-block: 0.67em;
 	font-size: 2em;
 }
@@ -167,14 +166,20 @@ pre {
 }
 
 /*
-1. Correct the inheritance of border color in Firefox (it removes 'color: gray'). Issue: https://bugzilla.mozilla.org/show_bug.cgi?id=190655.
-2. Consistent appearance (solid, thin border).
+Give 'hr' element a more modern default look, and make it easier to customize:
+- Color: use 'color' or 'border-color'
+- Style: use 'border-style'
+- Width: use 'border-block-start-width'
+1. Needed to override the default 'gray' color set by Firefox and Safari (which correctly follow the HTML spec: https://html.spec.whatwg.org/multipage/rendering.html#the-hr-element-2).
+2. Default is 'inset'.
+3. Default is 1px (= 2px height).
 */
 
 hr {
 	color: inherit; /* 1 */
 	border-style: solid; /* 2 */
-	border-width: 1px 0 0; /* 2 */
+	border-width: 0; /* 3 */
+	border-block-start-width: 2px;
 }
 
 /*
@@ -186,34 +191,53 @@ figcaption {
 }
 
 /*
-Replace '40px' indents with '2.5em' indents.
+Remove the default 40px indentation from 'figure' and 'menu' elements, which is usually not wanted, in favor of better control in authored CSS.
 */
 
-blockquote,
 figure {
-	margin-inline: 2.5em;
+	margin-inline: 0;
 }
 
-ul,
-ol,
 menu {
-	padding-inline-start: 2.5em;
+	padding-inline-start: 0;
 }
 
-dd {
-	margin-inline-start: 2.5em;
+/*
+Replace the default 40px indentation of 'blockquote', 'dd', 'ol' and 'ul' elements with a value relative to the font.
+Loosely based on https://github.com/jensimmons/cssremedy/issues/17
+*/
+
+:where(blockquote) {
+	margin-inline: 3ch;
+}
+
+:where(dd) {
+	margin-inline-start: 3ch;
+}
+
+:where(ol, ul) {
+	padding-inline-start: 3ch;
+}
+
+/*
+Increase the gap after the list marker for 'ol' and 'ul' elements.
+*/
+
+:where(:is(ol, ul) > li) {
+	padding-inline-start: 0.5ch;
 }
 
 /* Text-level semantics
 ======================================== */
 
 /*
-Add the correct font weight in Chrome and Safari.
+Keep the default font weight of 'b' and 'strong' elements consistent across browsers.
+Reference: https://css-tricks.com/firefoxs-bolder-default-is-a-problem-for-variable-fonts/
 */
 
 b,
 strong {
-	font-weight: bolder;
+	font-weight: bold;
 }
 
 /*
@@ -232,25 +256,56 @@ samp {
 ======================================== */
 
 /*
-1. Block display is usually what we want.
-2. Responsive by default.
-3. The 'vertical-align' removes strange space-below in case authors overwrite the 'display' value.
+Block by default is usually what we want/the most common use case (default is 'inline').
 */
 
-img,
-svg,
-video,
-canvas,
 audio,
-iframe,
+canvas,
 embed,
-object {
-	display: block; /* 1 */
-	max-inline-size: 100%; /* 2 */
-	vertical-align: middle; /* 3 */
+iframe,
+img,
+object,
+video {
+	display: block;
 }
 
 /*
+Responsive by default to prevent them from growing beyond the container.
+*/
+
+audio,
+canvas,
+embed,
+iframe,
+img,
+object,
+svg,
+video {
+	max-inline-size: 100%;
+}
+
+/*
+Maintain intrinsic aspect ratios when 'max-inline-size' is applied.
+Note: <embed>, <iframe> and <object> elements have no intrinsic ratio, so their 'block-size' needs to be set explicitly.
+*/
+
+canvas,
+img,
+svg,
+video {
+	block-size: auto;
+}
+
+/*
+There is no good reason <audio> element default to 300px, and audio files are unlikely to come with a 'width' attribute.
+*/
+
+audio {
+	inline-size: 100%;
+}
+
+/*
+TODO: REMOVE THIS?
 The display is inline by default, but that's not the expected behavior. This can interfere with proper layout and aspect-ratio handling.
 1. Remove the unnecessary wrapping 'picture', while maintaining contents.
 2. Source elements have nothing to display, so we hide them entirely.
@@ -265,18 +320,7 @@ source {
 }
 
 /*
-Maintain intrinsic aspect ratios when 'max-inline-size' is applied ('iframe', 'embed, and 'object' are also embedded, but have no intrinsic ratio, so their 'block-size' needs to be set explicitly).
-*/
-
-img,
-svg,
-video,
-canvas {
-	block-size: auto;
-}
-
-/*
-There is no good reason elements default to 300px, and audio files are unlikely to come with a width attribute.
+There is no good reason <audio> element default to 300px, and audio files are unlikely to come with a 'width' attribute.
 */
 
 audio {
@@ -284,10 +328,20 @@ audio {
 }
 
 /*
-SVGs without a specified 'fill' color will use the inherited text color.
+TODO: Too opinionated? Remove it?
+Use a more useful 'vertical-align' default value for SVGs (default is 'baseline'), in case authors want to use them as inline icons.
 */
 
-svg:where(:not([fill])) {
+svg {
+	vertical-align: middle;
+}
+
+/*
+TODO: Too opinionated? Remove it?
+Make SVGs inherit color if neither they nor their <path> elements have a 'fill' attribute.
+*/
+
+svg:where(:not([fill]):has(> path:not([fill]))) {
 	fill: currentcolor;
 }
 
@@ -330,6 +384,7 @@ th {
 }
 
 /*
+TODO: Very opinionated? Remove it?
 Add paddings and borders to table cells.
 */
 
@@ -344,38 +399,79 @@ td {
 ======================================== */
 
 /*
-1. Remove the margin on controls in all browsers.
-2. Add typography inheritance.
+1. Responsive by default by restricting sizing to the page width.
+2. Remove the margin on controls in all browsers.
+3. Add typography inheritance.
+4. TODO: Include this? See UA styles. Better default look and easier to customize.
 */
 
 button,
 input,
 select,
 textarea {
-	margin: 0; /* 1 */
-	font: inherit; /* 2 */
-	letter-spacing: inherit; /* 2 */
-	word-spacing: inherit; /* 2 */
+	max-inline-size: 100%; /* 1 */
+	margin: 0; /* 2 */
+	font: inherit; /* 3 */
+	letter-spacing: inherit; /* 3 */
+	word-spacing: inherit; /* 3 */
+	color: inherit; /* 4 */
+	background-color: inherit; /* 4 */
+	border: 0.125em solid; /* 4 */
 }
 
 /*
-Correct the inability to style buttons in iOS and Safari.
+TODO: Review this.
+Under-Engineered Text Boxen
+https://adrianroselli.com/2019/09/under-engineered-text-boxen.html
 */
 
-button,
-[type="button" i],
-[type="reset" i],
-[type="submit" i] {
-	-webkit-appearance: button;
+textarea,
+input:not([type="checkbox"]):not([type="file"]):not([type="image"]):not([type="radio"]):not([type="range"]) {
+	border: 0.0625em solid;
+	padding: 0.5em;
+}
+
+textarea:focus,
+input:not([type="checkbox"]):not([type="file"]):not([type="image"]):not([type="radio"]):not([type="range"]):focus {
+	outline: 0.125em solid #00f;
+	box-shadow: 0 0 0.5em #0bf;
+}
+
+textarea[readonly],
+input:not([type="checkbox"]):not([type="file"]):not([type="image"]):not([type="radio"]):not([type="range"])[readonly] {
+	border-color: rgba(0, 0, 0, 0.42);
+	border-block-start: none;
+	border-inline-start: none;
+	border-inline-end: none;
+}
+
+textarea[required],
+input:not([type="checkbox"]):not([type="file"]):not([type="image"]):not([type="radio"]):not([type="range"])[required] {
+	border-inline-start-width: 0.3em;
+}
+
+textarea[aria-invalid="true"],
+textarea[aria-invalid="spelling"],
+textarea[aria-invalid="grammar"],
+input:not([type="checkbox"]):not([type="file"]):not([type="image"]):not([type="radio"]):not([type="range"])[aria-invalid] {
+	background: linear-gradient(135deg, rgba(255, 0, 0, 1) 0, rgba(255, 0, 0, 1) 0.4em, rgba(255, 255, 255, 1) 0.4em);
+}
+
+*[dir="rtl"] textarea[aria-invalid="true"],
+*[dir="rtl"] textarea[aria-invalid="spelling"],
+*[dir="rtl"] textarea[aria-invalid="grammar"],
+*[dir="rtl"] input:not([type="checkbox"]):not([type="file"]):not([type="image"]):not([type="radio"]):not([type="range"])[aria-invalid] {
+	background: linear-gradient(225deg, rgba(255, 0, 0, 1) 0, rgba(255, 0, 0, 1) 0.4em, rgba(255, 255, 255, 1) 0.4em);
 }
 
 /*
+TODO: Make ::placeholder easier to customize?
 Correct the text style of placeholders in Chrome and Safari.
 */
 
-::-webkit-input-placeholder {
+::placeholder {
 	color: inherit;
-	opacity: 0.54;
+	opacity: 1;
 }
 
 /*
@@ -389,7 +485,7 @@ Correct the text style of placeholders in Chrome and Safari.
 }
 
 /*
-1. Remove the margin.
+1. Remove the default margin.
 2. Change the border appearance.
 */
 
@@ -409,16 +505,6 @@ legend {
 }
 
 /*
-Responsive by default by restricting sizing to the page width.
-*/
-
-input,
-select,
-textarea {
-	max-inline-size: 100%;
-}
-
-/*
 Set 'vertical-align' to middle.
 */
 
@@ -427,12 +513,18 @@ Set 'vertical-align' to middle.
 	vertical-align: middle;
 }
 
+/* Accessibility
+======================================== */
+
 /*
-Maintain 'hidden' behavior when overriding 'display' values.
+Make elements with a 'hidden' attribute stay hidden even if a different display value is set.
+References:
+- https://github.com/jensimmons/cssremedy/commit/64106f4
+- https://github.com/tailwindlabs/tailwindcss/commit/b570e2b
 */
 
-[hidden] {
-	display: none;
+[hidden]:where(:not([hidden="until-found"])) {
+	display: none !important;
 }
 
 /*
@@ -474,7 +566,8 @@ Change the display on visually hidden accessible elements.
 ======================================== */
 
 /*
-Set the cursor for 'summary' elements to be the same as buttons by default, so they feel more interactive.
+Set the cursor for 'summary' element to be the same as buttons by default, so they feel more interactive.
+Use the same default cursor used for buttons to make it feel interactive (default is 'text').
 */
 
 :where(details > summary:first-of-type) {
