@@ -70,11 +70,12 @@ When users prefer reduced motion:
 }
 
 /*
-Add scroll margin to all elements which can be targeted.
+Anything that has been anchored to should have extra scroll margin.
+Reference: https://piccalil.li/blog/a-more-modern-css-reset/
 */
 
-[id] {
-	scroll-margin-block-start: 2ex;
+:target {
+	scroll-margin-block: 5ex;
 }
 
 /* Sections
