@@ -283,10 +283,10 @@ audio {
 }
 
 /*
-Change the fill color to match the text color.
+SVGs without a specified 'fill' color will use the inherited text color.
 */
 
-svg:not([fill]) {
+svg:where(:not([fill])) {
 	fill: currentcolor;
 }
 
