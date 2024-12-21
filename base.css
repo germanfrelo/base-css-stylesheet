@@ -473,9 +473,9 @@ Change the display on visually hidden accessible elements.
 ======================================== */
 
 /*
-Change the cursor to feel it's interactive.
+Set the cursor for 'summary' elements to be the same as buttons by default, so they feel more interactive.
 */
 
-summary {
+:where(details > summary:first-of-type) {
 	cursor: default;
 }
