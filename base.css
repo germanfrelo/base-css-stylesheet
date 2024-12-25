@@ -27,7 +27,7 @@ Reference: https://wiki.csswg.org/ideas/mistakes
 2. The default 'normal' line-height is tightly spaced, but takes font metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 3. Break words when there is not enough space to prevent text overflow.
 4. Use a shorter, more readable tab size (default is 8).
-5. Prevent WebKit-based browsers on iOS from automatically increasing the default font size in landscape orientation (see https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/).
+5. Prevent WebKit-based browsers on iOS from automatically increasing the default font size in landscape orientation (demo: https://codepen.io/germanfrelo/pen/JoPJVxd).
 6. Prevent unwanted layout shifts caused by scrollbars when text gets longer.
 */
 
@@ -83,7 +83,7 @@ Reference: https://piccalil.li/blog/a-more-modern-css-reset/
 	scroll-margin-block: 5ex;
 }
 
-/* Body
+/* Page
 ================================================== */
 
 /*
@@ -95,7 +95,9 @@ body {
 }
 
 /*
-Make easier to make 'main' element fill the entire viewport height in case using 100vh is not wanted.
+Make 'html' and 'body' fill the viewport height to make it easier to have a sticky footer using Flexbox or Grid.
+Sticky footer pattern: the footer of the page "sticks" to the bottom of the viewport even if the content is shorter than the viewport height.
+Example: https://codepen.io/germanfrelo/pen/jOGNpbj
 */
 
 html {
@@ -111,7 +113,12 @@ body {
 
 /*
 Prevent the 'font-size' and 'margin' of 'h1' from decreasing when nested inside sectioning elements (article, aside, nav, section).
-Reference: https://github.com/whatwg/html/issues/7867
+Keep h1 font size and margins consistent, even when nested.
+All three major browser engines (Blink, Gecko, and WebKit) map the formatting of an 'h1' to smaller headlines ('h2', 'h3', 'h4', 'h5', 'h6') according to how many levels deep it is inside a sectioning element ('article', 'aside', 'nav', 'section').
+References:
+- https://github.com/jensimmons/cssremedy/issues/2
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#avoid_using_multiple_h1_elements_on_one_page
+- https://github.com/whatwg/html/issues/7867
 */
 
 :where(h1) {
@@ -360,15 +367,15 @@ iframe {
 ================================================== */
 
 /*
-1. Prevent double borders.
-2. Fix the default table 'border-color: gray' on Chrome (bug: https://issues.chromium.org/issues/40615503).
-TODO: Too opinionated? 3. Ensure numbers line up (ref: https://github.com/jensimmons/cssremedy/issues/39#issuecomment-473012250)
+TODO: Too opinionated? 1. Ensure numbers line up (ref: https://github.com/jensimmons/cssremedy/issues/39#issuecomment-473012250)
+2. Prevent double borders.
+3. Fix the default table 'border-color: gray' on Chrome (bug: https://issues.chromium.org/issues/40615503).
 */
 
 table {
-	border-collapse: collapse; /* 1 */
-	border-color: currentcolor; /* 2 */
-	font-variant-numeric: tabular-nums; /* 3 */
+	font-variant-numeric: tabular-nums; /* 1 */
+	border-collapse: collapse; /* 2 */
+	border-color: currentcolor; /* 3 */
 }
 
 /*
@@ -463,12 +470,62 @@ legend {
 }
 
 /*
+Replace the default 2px inline padding of 'legend' with a value relative to the font.
+*/
+
+legend {
+	padding-inline: 0.125em;
+}
+
+/*
 Set 'vertical-align' to middle.
 */
 
 [type="color" i],
 [type="range" i] {
 	vertical-align: middle;
+}
+
+input,
+select,
+textarea {
+	padding: 0.125em 0.25em;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	padding: 0.125em 0.5em;
+}
+
+[type="checkbox"],
+[type="file"],
+[type="image"],
+[type="radio"],
+[type="range"] {
+	padding: revert;
+}
+
+input,
+select,
+textarea {
+	padding: 0.125em 0.25em;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	padding: 0.125em 0.5em;
+}
+
+[type="checkbox"],
+[type="file"],
+[type="image"],
+[type="radio"],
+[type="range"] {
+	padding: revert;
 }
 
 /*
@@ -481,8 +538,8 @@ button,
 input:not([type="checkbox"], [type="color"], [type="file"], [type="image"], [type="radio"], [type="range"]),
 select,
 textarea {
-	border: 0.125em solid;
 	padding: 0.5em;
+	border: 0.125em solid;
 }
 
 input:not([type="checkbox"], [type="color"], [type="file"], [type="image"], [type="radio"], [type="range"]):focus,
@@ -493,7 +550,7 @@ textarea:focus {
 
 input:not([type="checkbox"], [type="color"], [type="file"], [type="image"], [type="radio"], [type="range"])[readonly],
 textarea[readonly] {
-	border-color: rgba(0, 0, 0, 0.42);
+	border-color: rgb(0 0 0 / 42%);
 	border-block-start: none;
 	border-inline-start: none;
 	border-inline-end: none;
@@ -508,14 +565,14 @@ input:not([type="checkbox"], [type="color"], [type="file"], [type="image"], [typ
 textarea[aria-invalid="true"],
 textarea[aria-invalid="spelling"],
 textarea[aria-invalid="grammar"] {
-	background: linear-gradient(135deg, rgba(255, 0, 0, 1) 0, rgba(255, 0, 0, 1) 0.4em, rgba(255, 255, 255, 1) 0.4em);
+	background: linear-gradient(135deg, rgb(255 0 0 / 100%) 0, rgb(255 0 0 / 100%) 0.4em, rgb(255 255 255 / 100%) 0.4em);
 }
 
 *[dir="rtl"] input:not([type="checkbox"], [type="color"], [type="file"], [type="image"], [type="radio"], [type="range"])[aria-invalid],
 *[dir="rtl"] textarea[aria-invalid="true"],
 *[dir="rtl"] textarea[aria-invalid="spelling"],
 *[dir="rtl"] textarea[aria-invalid="grammar"] {
-	background: linear-gradient(225deg, rgba(255, 0, 0, 1) 0, rgba(255, 0, 0, 1) 0.4em, rgba(255, 255, 255, 1) 0.4em);
+	background: linear-gradient(225deg, rgb(255 0 0 / 100%) 0, rgb(255 0 0 / 100%) 0.4em, rgb(255 255 255 / 100%) 0.4em);
 }
 
 /* Hidden elements
@@ -529,7 +586,7 @@ References:
 - https://github.com/tailwindlabs/tailwindcss/commit/b570e2b
 */
 
-[hidden]:not([hidden="until-found" i]):not(embed) {
+[hidden]:not([hidden="until-found" i], embed) {
 	display: none !important;
 }
 
