@@ -183,20 +183,15 @@ pre {
 }
 
 /*
-Give 'hr' a more modern and reasonable default look, and make it easier to customize:
-- Color: use 'color' or 'border-color'
-- Style: use 'border-style'
-- Width: use 'border-block-start-width'
-1. Needed to override the default 'gray' color set by Firefox and Safari.
-2. Default is 'inset'.
-3. Default is 1px (= 2px height).
+Sets a consistent and modern default look for 'hr':
+1. Reverts the default gray color from Firefox and Safari, allowing 'color' or 'border-color' to style the 'hr'.
+2. Replaces the default '1px inset' border set on all sides with a single 'solid' border of the same height.
 */
 
 hr {
 	color: inherit; /* 1 */
-	border-style: solid; /* 2 */
-	border-width: 0; /* 3 */
-	border-block-start-width: 2px;
+	border: none; /* 2 */
+	border-block-start: 2px solid; /* 2 */
 }
 
 /*
