@@ -167,7 +167,7 @@ pre {
 }
 
 /*
-Sets a consistent and modern default look for 'hr'.
+Sets a consistent and modern default look for 'hr':
 1. Reverts the default 'gray' color in Firefox and Safari to allow the text foreground color to be used as the border color.
 2. Removes all default '1px inset' borders to instead use a single border with a 'solid' style and a border width of '2px' to have the same height as before.
 */
