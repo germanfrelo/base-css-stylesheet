@@ -70,11 +70,12 @@ When users prefer reduced motion:
 }
 
 /*
-Add scroll margin to all elements which can be targeted.
+When scrolling to target elements, a reasonable spacing is added above them to ensure they remain visible, especially with sticky headers or similar. Adjust as needed.
+Reference: https://piccalil.li/blog/a-more-modern-css-reset/
 */
 
-[id] {
-	scroll-margin-block-start: 2ex;
+:target {
+	scroll-margin-block-start: 5em;
 }
 
 /* Sections
