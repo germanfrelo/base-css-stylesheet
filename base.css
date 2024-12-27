@@ -105,7 +105,7 @@ body {
 Correct the font size and margin on 'h1' elements within 'section' and 'article' contexts in Chrome, Firefox, and Safari.
 */
 
-h1 {
+:where(h1) {
 	margin-block: 0.67em;
 	font-size: 2em;
 }
@@ -189,18 +189,15 @@ figcaption {
 Replace '40px' indents with '2.5em' indents.
 */
 
-blockquote,
-figure {
+:where(blockquote, figure) {
 	margin-inline: 2.5em;
 }
 
-ul,
-ol,
-menu {
+:where(ul, ol, menu) {
 	padding-inline-start: 2.5em;
 }
 
-dd {
+:where(dd) {
 	margin-inline-start: 2.5em;
 }
 
@@ -333,8 +330,7 @@ th {
 Add paddings and borders to table cells.
 */
 
-th,
-td {
+:where(th, td) {
 	padding-block: 0.25em;
 	padding-inline: 0.5em;
 	border: 1px solid;
