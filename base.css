@@ -95,9 +95,9 @@ body {
 }
 
 /*
-Make 'html' and 'body' fill the viewport height to make it easier to have a sticky footer using Flexbox or Grid.
-Sticky footer pattern: the footer of the page "sticks" to the bottom of the viewport even if the content is shorter than the viewport height.
-Example: https://codepen.io/germanfrelo/pen/jOGNpbj
+Makes 'body' fill the entire viewport height. Useful for:
+- Creating a sticky footer (demo: https://codepen.io/germanfrelo/pen/jOGNpbj).
+- Vertically center direct child elements of 'body' using only 'align-content' (demo: https://codepen.io/germanfrelo/pen/mybMMQO).
 */
 
 html {
