@@ -9,17 +9,27 @@ Legend:
 ================================================== */
 
 /*
-1. Use the more intuitive and predictable border box sizing by default (default is 'content-box').
-2. Don't repeat background and mask images by default.
-Reference: https://wiki.csswg.org/ideas/mistakes
+1. Use the more intuitive and predictable border box sizing by default (https://wiki.csswg.org/ideas/mistakes).
+2. Don't repeat background images by default (https://wiki.csswg.org/ideas/mistakes).
+3. Don't repeat mask images by default.
 */
 
 *,
-*::before,
-*::after {
+::before,
+::after {
 	box-sizing: border-box; /* 1 */
 	background-repeat: no-repeat; /* 2 */
-	mask-repeat: no-repeat; /* 2 */
+	mask-repeat: no-repeat; /* 3 */
+}
+
+/*
+Revert 'background-repeat: no-repeat' for some form controls to avoid removing their native appearance in Safari.
+*/
+
+:where(button, input, meter, progress, select),
+:where(button, input, meter, progress, select)::before,
+:where(button, input, meter, progress, select)::after {
+	background-repeat: revert;
 }
 
 /*
@@ -406,8 +416,7 @@ caption {
 /*
 1. Responsive by default by restricting sizing to the page width.
 2. Remove the margin on controls in all browsers.
-3. Add typography inheritance.
-4. TODO: Include this? See UA styles. Better default look and easier to customize.
+3. Add typography and color inheritance ('line-height' is reverted to avoid removing their native appearance in Safari).
 */
 
 button,
@@ -417,10 +426,10 @@ textarea {
 	max-inline-size: 100%; /* 1 */
 	margin: 0; /* 2 */
 	font: inherit; /* 3 */
+	line-height: revert; /* 3 */
 	letter-spacing: inherit; /* 3 */
 	word-spacing: inherit; /* 3 */
-	color: inherit; /* 4 */
-	background-color: inherit; /* 4 */
+	color: inherit; /* 3 */
 }
 
 /*
