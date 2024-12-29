@@ -356,17 +356,6 @@ textarea {
 }
 
 /*
-Correct the inability to style buttons in iOS and Safari.
-*/
-
-button,
-[type="button" i],
-[type="reset" i],
-[type="submit" i] {
-	-webkit-appearance: button;
-}
-
-/*
 Correct the text style of placeholders in Chrome and Safari.
 */
 
