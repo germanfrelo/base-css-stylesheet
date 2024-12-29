@@ -359,7 +359,7 @@ textarea {
 Correct the text style of placeholders in Chrome and Safari.
 */
 
-::-webkit-input-placeholder {
+::placeholder {
 	color: inherit;
 	opacity: 0.54;
 }
