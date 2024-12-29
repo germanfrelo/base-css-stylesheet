@@ -444,12 +444,10 @@ Fix the text style of placeholders in Chrome and Safari.
 
 /*
 1. Change font properties to 'inherit' in Safari.
-2. Fix the inability to style upload buttons in iOS and Safari.
 */
 
 ::-webkit-file-upload-button {
 	font: inherit; /* 1 */
-	-webkit-appearance: button; /* 2 */
 }
 
 /*
