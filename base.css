@@ -23,7 +23,7 @@ Legend:
 }
 
 /*
-Revert 'background-repeat: no-repeat' for some form controls to avoid removing their native appearance in Safari.
+Revert the previous 'background-repeat: no-repeat' declaration for some form controls to avoid removing their native appearance in Safari.
 */
 
 :where(button, input, meter, progress, select),
