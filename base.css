@@ -433,16 +433,8 @@ textarea {
 }
 
 /*
-TODO: Check browser support for light-dark() in 2025.
-Normalizes the default placeholder color across the three major browsers (Chrome, Firefox, and Safari) by setting a new default color that also meets the WCAG 2.1 minimum color contrast ratio of 4.5:1 that Safari didn't meet.
-Besides, provides an alternative color if the page color scheme is dark, that also meets the minimum color contrast ratio tested with the different colors of the native dark color scheme of the three browsers.
-References:
-- https://bugzilla.mozilla.org/show_bug.cgi?id=1357674#c8 and https://bugzilla.mozilla.org/show_bug.cgi?id=1357674#c9
-- https://github.com/whatwg/html/issues/2561#issuecomment-569920124
-- https://bugzilla.mozilla.org/show_bug.cgi?id=1470025
-- https://github.com/mozilla/gecko-dev/commit/2af3322dbe9ac09d6117faba6ce21494e53ef7a2
-- https://codepen.io/germanfrelo/pen/VYZMPEE
-- https://codepen.io/germanfrelo/pen/EaYwZdb
+Sets a default placeholder color that is accessible and consistent across browsers for both light (default) and dark color schemes.
+Reference: https://codepen.io/germanfrelo/pen/EaYwZdb
 */
 
 ::placeholder {
