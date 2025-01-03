@@ -356,12 +356,18 @@ textarea {
 }
 
 /*
-Correct the text style of placeholders in Chrome and Safari.
+Sets a default placeholder color that is accessible and consistent across browsers for both light (default) and dark color schemes.
+Reference: https://codepen.io/germanfrelo/pen/EaYwZdb
 */
 
 ::placeholder {
-	color: inherit;
-	opacity: 0.54;
+	color: #757575;
+}
+
+@supports (color: light-dark(black, white)) {
+	::placeholder {
+		color: light-dark(hsl(0deg 0% 46%), hsl(0deg 0% 65%));
+	}
 }
 
 /*
