@@ -43,6 +43,7 @@
 	},
 	"lint-staged": {
 		"*.css": [
+			"stylelint",
 			"prettier --write"
 		],
 		"!(*.css)": [
