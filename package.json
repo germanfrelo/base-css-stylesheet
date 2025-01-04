@@ -33,9 +33,21 @@
 	"main": "",
 	"scripts": {
 		"format": "prettier --write .",
-		"format:check": "prettier --check ."
+		"format:check": "prettier --check .",
+		"prepare": "husky",
+		"test": "npm run format:check"
+	},
+	"lint-staged": {
+		"*.css": [
+			"prettier --write"
+		],
+		"!(*.css)": [
+			"prettier --write --ignore-unknown"
+		]
 	},
 	"devDependencies": {
+		"husky": "9.1.7",
+		"lint-staged": "15.3.0",
 		"prettier": "3.4.2"
 	}
 }
