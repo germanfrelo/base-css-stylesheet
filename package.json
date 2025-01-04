@@ -1,6 +1,6 @@
 {
 	"name": "base-css-stylesheet",
-	"version": "1.0.0",
+	"version": "0.0.1",
 	"private": true,
 	"description": "A work-in-progress base CSS stylesheet, which includes both normalize/reset and opinionated base styles.",
 	"keywords": [
