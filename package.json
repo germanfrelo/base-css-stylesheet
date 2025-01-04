@@ -32,6 +32,7 @@
 	"type": "module",
 	"main": "",
 	"scripts": {
+		"build": "postcss src/**/*.css --no-map --use autoprefixer --dir dist",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"prepare": "husky",
@@ -46,8 +47,11 @@
 		]
 	},
 	"devDependencies": {
+		"autoprefixer": "10.4.20",
 		"husky": "9.1.7",
 		"lint-staged": "15.4.1",
+		"postcss-cli": "11.0.0",
+		"postcss": "8.4.49",
 		"prettier": "3.4.2"
 	}
 }
