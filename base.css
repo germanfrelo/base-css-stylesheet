@@ -50,7 +50,7 @@ html {
 	line-height: 1.5; /* 3 */
 	overflow-wrap: break-word; /* 4 */
 	tab-size: 4; /* 5 */
-	-webkit-text-size-adjust: none; /* 6 */ /* stylelint-disable-line property-no-vendor-prefix */
+	-webkit-text-size-adjust: none; /* 6 */ /* stylelint-disable-line property-no-vendor-prefix -- Intended. */
 	scrollbar-gutter: stable; /* 7 */
 }
 
@@ -413,7 +413,7 @@ caption {
 ================================================== */
 
 /*
-1. Remove the default 2px 'margin-inline' from ''fieldset, which is usually not wanted, in favor of better control in authored CSS. 🆗
+1. Remove the default 2px 'margin-inline' from 'fieldset', which is usually not wanted, in favor of better control in authored CSS. 🆗
 2. Change the default 'fieldset' border appearance. ✨
 */
 
