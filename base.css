@@ -17,24 +17,24 @@
 
 /*
 1. A prerequisite for the 'body' to be able to fill the viewport height (requires 'body { min-block-size: 100%; }', see 'body' rule below). Reference: https://codepen.io/germanfrelo/pen/jOGNpbj
-2. Use a sans serif font by default.
-3. The default 'normal' line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
-4. Breaks words to prevent text overflow.
-5. Use a 4-space tab width instead of the default 8.
-6. Prevent WebKit-based browsers on iOS (all iOS browsers) from automatically increasing the default text size in landscape orientation. Reference:
+2. Prevent unwanted layout shifts caused by scrollbars when text get longer.
+3. Use a sans serif font by default.
+4. The default 'normal' line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
+5. Breaks words to prevent text overflow.
+6. Use a 4-space tab width instead of the default 8.
+7. Prevent WebKit-based browsers on iOS (all iOS browsers) from automatically increasing the default text size in landscape orientation. Reference:
 - https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
 - https://css-tricks.com/your-css-reset-needs-text-size-adjust-probably/
-7. Prevent unwanted layout shifts caused by scrollbars when text get longer.
 */
 
 html {
 	block-size: 100%; /* 1 */
-	font-family: sans-serif; /* 2 */
-	line-height: 1.5; /* 3 */
-	overflow-wrap: break-word; /* 4 */
-	tab-size: 4; /* 5 */
-	-webkit-text-size-adjust: none; /* 6 */
-	scrollbar-gutter: stable; /* 7 */
+	scrollbar-gutter: stable; /* 2 */
+	font-family: sans-serif; /* 3 */
+	line-height: 1.5; /* 4 */
+	overflow-wrap: break-word; /* 5 */
+	tab-size: 4; /* 6 */
+	-webkit-text-size-adjust: none; /* 7 */
 }
 
 /*
@@ -343,8 +343,8 @@ select,
 textarea {
 	margin: 0; /* 1 */
 	font: inherit; /* 2 */
-	letter-spacing: inherit; /* 2 */
 	word-spacing: inherit; /* 2 */
+	letter-spacing: inherit; /* 2 */
 }
 
 /*
@@ -448,8 +448,8 @@ Change the display on visually hidden accessible elements.
 	inline-size: 1px !important;
 	block-size: 1px !important;
 	overflow: hidden !important;
-	clip-path: inset(50%) !important;
 	white-space: nowrap !important;
+	clip-path: inset(50%) !important;
 }
 
 /* Interactive elements
