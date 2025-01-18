@@ -1,2 +1,4 @@
-# Ignore installed npm modules
+### Node ###
+
+# Dependency directories
 node_modules/
