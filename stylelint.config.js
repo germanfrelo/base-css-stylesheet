@@ -1,74 +1,56 @@
 /** @type {import('stylelint').Config} */
 export default {
 	extends: [
-		// Order matters: later configs take precedence over (override) earlier ones.
-		"stylelint-config-standard",
-		"stylelint-config-recess-order",
+		// The order of configs is important: later configs take precedence over earlier ones
+		"stylelint-config-standard", // Extends stylelint-config-recommended and turns on additional rules to enforce modern conventions
+		"stylelint-config-recess-order", // Sorts CSS properties
 	],
-	plugins: ["stylelint-no-unsupported-browser-features"],
+	plugins: ["stylelint-no-unsupported-browser-features"], // Disallows features that aren't supported by your target browser audience
 	reportDescriptionlessDisables: true,
 	reportInvalidScopeDisables: true,
 	reportNeedlessDisables: true,
+	reportUnscopedDisables: true,
 	rules: {
-		/* ----------------------------------------
-		Avoid errors
+		/* Avoid errors
 		---------------------------------------- */
-
 		// Descending
 		"no-descending-specificity": [
-			true,
-			{
-				severity: "warning",
-			},
+			true, // Already enabled in stylelint-config-recommended
+			{ severity: "warning" }, // Default is 'error', I prefer 'warning'
 		],
-
 		// Duplicate
 		"font-family-no-duplicate-names": [
-			true,
-			{
-				ignoreFontFamilyNames: ["monospace"], // See https://github.com/search?q=repo%3Agermanfrelo%2Fbase-css-stylesheet+%22monospace%2C+monospace%22&type=code
-			},
+			true, // Already enabled in stylelint-config-recommended
+			{ ignoreFontFamilyNames: ["monospace"] }, // Don't report the 'font-family: monospace, monospace' declaration
 		],
-
 		// Unknown
-		"declaration-property-value-no-unknown": true,
-		"media-feature-name-value-no-unknown": true,
 		"no-unknown-animations": true,
 		"no-unknown-custom-media": true,
 		"no-unknown-custom-properties": true,
 
-		/* ----------------------------------------
-		Enforce conventions
+		/* Enforce conventions
+		(overrides rules from stylelint-config-standard)
 		---------------------------------------- */
-
 		// Allowed, disallowed & required
 		"property-no-vendor-prefix": [
 			true,
-			{
-				ignoreProperties: ["text-size-adjust"], // See https://codepen.io/germanfrelo/pen/JoPJVxd
-			},
+			{ ignoreProperties: ["text-size-adjust"] }, // Don't report '-webkit-text-size-adjust'
 		],
-
 		// Empty lines
 		"declaration-empty-line-before": "never",
-
 		// Notation
-		"media-feature-range-notation": null, // TODO: Remove when browser support is ~96% (https://caniuse.com/css-media-range-syntax)
-
+		"media-feature-range-notation": null, // TODO: Remove when 'baseline' is 'widely available' (~96%) (https://caniuse.com/css-media-range-syntax)
 		// Pattern
 		"custom-media-pattern": null,
 		"custom-property-pattern": null,
 		"keyframes-name-pattern": null,
 		"selector-class-pattern": null,
 		"selector-id-pattern": null,
-
 		// Redundant
 		"declaration-block-no-redundant-longhand-properties": null,
 
-		/* ----------------------------------------
-		Plugin: stylelint-no-unsupported-browser-features
+		/* Plugin: stylelint-no-unsupported-browser-features
 		---------------------------------------- */
-
 		"plugin/no-unsupported-browser-features": [
 			true,
 			{
