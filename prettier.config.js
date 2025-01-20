@@ -13,6 +13,12 @@ const config = {
 				printWidth: 9999,
 			},
 		},
+		{
+			files: ["*.jsonc"],
+			options: {
+				trailingComma: "none",
+			},
+		},
 	],
 };
 
