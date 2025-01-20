@@ -27,11 +27,11 @@ Modern browsers (not Internet Explorer).
 ## Usage
 
 - **Option 1: Direct Copy**
-  
+
   Copy the contents of [the stylesheet](./base.css) and paste it into your CSS file.
 
 - **Option 2: Link to the Latest Version**
-  
+
   Alternatively, you can link to the most recent version of the stylesheet in your HTML file:
 
   ```html
