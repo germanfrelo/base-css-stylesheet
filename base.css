@@ -253,12 +253,12 @@ Increase the gap after the list marker for 'ol' and 'ul'. ✨
 ================================================== */
 
 /*
-Keep the default 'font-weight' of 'b' and 'strong' consistent across browsers (ref. https://css-tricks.com/firefoxs-bolder-default-is-a-problem-for-variable-fonts/). 🔧
+Keep the default 'font-weight' of 'b' and 'strong' consistent across browsers. 🔧
 */
 
 b,
 strong {
-	font-weight: bold;
+	font-weight: bolder;
 }
 
 /*
