@@ -625,20 +625,19 @@ Change the display on visually hidden accessible elements. ✨
 	display: initial;
 }
 
-[aria-hidden="false" i][hidden]:not(:focus) {
+[aria-hidden="false" i][hidden]:not(:focus),
+/* https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html */
+.visually-hidden:not(:focus):not(:active) {
 	position: absolute !important;
 	width: 1px !important;
 	height: 1px !important;
 	padding: 0 !important;
 	margin: -1px !important;
 	overflow: hidden !important;
-	/* For legacy browsers */
-	clip: rect(1px, 1px, 1px, 1px);
-	/* For modern browsers */
-	clip-path: inset(50%);
-	/* To prevent words from being squashed together (since they go on separate lines, and some screen readers do not understand line feeds as spaces) */
-	white-space: nowrap;
+	white-space: nowrap !important; /* To prevent words from being squashed together (since they go on separate lines, and some screen readers do not understand line feeds as spaces) */
 	border: 0 !important;
+	clip: rect(0 0 0 0); /* For legacy browsers */
+	clip-path: inset(50%); /* For modern browsers */
 }
 
 /* Cursor
