@@ -253,15 +253,6 @@ Increase the gap after the list marker for 'ol' and 'ul'. ✨
 ================================================== */
 
 /*
-Keep the default 'font-weight' of 'b' and 'strong' consistent across browsers. 🔧
-*/
-
-b,
-strong {
-	font-weight: bolder;
-}
-
-/*
 1. Fix the inheritance and scaling of the font size in all browsers. 🔧
 2. Fix the odd 'em' font sizing in all browsers. 🔧
 */
