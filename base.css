@@ -11,7 +11,7 @@ TODO: Improve
 ================================================== */
 
 /*
-1. Use the more intuitive and predictable border box sizing by default. (refs. https://github.com/jensimmons/cssremedy/issues/4 and https://wiki.csswg.org/ideas/mistakes). ✅
+1. Use the more intuitive and predictable border box sizing by default (refs. https://github.com/jensimmons/cssremedy/issues/4 and https://wiki.csswg.org/ideas/mistakes). ✅
 2. Don't repeat background images by default (ref. https://github.com/w3c/csswg-drafts/issues/4526). ✅
 3. Don't repeat mask images by default. 🆗
 */
@@ -87,9 +87,7 @@ When users prefer reduced motion: 🆗
 }
 
 /*
-When scrolling to target elements, a reasonable spacing is added above them to ensure they remain visible, especially with sticky headers or similar. Adjust as needed.
-Reference: https://piccalil.li/blog/a-more-modern-css-reset/
-🆗
+When scrolling to target elements, a reasonable spacing is added above them to ensure they remain visible, especially with sticky headers or similar. 🆗
 */
 
 :target {
@@ -100,7 +98,7 @@ Reference: https://piccalil.li/blog/a-more-modern-css-reset/
 ================================================== */
 
 /*
-1. Makes 'body' at least as tall as the viewport height (requires 'html { block-size: 100%; }', see 'html' rule above). Reference: https://codepen.io/germanfrelo/pen/jOGNpbj 🆗
+1. Makes 'body' at least as tall as the viewport height (requires 'html { block-size: 100%; }', see 'html' rule above). Ref. https://codepen.io/germanfrelo/pen/jOGNpbj 🆗
 2. Remove the default 8px margin from 'body', which is usually not wanted, in favor of better control in authored CSS. 🆗
 */
 
@@ -113,10 +111,8 @@ body {
 ================================================== */
 
 /*
-Prevent the 'font-size' and 'margin-block' of 'h1' elements from decreasing when nested inside sectioning elements ('article', 'aside', 'nav', 'section'). ✅
-Refs.:
-- https://github.com/jensimmons/cssremedy/issues/2
-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#specifying_a_uniform_font_size_for_h1
+Ensure consistent 'h1' rendering. ✅
+Ref. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#specifying_a_uniform_font_size_for_h1
 */
 
 :where(h1) {
@@ -305,12 +301,12 @@ video {
 }
 
 /*
-'picture' and 'source' display inline by default, but that's not the expected behavior for either one. This can interfere with proper layout and aspect-ratio handling. 🆗
+The display is inline by default, but that's not the expected behavior. This can interfere with proper layout and aspect-ratio handling. 🆗
 1. Remove the unnecessary wrapping 'picture', while maintaining contents.
 2. Source elements have nothing to display, so we hide them entirely.
-References:
-- https://github.com/jensimmons/cssremedy/commit/59aee673c02e2412140d375c1d45019f78ae40c9
+Refs.:
 - https://github.com/whatwg/html/issues/4995
+- https://github.com/jensimmons/cssremedy/commit/59aee673c02e2412140d375c1d45019f78ae40c9
 */
 
 picture {
@@ -322,7 +318,7 @@ source {
 }
 
 /*
-There is no good reason 'audio' defaults to 300px, and audio files are unlikely to come with a 'width' attribute. 🆗
+There is no good reason 'audio' defaults to 300px width, and audio files are unlikely to come with a 'width' attribute. 🆗
 */
 
 audio {
@@ -401,8 +397,8 @@ caption {
 ================================================== */
 
 /*
-1. Remove the default 2px 'margin-inline' from 'fieldset', which is usually not wanted, in favor of better control in authored CSS. 🆗
-2. Change the default 'fieldset' border appearance. ✨
+1. Remove the default 2px inline margin, which is usually not wanted, in favor of better control in authored CSS. 🆗
+2. Change the default border appearance. ✨
 */
 
 fieldset {
@@ -420,7 +416,7 @@ legend {
 }
 
 /*
-Replace the default 2px inline padding of 'legend' with a value relative to the font. ✨
+Replace the default 2px inline padding with a value relative to the font. ✨
 */
 
 legend {
@@ -463,8 +459,8 @@ input[type="range" i] {
 }
 
 /*
-1. Normalizes the placeholder color with a new default value that is consistent and accessible across browsers (reference: https://codepen.io/germanfrelo/pen/EaYwZdb) 🔧
-2. TODO: Improve comment. Sets a more modern alternative that provides a value for dark color schemes of browsers that is also accesible across the different background colors for dark themes of browsers. ✨
+Normalize the placeholder color with a new default value that is consistent and accessible across browsers, and adapted to browsers native dark color schemes. 🔧✨
+Ref. https://codepen.io/germanfrelo/pen/EaYwZdb
 */
 
 ::placeholder {
@@ -593,7 +589,7 @@ textarea[aria-invalid="grammar"] {
 
 /*
 Make elements with a 'hidden' attribute stay hidden even if a different display value is set.
-References:
+Refs.:
 - https://html.spec.whatwg.org/multipage/rendering.html#hidden-elements
 - https://github.com/jensimmons/cssremedy/issues/71#issuecomment-771180150
 - https://github.com/tailwindlabs/tailwindcss/commit/b570e2b
