@@ -115,11 +115,10 @@ body {
 ================================================== */
 
 /*
-Prevent the 'font-size' and 'margin' of 'h1' from decreasing when nested inside sectioning elements ('article', 'aside', 'nav', 'section'). ✅
+Prevent the 'font-size' and 'margin-block' of 'h1' elements from decreasing when nested inside sectioning elements ('article', 'aside', 'nav', 'section'). ✅
 Refs.:
 - https://github.com/jensimmons/cssremedy/issues/2
-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#avoid_using_multiple_h1_elements_on_one_page
-- https://github.com/whatwg/html/issues/7867
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#specifying_a_uniform_font_size_for_h1
 */
 
 :where(h1) {
