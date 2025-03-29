@@ -16,6 +16,16 @@
 }
 
 /*
+Revert adding 'background-repeat: no-repeat' to some form elements because it disables their native appearance in WebKit (bug: https://bugs.webkit.org/show_bug.cgi?id=117128#c2).
+*/
+
+:where(button, input, meter, progress, select),
+:where(button, input, meter, progress, select)::before,
+:where(button, input, meter, progress, select)::after {
+	background-repeat: revert;
+}
+
+/*
 1. A prerequisite for the 'body' to be able to fill the viewport height (requires 'body { min-block-size: 100%; }', see 'body' rule below). Reference: https://codepen.io/germanfrelo/pen/jOGNpbj
 2. Use a sans serif font by default.
 3. The default 'normal' line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
