@@ -25,7 +25,7 @@ TODO: Improve
 }
 
 /*
-Revert adding 'background-repeat: no-repeat' to some form elements because it disables their native appearance in WebKit (bug: https://bugs.webkit.org/show_bug.cgi?id=117128#c2). ✅
+Revert adding 'background-repeat: no-repeat' to some form elements because it disables their default native appearance in WebKit (bug: https://bugs.webkit.org/show_bug.cgi?id=117128#c2). ✅
 */
 
 :where(button, input, meter, progress, select) {
@@ -429,7 +429,7 @@ legend {
 
 /*
 1. Responsive by default by restricting sizing to the page width. ✅
-2. Add typography inheritance ('line-height' is reverted to avoid removing their native appearance in WebKit). ✅
+2. Add typography inheritance. ✅
 3. Add color inheritance. 🆗
 */
 
@@ -439,7 +439,6 @@ select,
 textarea {
 	max-inline-size: 100%; /* 1 */
 	font: inherit; /* 2 */
-	line-height: revert; /* 2 */
 	letter-spacing: inherit; /* 2 */
 	word-spacing: inherit; /* 2 */
 	color: inherit; /* 3 */
