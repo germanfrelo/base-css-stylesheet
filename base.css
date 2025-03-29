@@ -11,9 +11,9 @@ TODO: Improve
 ================================================== */
 
 /*
-1. Use the more intuitive and predictable border box sizing by default (refs. https://github.com/jensimmons/cssremedy/issues/4 and https://wiki.csswg.org/ideas/mistakes). ✅
-2. Don't repeat background images by default (ref. https://github.com/w3c/csswg-drafts/issues/4526). ✅
-3. Don't repeat mask images by default. 🆗
+✅ 1. Use the more intuitive and predictable border box sizing by default (refs. https://github.com/jensimmons/cssremedy/issues/4 and https://wiki.csswg.org/ideas/mistakes).
+✅ 2. Don't repeat background images by default (ref. https://github.com/w3c/csswg-drafts/issues/4526).
+🆗 3. Don't repeat mask images by default.
 */
 
 *,
@@ -25,7 +25,7 @@ TODO: Improve
 }
 
 /*
-Revert adding 'background-repeat: no-repeat' to some form elements because it disables their default native appearance in WebKit (bug: https://bugs.webkit.org/show_bug.cgi?id=117128#c2). ✅
+✅ Revert adding 'background-repeat: no-repeat' to some form elements because it disables their default native appearance in WebKit (bug: https://bugs.webkit.org/show_bug.cgi?id=117128#c2).
 */
 
 :where(button, input, meter, progress, select) {
@@ -33,13 +33,13 @@ Revert adding 'background-repeat: no-repeat' to some form elements because it di
 }
 
 /*
-1. A prerequisite for the 'body' to be able to fill the viewport height (requires 'body { min-block-size: 100%; }', see 'body' rule below). Ref. https://codepen.io/germanfrelo/pen/jOGNpbj 🆗
-2. Use a sans serif font by default. 🆗
-3. The default 'normal' line-height is tightly spaced, but takes font metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages. 🆗
-4. Break words when there is not enough space to prevent text overflow. 🆗
-5. Use a shorter, more readable tab size (default is 8). 🆗
-6. Prevent WebKit-based browsers on iOS from automatically increasing the default font size in landscape orientation (demo: https://codepen.io/germanfrelo/pen/JoPJVxd). 🔧
-7. Prevent unwanted layout shifts caused by scrollbars when text gets longer. 🆗
+🆗 1. A prerequisite for the 'body' to be able to fill the viewport height (requires 'body { min-block-size: 100%; }', see 'body' rule below). Ref. https://codepen.io/germanfrelo/pen/jOGNpbj
+🆗 2. Use a sans serif font by default.
+🆗 3. The default 'normal' line-height is tightly spaced, but takes font metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
+🆗 4. Break words when there is not enough space to prevent text overflow.
+🆗 5. Use a shorter, more readable tab size (default is 8).
+🔧 6. Prevent WebKit-based browsers on iOS from automatically increasing the default font size in landscape orientation (demo: https://codepen.io/germanfrelo/pen/JoPJVxd).
+🆗 7. Prevent unwanted layout shifts caused by scrollbars when text gets longer.
 */
 
 html {
@@ -53,7 +53,7 @@ html {
 }
 
 /*
-Smooth scrolling, but only when focused in the page to prevent unnaturally scrolling when tabbing though the results of a search. 🆗
+🆗 Smooth scrolling, but only when focused in the page to prevent unnaturally scrolling when tabbing though the results of a search.
 */
 
 html:focus-within {
@@ -61,7 +61,7 @@ html:focus-within {
 }
 
 /*
-When users prefer reduced motion: 🆗
+🆗 When users prefer reduced motion:
 1. Remove fixed background attachment.
 2. Remove transitions.
 3. Remove animations/immediately jump any animation to the end point.
@@ -87,7 +87,7 @@ When users prefer reduced motion: 🆗
 }
 
 /*
-When scrolling to target elements, a reasonable spacing is added above them to ensure they remain visible, especially with sticky headers or similar. 🆗
+🆗 When scrolling to target elements, a reasonable spacing is added above them to ensure they remain visible, especially with sticky headers or similar.
 */
 
 :target {
@@ -98,8 +98,8 @@ When scrolling to target elements, a reasonable spacing is added above them to e
 ================================================== */
 
 /*
-1. Makes 'body' at least as tall as the viewport height (requires 'html { block-size: 100%; }', see 'html' rule above). Ref. https://codepen.io/germanfrelo/pen/jOGNpbj 🆗
-2. Remove the default 8px margin from 'body', which is usually not wanted, in favor of better control in authored CSS. 🆗
+🆗 1. Makes 'body' at least as tall as the viewport height (requires 'html { block-size: 100%; }', see 'html' rule above). Ref. https://codepen.io/germanfrelo/pen/jOGNpbj
+🆗 2. Remove the default 8px margin from 'body', which is usually not wanted, in favor of better control in authored CSS.
 */
 
 body {
@@ -111,7 +111,7 @@ body {
 ================================================== */
 
 /*
-Ensure consistent 'h1' rendering. ✅
+✅ Ensure consistent 'h1' rendering.
 Ref. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#specifying_a_uniform_font_size_for_h1
 */
 
@@ -121,7 +121,7 @@ Ref. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#
 }
 
 /*
-The default 'normal' line-height is tightly spaced, but takes font metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages. ✨
+✨ The default 'normal' line-height is tightly spaced, but takes font metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 */
 
 h1,
@@ -134,7 +134,7 @@ h6 {
 }
 
 /*
-Switch to rem units for headings. ✅
+✅ Switch to rem units for headings.
 */
 
 h1 {
@@ -165,7 +165,7 @@ h6 {
 ================================================== */
 
 /*
-1. Fix the inheritance and scaling of the font size in all browsers. 🔧 Refs.:
+🔧 1. Fix the inheritance and scaling of the font size in all browsers. Refs.:
 https://www.brunildo.org/test/monospace_fsize.html
 https://bugzilla.mozilla.org/show_bug.cgi?id=175415
 https://www.456bereastreet.com/archive/200408/sizing_monospaced_fonts/
@@ -176,8 +176,8 @@ https://neugierig.org/software/chromium/notes/2009/09/monospace-fonts-workaround
 https://meyerweb.com/eric/thoughts/2010/02/12/fixed-monospace-sizing/
 https://github.com/necolas/normalize.css/commit/5daad010a2f19c12b89f317ba9d2c8e4573210d7
 https://github.com/necolas/normalize.css/issues/519#issuecomment-197131966
-2. Fix the odd 'em' font sizing in all browsers. 🔧
-3. Prevent content from overflowing while preserving formatting. 🆗
+🔧 2. Fix the odd 'em' font sizing in all browsers.
+🆗 3. Prevent content from overflowing while preserving formatting.
 */
 
 pre {
@@ -199,7 +199,7 @@ hr {
 }
 
 /*
-The default 'normal' line-height is tightly spaced, but takes font metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages. ✨
+✨ The default 'normal' line-height is tightly spaced, but takes font metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 */
 
 figcaption {
@@ -207,7 +207,7 @@ figcaption {
 }
 
 /*
-Remove the default 40px indentation from 'figure' and 'menu', which is usually not wanted, in favor of better control in authored CSS. 🆗
+🆗 Remove the default 40px indentation from 'figure' and 'menu', which is usually not wanted, in favor of better control in authored CSS.
 */
 
 figure {
@@ -219,7 +219,7 @@ menu {
 }
 
 /*
-Replace the default 40px indentation of 'blockquote', 'dd', 'ol' and 'ul' with a value relative to the font. ✨
+✨ Replace the default 40px indentation of 'blockquote', 'dd', 'ol' and 'ul' with a value relative to the font.
 */
 
 :where(blockquote) {
@@ -235,7 +235,7 @@ Replace the default 40px indentation of 'blockquote', 'dd', 'ol' and 'ul' with a
 }
 
 /*
-Increase the gap after the list marker for 'ol' and 'ul'. ✨
+✨ Increase the gap after the list marker for 'ol' and 'ul'.
 */
 
 :where(:is(ol, ul) > li) {
@@ -246,8 +246,8 @@ Increase the gap after the list marker for 'ol' and 'ul'. ✨
 ================================================== */
 
 /*
-1. Fix the inheritance and scaling of the font size in all browsers. 🔧
-2. Fix the odd 'em' font sizing in all browsers. 🔧
+🔧 1. Fix the inheritance and scaling of the font size in all browsers.
+🔧 2. Fix the odd 'em' font sizing in all browsers.
 */
 
 code,
@@ -261,7 +261,7 @@ samp {
 ================================================== */
 
 /*
-Block by default is usually what we want/the most common use case (default is 'inline'). ✅
+✅ Block by default is usually what we want/the most common use case (default is 'inline').
 */
 
 audio,
@@ -275,7 +275,7 @@ video {
 }
 
 /*
-Responsive by default to prevent them from growing beyond the container. ✅
+✅ Responsive by default to prevent them from growing beyond the container.
 */
 
 audio,
@@ -290,7 +290,7 @@ video {
 }
 
 /*
-Maintain intrinsic aspect ratios when 'max-inline-size' is applied ('embed', 'iframe' and 'object' have no intrinsic ratio, so their 'block-size' needs to be set explicitly). ✅
+✅ Maintain intrinsic aspect ratios when 'max-inline-size' is applied ('embed', 'iframe' and 'object' have no intrinsic ratio, so their 'block-size' needs to be set explicitly).
 */
 
 canvas,
@@ -301,7 +301,7 @@ video {
 }
 
 /*
-The display is inline by default, but that's not the expected behavior. This can interfere with proper layout and aspect-ratio handling. 🆗
+🆗 The display is inline by default, but that's not the expected behavior. This can interfere with proper layout and aspect-ratio handling.
 1. Remove the unnecessary wrapping 'picture', while maintaining contents.
 2. Source elements have nothing to display, so we hide them entirely.
 Refs.:
@@ -318,7 +318,7 @@ source {
 }
 
 /*
-There is no good reason 'audio' defaults to 300px width, and audio files are unlikely to come with a 'width' attribute. 🆗
+🆗 There is no good reason 'audio' defaults to 300px width, and audio files are unlikely to come with a 'width' attribute.
 */
 
 audio {
@@ -327,7 +327,7 @@ audio {
 
 /*
 TODO: Too opinionated? Remove it?
-Use a more useful 'vertical-align' default value for SVGs (default is 'baseline'), in case authors want to use them as inline icons. ✨
+✨ Use a more useful 'vertical-align' default value for SVGs (default is 'baseline'), in case authors want to use them as inline icons.
 */
 
 svg {
@@ -336,7 +336,7 @@ svg {
 
 /*
 TODO: Too opinionated? Remove it?
-Make SVGs inherit color if neither they nor their 'path' have a 'fill' attribute. ✨
+✨ Make SVGs inherit color if neither they nor their 'path' have a 'fill' attribute.
 */
 
 svg:where(:not([fill]):has(> path:not([fill]))) {
@@ -344,7 +344,7 @@ svg:where(:not([fill]):has(> path:not([fill]))) {
 }
 
 /*
-Change the border appearance. ✨
+✨ Change the border appearance.
 */
 
 iframe {
@@ -356,9 +356,9 @@ iframe {
 ================================================== */
 
 /*
-TODO: Too opinionated? 1. Ensure numbers line up (ref: https://github.com/jensimmons/cssremedy/issues/39#issuecomment-473012250) ✨
-2. Prevent double borders. ✅
-3. Fix the default table 'border-color: gray' on Chrome (bug: https://issues.chromium.org/issues/40615503). 🔧
+✨ TODO: Too opinionated? 1. Ensure numbers line up (ref: https://github.com/jensimmons/cssremedy/issues/39#issuecomment-473012250)
+✅ 2. Prevent double borders.
+🔧 3. Fix the default table 'border-color: gray' on Chrome (bug: https://issues.chromium.org/issues/40615503).
 */
 
 table {
@@ -368,7 +368,7 @@ table {
 }
 
 /*
-Make 'th' alignment consistent with 'td' alignment. ✨
+✨ Make 'th' alignment consistent with 'td' alignment.
 */
 
 th {
@@ -376,7 +376,7 @@ th {
 }
 
 /*
-Add paddings and borders to table cells. ✨
+✨ Add paddings and borders to table cells.
 */
 
 :where(th, td) {
@@ -386,7 +386,7 @@ Add paddings and borders to table cells. ✨
 }
 
 /*
-The default 'normal' line-height is tightly spaced, but takes font metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages. ✨
+✨ The default 'normal' line-height is tightly spaced, but takes font metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 */
 
 caption {
@@ -397,8 +397,8 @@ caption {
 ================================================== */
 
 /*
-1. Remove the default 2px inline margin, which is usually not wanted, in favor of better control in authored CSS. 🆗
-2. Change the default border appearance. ✨
+🆗 1. Remove the default 2px inline margin, which is usually not wanted, in favor of better control in authored CSS.
+✨ 2. Change the default border appearance.
 */
 
 fieldset {
@@ -407,7 +407,7 @@ fieldset {
 }
 
 /*
-The default 'normal' line-height is tightly spaced, but takes font metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages. ✨
+✨ The default 'normal' line-height is tightly spaced, but takes font metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
 */
 
 label,
@@ -416,7 +416,7 @@ legend {
 }
 
 /*
-Replace the default 2px inline padding with a value relative to the font. ✨
+✨ Replace the default 2px inline padding with a value relative to the font.
 */
 
 legend {
@@ -424,9 +424,9 @@ legend {
 }
 
 /*
-1. Responsive by default by restricting sizing to the page width. ✅
-2. Add typography inheritance. ✅
-3. Add color inheritance. 🆗
+✅ 1. Responsive by default by restricting sizing to the page width.
+✅ 2. Add typography inheritance.
+🆗 3. Add color inheritance.
 */
 
 button,
@@ -441,7 +441,7 @@ textarea {
 }
 
 /*
-Remove Firefox's default 1px 'margin-block' from 'textarea' for consistency across browsers (bug: https://bugzilla.mozilla.org/show_bug.cgi?id=73817). 🔧
+🔧 Remove Firefox's default 1px 'margin-block' from 'textarea' for consistency across browsers (bug: https://bugzilla.mozilla.org/show_bug.cgi?id=73817).
 */
 
 textarea {
@@ -449,7 +449,7 @@ textarea {
 }
 
 /*
-Remove the default margin from some form elements, which is usually not wanted, in favor of better control in authored CSS. 🆗
+🆗 Remove the default margin from some form elements, which is usually not wanted, in favor of better control in authored CSS.
 */
 
 input[type="checkbox" i],
@@ -459,7 +459,7 @@ input[type="range" i] {
 }
 
 /*
-Normalize the placeholder color with a new default value that is consistent and accessible across browsers, and adapted to browsers native dark color schemes. 🔧✨
+🔧✨ Normalize the placeholder color with a new default value that is consistent and accessible across browsers, and adapted to browsers native dark color schemes.
 Ref. https://codepen.io/germanfrelo/pen/EaYwZdb
 */
 
@@ -474,8 +474,8 @@ Ref. https://codepen.io/germanfrelo/pen/EaYwZdb
 }
 
 /*
-1. Set a consistent margin across browsers. 🔧✨
-2. Change font properties to 'inherit' in WebKit. ✅
+🔧✨ 1. Set a consistent margin across browsers.
+✅ 2. Change font properties to 'inherit' in WebKit.
 */
 
 ::file-selector-button {
@@ -484,7 +484,7 @@ Ref. https://codepen.io/germanfrelo/pen/EaYwZdb
 }
 
 /*
-Set 'vertical-align' to middle. ✨
+✨ Set 'vertical-align' to middle.
 */
 
 [type="color" i],
@@ -601,7 +601,7 @@ Refs.:
 }
 
 /*
-Change the display on visually hidden accessible elements. ✨
+✨ Change the display on visually hidden accessible elements.
 */
 
 [aria-hidden="false" i][hidden] {
@@ -636,7 +636,7 @@ Use the same default cursor used for buttons to make it feel interactive (defaul
 }
 
 /*
-Change the cursor on busy elements. ✨
+✨ Change the cursor on busy elements.
 */
 
 [aria-busy="true" i] {
@@ -644,7 +644,7 @@ Change the cursor on busy elements. ✨
 }
 
 /*
-Change the cursor on disabled, not-editable, or otherwise inoperable elements. ✨
+✨ Change the cursor on disabled, not-editable, or otherwise inoperable elements.
 */
 
 [disabled],
