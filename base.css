@@ -307,13 +307,15 @@ iframe {
 ================================================== */
 
 /*
-1. Prevent double borders.
-2. Fix the default table 'border-color: gray' on Chrome (bug: https://issues.chromium.org/issues/40615503).
+1. Ensure numbers line up (ref: https://github.com/jensimmons/cssremedy/issues/39).
+2. Prevent double borders (ref: https://github.com/jensimmons/cssremedy/issues/39).
+3. Fix the default table 'border-color: gray' on Chrome (bug: https://issues.chromium.org/issues/40615503).
 */
 
 table {
-	border-collapse: collapse; /* 1 */
-	border-color: currentcolor; /* 2 */
+	font-variant-numeric: tabular-nums; /* 1 */
+	border-collapse: collapse; /* 2 */
+	border-color: currentcolor; /* 3 */
 }
 
 /*
