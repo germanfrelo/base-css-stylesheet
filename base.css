@@ -395,15 +395,6 @@ Change font properties to 'inherit' in WebKit.
 	font: inherit;
 }
 
-/*
-Set 'vertical-align' to middle.
-*/
-
-[type="color" i],
-[type="range" i] {
-	vertical-align: middle;
-}
-
 /* Hidden elements
 ================================================== */
 
