@@ -47,7 +47,7 @@ html {
 	line-height: 1.5; /* 3 */
 	overflow-wrap: break-word; /* 4 */
 	tab-size: 4; /* 5 */
-	-webkit-text-size-adjust: none; /* 6 */ /* stylelint-disable-line property-no-vendor-prefix -- Intended. */
+	-webkit-text-size-adjust: none; /* 6 */
 }
 
 /*
