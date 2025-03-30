@@ -343,15 +343,6 @@ svg:where(:not([fill]):has(> path:not([fill]))) {
 	fill: currentcolor;
 }
 
-/*
-✨ Change the border appearance.
-*/
-
-iframe {
-	border-color: currentcolor;
-	border-style: solid;
-}
-
 /* Tabular data
 ================================================== */
 
@@ -397,13 +388,11 @@ caption {
 ================================================== */
 
 /*
-🆗 1. Remove the default 2px inline margin, which is usually not wanted, in favor of better control in authored CSS.
-✨ 2. Change the default border appearance.
+🆗 Remove the default 2px inline margin.
 */
 
 fieldset {
-	margin-inline: 0; /* 1 */
-	border: 1px solid; /* 2 */
+	margin-inline: 0;
 }
 
 /*
