@@ -343,7 +343,7 @@ Remove the default 2px inline margin.
 */
 
 fieldset {
-	margin-inline: 0; /* 1 */
+	margin-inline: 0;
 }
 
 /*
