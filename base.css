@@ -390,20 +390,3 @@ Set the cursor on 'summary' elements to the same as buttons (default is 'text').
 summary {
 	cursor: default;
 }
-
-/*
-Change the cursor on busy elements.
-*/
-
-[aria-busy="true" i] {
-	cursor: progress;
-}
-
-/*
-Change the cursor on disabled, not-editable, or otherwise inoperable elements.
-*/
-
-[disabled],
-[aria-disabled="true" i] {
-	cursor: not-allowed;
-}
