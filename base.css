@@ -30,7 +30,6 @@ Revert adding 'background-repeat: no-repeat' to some form elements because it di
 4. Break words when there is not enough space to prevent text overflow.
 5. Use a shorter, more readable tab size (default is 8).
 6. Prevent WebKit-based browsers on iOS from automatically increasing the default font size in landscape orientation (demo: https://codepen.io/germanfrelo/pen/JoPJVxd).
-7. Prevent unwanted layout shifts caused by scrollbars when text gets longer.
 */
 
 html {
@@ -40,7 +39,6 @@ html {
 	overflow-wrap: break-word; /* 4 */
 	tab-size: 4; /* 5 */
 	-webkit-text-size-adjust: none; /* 6 */
-	scrollbar-gutter: stable; /* 7 */
 }
 
 /*
@@ -122,34 +120,6 @@ h4,
 h5,
 h6 {
 	line-height: 1.25;
-}
-
-/*
-Switch to rem units for headings.
-*/
-
-h1 {
-	font-size: 2rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-}
-
-h3 {
-	font-size: 1.17rem;
-}
-
-h4 {
-	font-size: 1rem;
-}
-
-h5 {
-	font-size: 0.83rem;
-}
-
-h6 {
-	font-size: 0.67rem;
 }
 
 /* Grouping content
@@ -262,9 +232,10 @@ video {
 }
 
 /*
-The display is inline by default, but that's not the expected behavior. This can interfere with proper layout and aspect-ratio handling.
+These elements display inline by default, but that's not the expected behavior.
+This can interfere with proper layout and aspect-ratio handling.
 1. Remove the unnecessary wrapping 'picture', while maintaining contents.
-2. Source elements have nothing to display, so we hide them entirely.
+2. Hide 'source' elements because they have nothing to display.
 Refs.:
 - https://github.com/whatwg/html/issues/4995
 - https://github.com/jensimmons/cssremedy/commit/59aee673c02e2412140d375c1d45019f78ae40c9
@@ -393,15 +364,6 @@ Change font properties to 'inherit' in WebKit.
 
 ::file-selector-button {
 	font: inherit;
-}
-
-/*
-Set 'vertical-align' to middle.
-*/
-
-[type="color" i],
-[type="range" i] {
-	vertical-align: middle;
 }
 
 /* Hidden elements
