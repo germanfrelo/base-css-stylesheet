@@ -370,10 +370,15 @@ Change font properties to 'inherit' in WebKit.
 ================================================== */
 
 /*
-Make elements with a 'hidden' attribute stay hidden even if a different display value is set.
+Ensure some elements with the 'hidden' attribute remain hidden, even if a different display value is set (e.g., from the preceding 'display: block' on media element).
+Refs.:
+- https://html.spec.whatwg.org/multipage/rendering.html#hidden-elements
+- https://github.com/jensimmons/cssremedy/pull/72
+- https://github.com/jensimmons/cssremedy/issues/71#issuecomment-771180150
+- https://github.com/tailwindlabs/tailwindcss/commit/b570e2b
 */
 
-[hidden] {
+[hidden]:not([hidden="until-found" i]):not(embed) {
 	display: none;
 }
 
