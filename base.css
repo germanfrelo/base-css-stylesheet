@@ -30,7 +30,6 @@ Revert adding 'background-repeat: no-repeat' to some form elements because it di
 4. Break words when there is not enough space to prevent text overflow.
 5. Use a shorter, more readable tab size (default is 8).
 6. Prevent WebKit-based browsers on iOS from automatically increasing the default font size in landscape orientation (demo: https://codepen.io/germanfrelo/pen/JoPJVxd).
-7. Prevent unwanted layout shifts caused by scrollbars when text gets longer.
 */
 
 html {
@@ -40,7 +39,6 @@ html {
 	overflow-wrap: break-word; /* 4 */
 	tab-size: 4; /* 5 */
 	-webkit-text-size-adjust: none; /* 6 */
-	scrollbar-gutter: stable; /* 7 */
 }
 
 /*
