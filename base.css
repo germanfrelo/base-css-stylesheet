@@ -307,30 +307,32 @@ iframe {
 ================================================== */
 
 /*
-1. Prevent double borders.
-2. Fix the default table 'border-color: gray' on Chrome (bug: https://issues.chromium.org/issues/40615503).
+1. Ensure numbers line up (ref: https://github.com/jensimmons/cssremedy/issues/39).
+2. Prevent double borders (ref: https://github.com/jensimmons/cssremedy/issues/39).
+3. Fix the default table 'border-color: gray' on Chrome (bug: https://issues.chromium.org/issues/40615503).
 */
 
 table {
-	border-collapse: collapse; /* 1 */
-	border-color: currentcolor; /* 2 */
+	font-variant-numeric: tabular-nums; /* 1 */
+	border-collapse: collapse; /* 2 */
+	border-color: currentcolor; /* 3 */
 }
 
 /*
-Make 'th' alignment consistent with 'td' alignment.
+Make 'th' alignment consistent with 'td' alignment (ref. https://github.com/jensimmons/cssremedy/issues/39).
 */
 
 th {
-	text-align: start;
+	text-align: inherit;
 }
 
 /*
-Add paddings and borders to table cells.
+Add padding and border to table cells for a better readability (ref. https://github.com/jensimmons/cssremedy/issues/39).
 */
 
 :where(th, td) {
 	padding-block: 0.25em;
-	padding-inline: 0.5em;
+	padding-inline: 0.5rem;
 	border: 1px solid;
 }
 
