@@ -319,11 +319,11 @@ table {
 }
 
 /*
-Make 'th' alignment consistent with 'td' alignment.
+Make 'th' alignment consistent with 'td' alignment (ref. https://github.com/jensimmons/cssremedy/issues/39).
 */
 
 th {
-	text-align: start;
+	text-align: inherit;
 }
 
 /*
