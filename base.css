@@ -232,9 +232,10 @@ video {
 }
 
 /*
-The display is inline by default, but that's not the expected behavior. This can interfere with proper layout and aspect-ratio handling.
+These elements display inline by default, but that's not the expected behavior.
+This can interfere with proper layout and aspect-ratio handling.
 1. Remove the unnecessary wrapping 'picture', while maintaining contents.
-2. Source elements have nothing to display, so we hide them entirely.
+2. Hide 'source' elements because they have nothing to display.
 Refs.:
 - https://github.com/whatwg/html/issues/4995
 - https://github.com/jensimmons/cssremedy/commit/59aee673c02e2412140d375c1d45019f78ae40c9
