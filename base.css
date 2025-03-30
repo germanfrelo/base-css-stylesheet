@@ -147,7 +147,7 @@ h6 {
 - https://github.com/necolas/normalize.css/commit/5daad010a2f19c12b89f317ba9d2c8e4573210d7
 - https://github.com/necolas/normalize.css/issues/519#issuecomment-197131966
 🔧 2. Fix the odd 'em' font sizing in all browsers.
-🆗 3. Prevent content from overflowing while preserving its formatting while preserving its formatting. (ref. https://github.com/jensimmons/cssremedy/issues/81)
+🆗 3. Prevent content from overflowing while preserving its formatting (ref. https://github.com/jensimmons/cssremedy/issues/81).
 */
 
 pre {
