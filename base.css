@@ -356,8 +356,8 @@ iframe {
 ================================================== */
 
 /*
-✨ TODO: Too opinionated? 1. Ensure numbers line up (ref: https://github.com/jensimmons/cssremedy/issues/39#issuecomment-473012250)
-✅ 2. Prevent double borders.
+✨ 1. Ensure numbers line up (ref: https://github.com/jensimmons/cssremedy/issues/39).
+✅ 2. Prevent double borders (ref: https://github.com/jensimmons/cssremedy/issues/39).
 🔧 3. Fix the default table 'border-color: gray' on Chrome (bug: https://issues.chromium.org/issues/40615503).
 */
 
@@ -368,7 +368,7 @@ table {
 }
 
 /*
-✨ Make 'th' alignment consistent with 'td' alignment.
+✨ Make 'th' alignment consistent with 'td' alignment (ref. https://github.com/jensimmons/cssremedy/issues/39).
 */
 
 th {
@@ -376,7 +376,7 @@ th {
 }
 
 /*
-✨ Add paddings and borders to table cells.
+✨ Add padding and border to table cells for a better readability (ref. https://github.com/jensimmons/cssremedy/issues/39).
 */
 
 :where(th, td) {
