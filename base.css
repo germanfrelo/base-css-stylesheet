@@ -147,13 +147,13 @@ h6 {
 - https://github.com/necolas/normalize.css/commit/5daad010a2f19c12b89f317ba9d2c8e4573210d7
 - https://github.com/necolas/normalize.css/issues/519#issuecomment-197131966
 🔧 2. Fix the odd 'em' font sizing in all browsers.
-🆗 3. Prevent content from overflowing while preserving formatting.
+🆗 3. Prevent content from overflowing while preserving its formatting.
 */
 
 pre {
 	font-family: monospace, monospace; /* 1 */
 	font-size: 1em; /* 2 */
-	overflow-x: auto; /* 3 */
+	overflow: auto; /* 3 */
 }
 
 /*
