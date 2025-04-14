@@ -288,11 +288,11 @@ svg {
 }
 
 /*
-TODO: Too opinionated? Remove it?
-✨ Make SVGs inherit color if neither they nor their 'path' have a 'fill' attribute.
+Make SVGs inherit color if:
+- neither 'svg' nor its child elements have a 'fill' attribute
+- 'svg' has 'fill=none' but its child elements don't have a 'fill' attribute
 */
-
-svg:where(:not([fill]):has(> path:not([fill]))) {
+svg:where(:not([fill]):has(> *:not([fill])), [fill="none"]:has(> *:not([fill]))) {
 	fill: currentcolor;
 }
 
