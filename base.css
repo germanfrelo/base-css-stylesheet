@@ -553,8 +553,7 @@ Ref. https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
 ================================================== */
 
 /*
-Set the cursor for 'summary' to be the same as buttons by default, so they feel more interactive.
-Use the same default cursor used for buttons to make it feel interactive (default is 'text').
+Use the same cursor as buttons (default is 'text'), which feels more interactive and aligns with its common implicit ARIA role 'button'.
 ✨
 */
 
