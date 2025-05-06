@@ -384,9 +384,9 @@ Ref. https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
 ================================================== */
 
 /*
-Set the cursor on 'summary' elements to the same as buttons (default is 'text').
+Use the same cursor as buttons (default is 'text'), which feels more interactive, and aligns with its common implicit ARIA role of 'button'.
 */
 
-summary {
+:where(details > summary:first-of-type) {
 	cursor: default;
 }
