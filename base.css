@@ -42,36 +42,19 @@ html {
 }
 
 /*
-Smooth scrolling, but only when focused in the page to prevent unnaturally scrolling when tabbing though the results of a search.
+1. Smooth scrolling, but only when focused in the page to prevent unnaturally scrolling when tabbing though the results of a search.
+2. When users prefer reduced motion, revert the smooth scrolling.
 */
 
+/* 1 */
 html:focus-within {
 	scroll-behavior: smooth;
 }
 
-/*
-When users prefer reduced motion:
-1. Remove fixed background attachment.
-2. Remove transitions.
-3. Remove animations/immediately jump any animation to the end point.
-4. Remove timed scrolling behaviors.
-*/
-
+/* 2 */
 @media (prefers-reduced-motion: reduce) {
-	*,
-	*::before,
-	*::after {
-		background-attachment: initial !important; /* 1 */
-		transition-delay: 0s !important; /* 2 */
-		transition-duration: 0s !important; /* 2 */
-		animation-duration: 1ms !important; /* 3 */
-		animation-delay: -1ms !important; /* 3 */
-		animation-iteration-count: 1 !important; /* 3 */
-		scroll-behavior: auto !important; /* 4 */
-	}
-
 	html:focus-within {
-		scroll-behavior: auto; /* 4 */
+		scroll-behavior: auto;
 	}
 }
 
