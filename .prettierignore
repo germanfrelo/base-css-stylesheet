@@ -6,3 +6,10 @@
 
 # Minified files
 **/*.min.*
+
+# Build output directories
+build/
+dist/
+
+# Third-party directories
+vendor/

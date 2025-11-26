@@ -23,6 +23,8 @@ export default {
 		// See https://stylelint.io/user-guide/configure#ignorefiles
 		"**/*.min.*",
 		"**/*.xml",
+		"build/**/*.css",
+		"dist/**/*.css",
 		"node_modules/",
 	],
 };
