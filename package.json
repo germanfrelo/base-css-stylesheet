@@ -20,13 +20,8 @@
 		"sanitizer"
 	],
 	"homepage": "https://github.com/germanfrelo/base-css-stylesheet#readme",
-	"bugs": {
-		"url": "https://github.com/germanfrelo/base-css-stylesheet/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/germanfrelo/base-css-stylesheet.git"
-	},
+	"bugs": "https://github.com/germanfrelo/base-css-stylesheet/issues",
+	"repository": "github:germanfrelo/base-css-stylesheet",
 	"license": "MIT",
 	"author": "Germán Freixinós López",
 	"type": "module",
