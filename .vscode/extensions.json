@@ -1,5 +1,7 @@
 {
 	"recommendations": [
+		// Browserlist
+		"webben.browserslist",
 		// CSS
 		"stylelint.vscode-stylelint",
 		// Formatting

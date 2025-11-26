@@ -51,6 +51,7 @@
 		"prettier": "3.6.2",
 		"stylelint": "16.13.2",
 		"stylelint-config-recess-order": "6.0.0",
-		"stylelint-config-standard": "37.0.0"
+		"stylelint-config-standard": "37.0.0",
+		"stylelint-no-unsupported-browser-features": "8.0.2"
 	}
 }
