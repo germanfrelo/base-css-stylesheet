@@ -5,6 +5,7 @@ export default {
 		"stylelint-config-standard", // Extends stylelint-config-recommended and turns on additional rules to enforce modern conventions
 		"stylelint-config-recess-order", // Sorts CSS properties
 	],
+	plugins: ["stylelint-no-unsupported-browser-features"], // Disallows features that aren't supported by your target browser audience
 	reportDescriptionlessDisables: true,
 	reportInvalidScopeDisables: true,
 	reportNeedlessDisables: true,
