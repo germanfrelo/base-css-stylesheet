@@ -1,5 +1,7 @@
 {
 	"recommendations": [
+		// CSS
+		"stylelint.vscode-stylelint",
 		// Formatting
 		"EditorConfig.EditorConfig",
 		"esbenp.prettier-vscode"

@@ -29,11 +29,16 @@
 	"scripts": {
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
+		"lint": "npm run lint:css",
+		"lint:fix": "npm run lint:css:fix",
+		"lint:css": "stylelint --formatter verbose \"**/*.css\"",
+		"lint:css:fix": "npm run lint:css -- --fix",
 		"prepare": "husky",
-		"test": "npm run format:check"
+		"test": "npm run format:check && npm run lint"
 	},
 	"lint-staged": {
 		"*.css": [
+			"stylelint",
 			"prettier --write"
 		],
 		"!(*.css)": [
@@ -43,6 +48,9 @@
 	"devDependencies": {
 		"husky": "9.1.7",
 		"lint-staged": "16.2.7",
-		"prettier": "3.6.2"
+		"prettier": "3.6.2",
+		"stylelint": "16.13.2",
+		"stylelint-config-recess-order": "6.0.0",
+		"stylelint-config-standard": "37.0.0"
 	}
 }

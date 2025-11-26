@@ -38,7 +38,7 @@ html {
 	line-height: 1.5; /* 3 */
 	overflow-wrap: break-word; /* 4 */
 	tab-size: 4; /* 5 */
-	-webkit-text-size-adjust: none; /* 6 */
+	-webkit-text-size-adjust: none; /* 6 */ /* stylelint-disable-line property-no-vendor-prefix -- Intended. */
 }
 
 /*
@@ -99,7 +99,8 @@ h6 {
 ================================================== */
 
 /*
-1. Fix the inheritance and scaling of the font size in all browsers. Refs.:
+1. Prevent content from overflowing while preserving its formatting. (ref. https://github.com/jensimmons/cssremedy/issues/81)
+2. Fix the inheritance and scaling of the font size in all browsers. Refs.:
 - https://www.brunildo.org/test/monospace_fsize.html
 - https://bugzilla.mozilla.org/show_bug.cgi?id=175415
 - https://www.456bereastreet.com/archive/200408/sizing_monospaced_fonts/
@@ -110,14 +111,13 @@ h6 {
 - https://meyerweb.com/eric/thoughts/2010/02/12/fixed-monospace-sizing/
 - https://github.com/necolas/normalize.css/commit/5daad010a2f19c12b89f317ba9d2c8e4573210d7
 - https://github.com/necolas/normalize.css/issues/519#issuecomment-197131966
-2. Fix the odd 'em' font sizing in all browsers.
-3. Prevent content from overflowing while preserving its formatting. (ref. https://github.com/jensimmons/cssremedy/issues/81)
+3. Fix the odd 'em' font sizing in all browsers.
 */
 
 pre {
-	font-family: monospace, monospace; /* 1 */
-	font-size: 1em; /* 2 */
-	overflow: auto; /* 3 */
+	overflow: auto; /* 1 */
+	font-family: monospace, monospace; /* 2 */ /* stylelint-disable-line font-family-no-duplicate-names -- Intended. */
+	font-size: 1em; /* 3 */
 }
 
 /*
@@ -167,7 +167,7 @@ Replace the default 40px indentation of some elements with a value relative to t
 code,
 kbd,
 samp {
-	font-family: monospace, monospace; /* 1 */
+	font-family: monospace, monospace; /* 1 */ /* stylelint-disable-line font-family-no-duplicate-names -- Intended. */
 	font-size: 1em; /* 2 */
 }
 
@@ -294,8 +294,8 @@ textarea {
 	max-inline-size: 100%; /* 1 */
 	margin: 0; /* 2 */
 	font: inherit; /* 3 */
-	letter-spacing: inherit; /* 3 */
 	word-spacing: inherit; /* 3 */
+	letter-spacing: inherit; /* 3 */
 }
 
 /*
@@ -333,7 +333,7 @@ Refs.:
 - https://github.com/tailwindlabs/tailwindcss/commit/b570e2b
 */
 
-[hidden]:not([hidden="until-found" i]):not(embed) {
+[hidden]:not([hidden="until-found" i], embed) {
 	display: none;
 }
 
@@ -341,7 +341,7 @@ Refs.:
 Utility class to hide elements visually.
 Ref. https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
 */
-.visually-hidden:not(:focus):not(:active) {
+.visually-hidden:not(:focus, :active) {
 	position: absolute !important;
 	width: 1px !important;
 	height: 1px !important;
