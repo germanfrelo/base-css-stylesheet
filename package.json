@@ -27,7 +27,7 @@
 	"type": "module",
 	"main": "",
 	"scripts": {
-		"build": "rimraf dist && npm run postcss",
+		"build": "clean:build && npm run postcss",
 		"clean:build": "rimraf dist && mkdir dist",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
