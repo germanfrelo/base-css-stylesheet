@@ -1,15 +1,42 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+# Dependabot version updates documentation:
+# https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference
 
 version: 2
 updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
+      day: "saturday"
+      time: "09:00"
+      timezone: "Europe/Madrid"
+    # Add a prefix and the dependency type ("deps") to commit messages and PR titles, e.g. "ci(deps)".
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    # Override the default automatic labels ("dependencies" + "github_actions").
+    labels:
+      - "dependabot: github-actions"
+
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "saturday"
+      time: "09:00"
+      timezone: "Europe/Madrid"
+    # Default open PR limit for version updates is 5.
+    open-pull-requests-limit: 10
+    # Add a prefix and the dependency type ("deps" or "deps-dev") to commit messages and PR titles, e.g. "chore(deps)".
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    # Override the default automatic labels ("dependencies" + "javascript").
+    labels:
+      - "dependabot: npm"
+    # Wait a few days for new releases to "settle" to avoid fresh, potentially malicious versions.
+    cooldown:
+      default-days: 7
+      semver-patch-days: 3
+      semver-minor-days: 7
+      semver-major-days: 14
