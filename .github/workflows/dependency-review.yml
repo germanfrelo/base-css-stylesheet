@@ -18,3 +18,4 @@ jobs:
         with:
           comment-summary-in-pr: always
           show-patched-versions: true
+          retry-on-snapshot-warnings: true
