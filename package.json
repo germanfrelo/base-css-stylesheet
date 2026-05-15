@@ -23,7 +23,7 @@
 	"bugs": "https://github.com/germanfrelo/base-css-stylesheet/issues",
 	"repository": "github:germanfrelo/base-css-stylesheet",
 	"license": "MIT",
-	"author": "Germán Freixinós López",
+	"author": "Germán Freixinós",
 	"type": "module",
 	"main": "",
 	"scripts": {
