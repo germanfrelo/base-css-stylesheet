@@ -13,3 +13,6 @@
 
 # style: Reformat codebase after formatter update
 271ae5d76fd64b8269725f946c6563d517fd903c
+
+# style: Replace accidental non-breaking space
+4bd6327463beb0aa7ccbda209405065c04d1ad4c
