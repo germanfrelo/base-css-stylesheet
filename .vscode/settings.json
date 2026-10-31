@@ -1,8 +1,0 @@
-{
-	// Formatting
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"[markdown]": {
-		"editor.renderWhitespace": "boundary"
-	},
-	"editor.formatOnSave": true
-}
